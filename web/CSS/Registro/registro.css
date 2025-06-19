@@ -1,0 +1,73 @@
+body {
+    background-color: #FCE7C8;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-login {
+    display: flex;
+    width: 45%;
+    height: 470px;
+    margin: 80px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-login {
+    flex: 1;
+    background-color: #FFFFFF;
+    padding: 40px;
+    height: 100%;
+}
+
+.formulario-login h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+.botonSesion {
+    background-color: #B9CBA5;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    width: 60%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.botonSesion:hover {
+    background-color: #9DB58F;
+}
+
+input.form-control {
+  background-color: transparent;
+  border: 0;
+ border-bottom: 1.5px solid #000000;
+ border-radius: 0;
+ width: 210px;
+ font-size: 14px;
+}
+
+input.form-control:focus {
+  box-shadow: none;
+  border-color: #000000;
+}
+.iconoPatita{
+  width: 20px;
+  height: auto;
+margin-right: 10px;
+}
+.alert{
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    background-color: #d32f2f;
+    color: white;
+}
