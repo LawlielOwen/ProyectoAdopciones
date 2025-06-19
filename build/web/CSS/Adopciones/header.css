@@ -1,0 +1,52 @@
+header {
+    font-family: 'Inter', sans-serif;
+    background-color: #A4A57E;
+    color: #FFFFFF;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    font-size: 15px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.secciones {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imagenLogo {
+    position: absolute;
+    left: 25px;
+}
+
+.perfil {
+    margin-left: auto;
+    padding-right: 40px
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.fotoPerfil {
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 15px;
+}
