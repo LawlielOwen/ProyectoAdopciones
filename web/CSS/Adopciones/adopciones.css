@@ -165,20 +165,44 @@ input.form-control:focus {
 
 .cartaAnimal {
     width: 200px;
-    height: 280px;
+    height: 310px;
     background-color: white;
     margin: 0 auto;
     cursor: pointer;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .cartaAnimal:hover{
     transition: ease-in-out 0.3s;
-    transform: scale(1.05);
+    transform: translateY(-5px);
 }
 .card-img-top {
     display: block;
+    object-fit: cover;
     max-width: 170px;
     height: auto;
     margin: auto;
     margin-top: 10px;
+}
+.info{
+margin-top: -10px;
+}
+.card-text{
+font-size: 12px;
+color: #757575;
+margin-top: -5px;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.categoria{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 30%;
+height: 25px;
+font-size: 13px;
+background-color: #CBBFA3;
+color: black;
+border-radius: 8px;
+margin-top: -6px;
 }
