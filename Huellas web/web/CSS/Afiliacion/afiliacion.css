@@ -1,0 +1,114 @@
+:root {
+    --verde-oliva: #A4A17E;
+    --verde-salvia: #B1C29E;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    --gris: #E0E0E0;
+    --trigo: #FDE3BD;
+}
+
+body {
+    background-color: var(--trigo);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.titulo-seccion {
+    width: 60%;
+    color: var(--blanco);
+    background-color: var(--verde-oliva);
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8em;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.texto-intro {
+    max-width: 700px;
+    color: var(--negro);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.formulario-afiliacion {
+    max-width: 850px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid var(--gris);
+    padding: 6px;
+    width: 100%;
+}
+
+.btn-unirme {
+    background-color: var(--verde-salvia);
+    color: var(--blanco);
+    padding: 8px 16px;
+    border: 1px solid var(--verde-salvia);
+    cursor: pointer;
+}
+
+.btn-unirme:hover {
+    background-color: var(--verde-oliva);
+    color: var(--blanco);
+}
+
+.footer-principal {
+    background-color: var(--verde-oliva);
+    color: var(--blanco);
+    text-align: center;
+    padding: 10px;
+}
+
+.formularioAfiliaciones {
+    position: relative;
+    left: 9.5%;
+    width: 80%;
+    height: auto;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+input.form-control:hover,
+select.form-select:hover,
+textarea.form-control:hover {
+    transition: border-color 0.5s ease-in;
+    background-color: transparent;
+    border: 1px solid #000000;
+    font-size: 14px;
+    box-shadow: 0 1px 0 0 #2f303d, 0px 0px 5px -25px #000;
+}
+
+input.form-control:focus,
+select.form-select:focus,
+textarea.form-control:focus {
+    transition: border-color 0.5s ease-in;
+    background-color: transparent;
+    border: 1px solid #000000;
+    font-size: 14px;
+    box-shadow: 0 1px 0 0 #2f303d, 0px 0px 5px -25px #000;
+}
+
+input.form-check-input:focus {
+    transition: border-color 0.5s ease-in;
+    background-color: transparent;
+    border: 1px solid #000000;
+    font-size: 14px;
+    box-shadow: 0 1px 0 0 #2f303d, 0px 0px 5px -25px #000;
+}
+input.form-check-input:hover {
+    transition: border-color 0.5s ease-in;
+    background-color: transparent;
+    border: 1px solid #000000;
+    font-size: 14px;
+    box-shadow: 0 1px 0 0 #2f303d, 0px 0px 5px -25px #000;
+}

@@ -71,3 +71,11 @@ margin-right: 10px;
     background-color: #d32f2f;
     color: white;
 }
+input.form-control {
+  transition: all 0.3s ease;
+}
+input.form-control:hover {
+  box-shadow: 0 1px 0 0 #2f303d, 0px 0px 15px -25px #000;
+    transform: scale(1.01);
+}
+

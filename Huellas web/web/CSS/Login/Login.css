@@ -101,6 +101,7 @@ input.form-control {
     border-radius: 0;
     width: 360px;
     font-size: 14px;
+     transition: box-shadow 0.3s ease;
 }
 
 label.form-label {
@@ -153,3 +154,9 @@ input.form-control:focus {
 .regresar:hover {
     background-color: #9DB58F;
 }
+input.form-control:hover {
+  box-shadow: 0 1px 0 0 #2f303d, 0px 0px 15px -25px #000;
+    transform: scale(1.01);
+}
+
+
