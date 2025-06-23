@@ -116,6 +116,8 @@ input.form-control:focus {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+    
 }
 
 .seccionGatos {
@@ -130,6 +132,7 @@ input.form-control:focus {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+      text-decoration: none; 
 }
 
 .tituloSeccion {
@@ -137,6 +140,7 @@ input.form-control:focus {
     font-size: 30px;
     font-weight: bold;
     color: white;
+    text-decoration: none;
     margin-top: 20px;
 }
 
