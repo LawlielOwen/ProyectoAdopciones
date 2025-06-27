@@ -8,7 +8,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import controllerEmpleado.Empleado;
+
 @Path("prueba")
 public class PruebaApi extends Application{
         @Path("saludar")
