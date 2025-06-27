@@ -1,0 +1,144 @@
+.table-responsive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+table {
+    width: 100% !important;
+    margin-top: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+     border:1px solid rgba(231, 234, 243, .7);
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+
+.contenedorPrincipal table.tablaGestiones td {
+    overflow: auto;
+    height: 70px;
+    font-size: 14px;
+    text-align: center;
+    color: #677788;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    transition: background 0.2s ease-in-out;
+    font-weight: 500;
+    vertical-align: middle;
+ 
+}
+
+
+.contenedorPrincipal table.tablaGestiones img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.contenedorPrincipal table.tablaGestiones .mascotasCol{
+    width: 200px;
+    font-weight: 600;
+    
+    color: black;
+}
+.contenedorPrincipal table.tablaGestiones .mascotasCol span {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; 
+    overflow: hidden;
+     width: 100%; 
+    
+}
+.contenedorPrincipal table.tablaGestiones tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.contenedorPrincipal table.tablaGestiones th {
+    background-color: #f8fafd;
+    height: 55px;
+    text-align: center;
+    color: #3b3d3e;
+    border-top:1px solid rgba(231, 234, 243, .7);
+
+    font-size: 15px;
+    font-weight: 600;
+    padding-bottom: 15px;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.contenedorPrincipal table.tablaGestiones th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.contenedorPrincipal table.tablaGestiones th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.contenedorPrincipal table.tablaGestiones tbody tr:nth-child(even) td {
+    background-color: #FDF9F3;
+}
+
+.contenedorPrincipal table.tablaGestiones tbody tr:nth-child(odd) td {
+    background-color: transparent;
+}
+
+.contenedorPrincipal table.tablaGestiones tbody tr:hover td {
+    background-color: #f4f1e9;
+    cursor: pointer;
+}
+
+.contenedorPrincipal .agregarBoton {
+    background-color: #A4A57E;
+    color: white;
+    padding: 8px 18px;
+    font-size: 16x;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.contenedorPrincipal .agregarBoton:hover {
+    background-color: #212529;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tabla-con-boton {
+    width: 80%;
+    margin: 0 auto 10px auto;
+    text-align: left;
+}
+
+.tabla-con-boton .agregarBoton {
+    margin-bottom: 10px;
+    display: block;
+
+}
+
+.active {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.inactivo {
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    flex-shrink: 0;
+}

@@ -117,7 +117,10 @@ input.form-control:focus {
     cursor: pointer;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
       text-decoration: none;
-    
+    transition: transform 0.4s ease;
+}
+.seccionGatos:hover, .seccionPerros:hover{
+    transform: translateY(-10px);
 }
 
 .seccionGatos {
@@ -133,7 +136,9 @@ input.form-control:focus {
     cursor: pointer;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
       text-decoration: none; 
+          transition: transform 0.4s ease;
 }
+
 
 .tituloSeccion {
     padding-right: 190px;

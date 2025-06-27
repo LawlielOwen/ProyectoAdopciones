@@ -112,8 +112,8 @@ label.form-label {
 }
 
 input.form-control:focus {
-    box-shadow: none;
-    border-color: #000000;
+     box-shadow: 0 0.5px 0 0 #2f303d, 0px 0px 15px -25px #000;
+    transform: scale(1.01);
 }
 
 .textos {
@@ -155,7 +155,11 @@ input.form-control:focus {
     background-color: #9DB58F;
 }
 input.form-control:hover {
-  box-shadow: 0 1px 0 0 #2f303d, 0px 0px 15px -25px #000;
+  box-shadow: 0 0.5px 0 0 #2f303d, 0px 0px 15px -25px #000;
+    transform: scale(1.01);
+}
+input.form-control:active {
+  box-shadow: 0 0.5px 0 0 #2f303d, 0px 0px 15px -25px #000;
     transform: scale(1.01);
 }
 
