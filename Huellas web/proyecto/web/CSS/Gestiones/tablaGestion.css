@@ -10,7 +10,6 @@ table {
     margin-top: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 12px;
-     border:1px solid rgba(231, 234, 243, .7);
     overflow: hidden;
     border-collapse: separate;
     border-spacing: 0;
@@ -112,12 +111,6 @@ table {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.tabla-con-boton {
-    width: 80%;
-    margin: 0 auto 10px auto;
-    text-align: left;
-}
-
 .tabla-con-boton .agregarBoton {
     margin-bottom: 10px;
     display: block;
@@ -135,7 +128,6 @@ table {
 
 .inactivo {
     display: inline-block;
-
     width: 10px;
     height: 10px;
     border-radius: 50%;

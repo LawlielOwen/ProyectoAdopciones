@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="../CSS/Gestiones/BarraLateral.css">
     <link rel="stylesheet" href="../CSS/Gestiones/CuerpoGestion.css">
     <link rel="stylesheet" href="../CSS/Gestiones/Header.css">
+    <link rel="stylesheet" href="../CSS/Gestiones/contenedorSolo.css">
     <link rel="stylesheet" href="../CSS/Gestiones/contenedor.css  ">
     <link rel="stylesheet" href="../CSS/Gestiones/tablaGestion.css">
+    <link rel="stylesheet" href="../CSS/Gestiones/headerModal.css">
 </head>
 
 <body>
@@ -36,7 +38,8 @@
                 <span class="navbar-text perfil text-light d-flex align-items-center">
                     <img src="../img/fotoPrueba.jpg" class="fotoPerfil">
                     <li class=" dropdown despliegueLogin">
-                        <button class="btn  dropdown-toggle botonUsuario" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn  dropdown-toggle botonUsuario" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Usuario
                         </button>
                         <ul class="dropdown-menu dropdown-menu-light">
@@ -106,111 +109,162 @@
     </nav>
 
     <main>
-        <div class="container-fluid contenedorPrincipal">
-            <h4 class="fw-bold">Gestión de Adoptantes</h4>
-            <div class="separador my-3"></div>
-            <div class="d-flex justify-content-start">
-                <div class="tabla-con-boton">
-                    <button class="btn agregarBoton">
-                        <i class='bx bxs-cat'></i>
-                        Agregar
-                    </button>
-                    <div class="table-responsive">
-                        <table class="tablaGestiones table table-hover shadow-sm">
-                            <thead>
-                                <tr>
+        <section>
+            <div class="contenedores">
+                <div class="titulo">
+                    <h4 class="fw-bold">Gestión de Adoptantes</h4>
+                </div>
 
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Estatus</th>
-                                    <th scope="col">Sexo</th>
-                                    <th scope="col">Edad</th>
-                                    <th scope="col">Clave</th>
-                                    <th scope="col">Raza</th>
-                                    <th scope="col">Peso</th>
-                                    <th scope="col">Opciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-
-                                    <td class=" mascotasCol"><span><img src="../img/fotoPrueba.jpg">
-                                            Laika</span></td>
-                                    <td>
-                                        <span class="active bg-success"></span>
-                                        Activo
-                                    </td>
-                                    <td>Macho</td>
-                                    <td>2 años</td>
-                                    <td>PUGM000</td>
-                                    <td>Pug</td>
-                                    <td>5 kg</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-secondary me-1">
-                                            <i class='bx bxs-edit'></i>
-                                        </button>
-                                        <button class="btn btn-sm btn-outline-danger"><i
-                                                class='bx bx-trash'></i></button>
-                                        <button class="btn btn-sm btn-outline-info">
-                                            <i class='bx bxs-info-circle'></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-
-                                    <td class=" mascotasCol"><span><img src="../img/fotoPrueba.jpg">
-                                            Chuleta</span></td>
-                                    <td class="">
-                                        <span class="inactivo bg-danger"></span>
-                                        Inactivo
-
-                                    </td>
-                                    <td>Hembra</td>
-                                    <td>1 año</td>
-                                    <td>CHIH001</td>
-                                    <td>Chihuahua</td>
-                                    <td>2 kg</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-secondary me-1">
-                                            <i class='bx bxs-edit'></i></button>
-                                        <button class="btn btn-sm btn-outline-danger"><i
-                                                class='bx bx-trash'></i></button>
-                                        <button class="btn btn-sm btn-outline-info">
-                                            <i class='bx bxs-info-circle'></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-
-                                    <td class=" mascotasCol"><span class="nombreMascota"><img
-                                                src="../img/fotoPrueba.jpg">
-                                            Piter</span></td>
-                                    <td>
-                                        <span class="active bg-success"></span>
-                                        Activo
-                                    </td>
-                                    <td>Macho</td>
-                                    <td>3 años</td>
-                                    <td>LABR002</td>
-                                    <td>Labrador</td>
-                                    <td>25 kg</td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-secondary me-1">
-                                            <i class='bx bxs-edit'></i>
-                                        </button>
-                                        <button class="btn btn-sm btn-outline-danger"><i
-                                                class='bx bx-trash'></i></button>
-                                        <button class="btn btn-sm btn-outline-info">
-                                            <i class='bx bxs-info-circle'></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="contenedorSolo ">
+                    <h4>Adoptantes Registrados</h4>
+                    <div class="adoptadosOrden">
+                        <p id="contadorAdoptados">4</p>
+                        <i class="iconoConta">
+                            <img src="../iconos/IconosGestion/user-solid.svg">
+                        </i>
                     </div>
-
+                </div>
+                </div>
+            </div>
+        </section>
+        <div class="container-fluid contenedorPrincipal">
+            <div class="filtros-container">
+                <div class="filtros text-secondary">
 
                 </div>
+            </div>
+            <div class="d-flex justify-content-start">
+            </div>
+            <div class="table-responsive">
+                <table class="tablaGestiones table table-hover shadow-sm">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Genero</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td class=" mascotasCol"><span><img src="../img/fotoPrueba.jpg">
+                                    Laika</span></td>
+                            <td>
+                                <span class="active bg-success"></span>
+                                Activo
+                            </td>
+                            <td>Macho</td>
+                            <td>2 años</td>
+                            <td>PUGM000</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal" data-bs-target="#modAdoptante">
+                                    <i class='bx bxs-edit'></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger"
+                                data-bs-toggle="modal" data-bs-target="#eliminarAdoptante"><i class='bx bx-trash'></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination d-flex flex-wrap justify-content-end">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </main>
+<div class="modal fade" id="modAdoptante" tabindex="-1" aria-labelledby="modAdoptante" aria-hidden="true">
+  <div class="modal-dialog modal-lg"> 
+    <div class="modal-content">
+      <div class="modal-header  text-white">
+        <h5 class="modal-title" id=""><i class='bx bxs-edit'></i> Modificar Adoptante</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <form id="formModificarAdoptante">
+        <input type="hidden" id="idAdoptanteMod" name="id_adoptante">
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nombreMod" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombreMod" name="nombre" required>
+            </div>
+            <div class="col-md-6">
+              <label for="appMod" class="form-label">Apellido Paterno</label>
+              <input type="text" class="form-control" id="appMod" name="apellido_paterno" required>
+            </div>
+            <div class="col-md-6">
+              <label for="apmMod" class="form-label">Apellido Materno</label>
+              <input type="text" class="form-control" id="apmMod" name="apellido_materno" required>
+            </div>
+            <div class="col-md-6">
+              <label for="fechaNacimientoMod" class="form-label">Fecha de Nacimiento</label>
+              <input type="date" class="form-control" id="fechaNacimientoMod" name="fecha_nacimiento" required>
+            </div>
+            <div class="col-md-6">
+              <label for="generoMod" class="form-label">Género</label>
+              <select class="form-select" id="generoMod" name="genero" required>
+                <option disabled selected>Selecciona una opción</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="correoMod" class="form-label">Correo</label>
+              <input type="email" class="form-control" id="correoMod" name="correo" required>
+            </div>
+            <div class="col-md-6">
+              <label for="telefonoMod" class="form-label">Teléfono</label>
+              <input type="tel" class="form-control" id="telefonoMod" name="telefono" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary"><i class='bx bxs-save'></i> Guardar Cambios</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eliminarAdoptante" tabindex="-1" aria-labelledby="eliminarAdoptante" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="modalEliminarAdoptanteLabel"><i class='bx bxs-trash'></i> Eliminar Adoptante</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <form id="formEliminarAdoptante">
+        <input type="hidden" id="idAdoptanteEliminar" name="id_adoptante">
+        <div class="modal-body">
+          <p>¿Estás seguro de que deseas eliminar al adoptante <strong id="nombreAdoptanteEliminar"></strong>?</p>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-danger"><i class='bx bxs-trash'></i> Eliminar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../JS/Gestiones/BarraNavegacion.js"></script>

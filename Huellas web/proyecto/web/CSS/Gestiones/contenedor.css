@@ -1,32 +1,60 @@
-
 main {
-    padding-top: 70px;
+    padding-top: 35px;
+    position: relative;
+    margin-left: 13%;
 }
 
 .contenedorPrincipal {
-   position: absolute;
-   left: 13%;
-
-    margin-top: 20px;
+    position: relative;
+    margin-top: -20px;
     background-color: #ffffff;
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 70%;
     border-radius: 4px;
+    margin-left: 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
 }
-.contenedorPrincipal h4{
-    padding-top: 30px; 
-    margin-left: 15px;
-}
-.separador{
-    background-color:#b4bbc0 ;
+
+.filtros-container {
     width: 100%;
-    height: 1px;
+    padding-right: 0;
+    padding-top: 20px;
 }
-.botonAgregar.btn{
-    background-color:  #B9CBA5;
-    color: white;
-    font-weight: bold;
-    border: 1px solid #b4bbc0;
-   
+
+.filtros {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-bottom: 10px;
 }
+
+.filtros .botonOpcion {
+    text-align: left;
+    width: 220px;
+    color: #1e2022;
+    border-radius: 10px;
+    border:1px solid rgba(0, 0, 0, 0.2);
+    appearance: none;
+}
+.filtros a{
+color: #6c757d;
+}
+.filtros a:hover{
+ color: #1e2022 ;
+ background-color: rgba(189, 197, 209, .3)
+}
+.filtros .botonOpcion:focus{
+box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+.page-link {
+color:#6c757d;
+  transition: all 0.2s ease-in-out;
+}
+
+.page-link:hover {
+ background-color: #A4A57E;
+    color: #FFFFFF;;
+}
+
