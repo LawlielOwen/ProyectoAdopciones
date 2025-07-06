@@ -1,0 +1,42 @@
+@font-face {
+    src: url("../Fuentes/Inter_28pt-Regular.ttf");
+    font-family: "Inter";
+}
+@font-face {
+    src: url("../Fuentes/Inter_24pt-Bold.ttf");
+    font-family: "Inter Bold";
+}
+.Titulo {
+    -fx-font-family:"Inter Bold";
+    -fx-font-size: 40px;
+     -fx-font-weight: bold;
+}
+.TituloA {
+    -fx-font-family:"Inter Bold";
+    -fx-font-size: 30px;
+     -fx-font-weight: bold;
+}
+.subtitulo{
+-fx-font-family: "Inter";
+    -fx-font-size: 14px;
+     -fx-font-weight: 700;
+     -fx-text-fill: white;
+}
+.fuenteGeneral{
+    -fx-font-family: "Inter";
+}
+.fuenteGeneral-blanca{
+    -fx-font-family: "Inter bold";
+      -fx-text-fill: white;
+       -fx-font-size: 30px;
+        -fx-font-weight: bold;
+}
+
+.TituloSecciones {
+    -fx-font-family: "Inter Bold";
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+.textSecondary{
+    -fx-text-fill:#6c757d;
+}

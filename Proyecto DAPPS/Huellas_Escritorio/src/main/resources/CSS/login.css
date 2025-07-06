@@ -1,0 +1,52 @@
+.titulo-login {
+    -fx-font-size: 25px;
+    -fx-text-fill: rgb(255, 255, 255);
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-padding: 0 0 0 0;
+    -fx-fill: white;
+   
+}
+.botonSesion {
+    -fx-background-color: #B9CBA5;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px 0px;
+    -fx-cursor: hand;
+    -fx-pref-width: 220px;
+    -fx-pref-height: 50px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 4);
+    -fx-transition: all 0.3s;
+}
+.botonSesion:hover {
+    -fx-background-color: #A4A17E;
+    -fx-text-fill: #FFFFFF;
+}
+.overlay {
+    -fx-background-color: rgba(255,255,255,0.5);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);
+    -fx-text-alignment: center;
+
+    -fx-background-radius: 10px;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}
+.botonRegistro {
+    -fx-background-color: #B9CBA5;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px 0px;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 4);
+    -fx-transition: all 0.3s;
+}
+.botonRegistro:hover {
+    -fx-background-color: #9DB58F;
+    -fx-text-fill: #FFFFFF;
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ScrollPane?>
+<ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER"
+            style="-fx-background: #FCE7C8; -fx-border-color: #FCE7C8;"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.utl.dsm.huellas_escritorio.Controlador.loginAdoptante">
+    <content>
+        <BorderPane maxWidth="Infinity" maxHeight="Infinity" style="-fx-background-color: #FCE7C8;">
+
+            <center>
+                <VBox alignment="CENTER" spacing="20.0">
+                    <children>
+                        <AnchorPane maxHeight="484.0" maxWidth="744.0" prefHeight="443.0" prefWidth="744.0" style="-fx-background-color: white; -fx-background-radius: 8px; -fx-border-radius: 8px;" styleClass="form" stylesheets="@../../../../../CSS/login.css">
+                            <children>
+                                <Label fx:id="welcomeText" layoutX="268.0" layoutY="237.0" />
+                                <Button id="botonLogin" fx:id="btnLogin" layoutX="99.0" layoutY="285.0" prefHeight="53.0" prefWidth="221.0" style="-fx-background-color: B1C29E;" styleClass="botonRegistro" stylesheets="@../../../../../CSS/login.css" text="Iniciar Sesion" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Text layoutX="152.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Iniciar Sesion" wrappingWidth="149.0">
+                                    <font>
+                                        <Font name="System Bold" size="22.0" />
+                                    </font>
+                                </Text>
+                                <TextField id="correo" fx:id="correo" layoutX="66.0" layoutY="150.0" prefHeight="27.0" prefWidth="297.0" promptText="Correo electronico" style="-fx-border-color: black; -fx-background-color: transparent; -fx-border-width: 0 0 1 0;" />
+                                <Label layoutX="71.0" layoutY="123.0" text="Correo electronico">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="63.0" layoutY="197.0" text="Contraseña">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                                <ImageView fitHeight="446.0" fitWidth="330.0" layoutX="414.0" layoutY="-2.0" preserveRatio="false">
+                                    <image>
+                                        <Image url="@../../../../../img/interfazAdoptante/perroLogin.png" />
+                                    </image>
+                                </ImageView>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="444.0" layoutX="414.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: black; -fx-opacity: 0.3;" width="330.0" />
+                                <TextField id="contra" fx:id="contra" layoutX="65.0" layoutY="220.0" prefHeight="27.0" prefWidth="297.0" promptText="Contraseña" style="-fx-border-color: black; -fx-background-color: transparent; -fx-border-width: 0 0 1 0;" />
+                                <Text layoutX="444.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titulo-login" text="Tu nos puedes ayudar a cambiar vidas" textAlignment="CENTER" wrappingWidth="278.90936279296875" />
+                                <Pane layoutX="430.0" layoutY="124.0" prefHeight="169.0" prefWidth="297.0" styleClass="overlay">
+                                    <children>
+                                        <Text layoutX="98.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes cuenta?" />
+                                        <Text layoutX="73.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regístrate y cambia una vida" />
+                                        <Button id="registro" fx:id="registro" layoutX="73.0" layoutY="102.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="161.0" styleClass="botonRegistro" text="Registro" />
+                                    </children>
+                                </Pane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                    <padding>
+                        <Insets top="30" />
+                    </padding>
+                </VBox>
+            </center>
+            <top>
+                <Button id="btnVolver" fx:id="btnVolver" mnemonicParsing="false" prefHeight="43.0" prefWidth="125.0" styleClass="botonRegistro" text="Volver" BorderPane.alignment="TOP_LEFT">
+                    <BorderPane.margin>
+                        <Insets left="30.0" top="20.0" />
+                    </BorderPane.margin>
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../../../Iconos/huellitaIcon.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </top>
+            <stylesheets>
+                <URL value="@../../../../../CSS/login.css" />
+                <URL value="@../../../../../CSS/inicioAdopciones.css" />
+            </stylesheets>
+        </BorderPane>
+
+    </content>
+</ScrollPane>

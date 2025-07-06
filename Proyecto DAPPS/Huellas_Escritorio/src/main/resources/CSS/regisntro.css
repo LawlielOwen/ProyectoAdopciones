@@ -1,0 +1,17 @@
+.text-field, .password-field {
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 0 0 1.5 0;
+    -fx-font-size: 14px;
+    -fx-padding: 5 0 5 5;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: null;
+    -fx-text-fill: black;
+}
+.label{
+     -fx-font-weight: bold;
+      -fx-font-size: 14px;
+}

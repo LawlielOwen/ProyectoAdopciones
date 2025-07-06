@@ -1,0 +1,101 @@
+@font-face {
+    src: url("../Fuentes/Inter_28pt-Regular.ttf");
+    font-family: "Inter";
+}
+@font-face {
+    src: url("../Fuentes/Inter_24pt-Bold.ttf");
+    font-family: "Inter Bold";
+}
+
+.buscador {
+    -fx-background-color: white;
+    -fx-background-radius: 10px; 
+}
+.cartaAnimal {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 2);
+    -fx-cursor: hand;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 300px;
+}
+.form{
+     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);
+}
+
+.cartaAnimal:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 0, 4);
+    -fx-translate-y: -5px;
+}
+
+.cartaAnimal .image-view {
+    -fx-border-radius: 8px 8px 0 0;
+    -fx-background-radius: 8px 8px 0 0;
+}
+
+
+.categoria {
+    -fx-font-size: 13px;
+    -fx-fill: black;
+    -fx-background-color: #CBBFA3;
+    -fx-background-radius: 8px;
+    -fx-padding: 2 8 2 8;
+    -fx-pref-width: 50px;
+    -fx-pref-height: 30px;
+}
+
+
+
+.nombreAnimal {
+    -fx-font-family: "Inter bold";
+    -fx-font-size: 16px;
+    -fx-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+.infoAnimal {
+    -fx-font-size: 12px;
+    -fx-fill: #757575;
+}
+.footer{
+    -fx-fill: rgb(255, 255, 255);
+    -fx-background-color: #221E1B;
+     -fx-pref-width: 100%;
+}
+.textoFooter{
+    -fx-fill: rgb(255, 255, 255);
+     -fx-font-family: "Inter";
+    -fx-font-size: 16px;
+}
+
+.btn-unirme {
+    -fx-background-color: #B1C29E;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 8 16 8 16;
+    -fx-border-color: #B1C29E;
+    -fx-cursor: hand;
+    -fx-font-family: "Inter";
+    -fx-font-size: 16px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+}
+
+.btn-unirme:hover {
+    -fx-background-color: #A4A17E;
+    -fx-text-fill: #FFFFFF;
+}
+.texto{
+     -fx-fill: black;
+     -fx-font-size: 14px;
+}
+.tituloAfiliacion{
+     -fx-font-family:"Inter Bold";
+    -fx-font-size: 40px;
+     -fx-font-weight: bold;
+     -fx-fill: white;
+       -fx-background-color:#A4A17E;
+    -fx-background-radius: 8px;
+    -fx-padding: 10 8 10 8;
+    -fx-pref-width: 530px;
+    -fx-pref-height: 30px;
+}
