@@ -1,20 +1,25 @@
 .table-responsive {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+   width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+     overflow-x: auto;
 }
 
 table {
     width: 100% !important;
     margin-top: 5px;
+    min-width: 100%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     border-radius: 12px;
     overflow: hidden;
-    border-collapse: separate;
+    border-collapse: collapse;
     border-spacing: 0;
+     overflow-x: auto; 
 }
-
+td, th {
+    min-width: 80px;
+}
 
 .contenedorPrincipal table.tablaGestiones td {
     overflow: auto;
@@ -27,7 +32,9 @@ table {
     transition: background 0.2s ease-in-out;
     font-weight: 500;
     vertical-align: middle;
- 
+    padding: 8px 10px;
+     word-break: break-word;
+      overflow-x: auto; 
 }
 
 
@@ -41,16 +48,20 @@ table {
 }
 
 .contenedorPrincipal table.tablaGestiones .mascotasCol{
-    width: 200px;
+    min-width: 100px;
+    max-width: 200px;
+    white-space: normal;
     font-weight: 600;
-    
     color: black;
+    word-break: break-word;
 }
 .contenedorPrincipal table.tablaGestiones .mascotasCol span {
     display: flex;
     align-items: center;
-    white-space: nowrap; 
-    overflow: hidden;
+    white-space: normal; 
+    overflow: visible;
+    text-overflow: initial;
+     flex-wrap: wrap;
      width: 100%; 
     
 }
@@ -133,4 +144,94 @@ table {
     border-radius: 50%;
     margin-right: 6px;
     flex-shrink: 0;
+}
+
+
+
+
+
+
+@media (max-width: 992px) {
+    table.tablaGestiones td,
+    table.tablaGestiones th {
+        font-size: 12px;
+        padding: 8px;
+    }
+    
+    table.tablaGestiones .mascotasCol {
+        width: 140px;
+    }
+    
+    table.tablaGestiones img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .table-responsive {
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    table.tablaGestiones {
+        min-width: 650px; 
+    }
+    
+    table.tablaGestiones td {
+        height: 55px;
+        font-size: 13px;
+        max-width: 120px;
+    }
+    
+    table.tablaGestiones th {
+        font-size: 13px;
+        height: 45px;
+    }
+    
+    table.tablaGestiones .mascotasCol {
+        width: 120px;
+    }
+    
+    table.tablaGestiones img {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media (max-width:768px){
+      .contenedorPrincipal table.tablaGestiones .mascotasCol {
+        min-width: 120px;
+        max-width: 150px; 
+    }
+    
+    .contenedorPrincipal table.tablaGestiones .mascotasCol span {
+        white-space: normal; 
+        overflow: visible; 
+        text-overflow: clip; 
+    }
+    
+    .contenedorPrincipal table.tablaGestiones img {
+        width: 28px; 
+        height: 28px;
+        margin-right: 6px;
+    }
+}
+@media (max-width: 576px) {
+    .contenedorPrincipal table.tablaGestiones td,
+    .contenedorPrincipal table.tablaGestiones th {
+        font-size: 10px;
+        padding: 6px 4px;
+        word-break: break-word;
+    }
+
+    .contenedorPrincipal table.tablaGestiones .mascotasCol span {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contenedorPrincipal table.tablaGestiones img {
+        width: 26px;
+        height: 26px;
+        margin-bottom: 4px;
+    }
 }

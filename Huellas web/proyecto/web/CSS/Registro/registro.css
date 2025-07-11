@@ -21,7 +21,11 @@ body {
     padding: 40px;
     height: 100%;
 }
-
+.formulario-login label{
+   font-size: 12px;
+  color: #8B8E98;
+  font-weight: 600;
+}
 .formulario-login h2 {
     font-size: 25px;
     font-weight: bold;
@@ -33,7 +37,7 @@ body {
     padding: 10px;
     border-radius: 10px;
     transition: 0.3s;
-    width: 60%;
+    width: 100%;
     height: 50px;
     font-weight: bold;
     font-size: 14px;
@@ -45,37 +49,44 @@ body {
 }
 
 input.form-control {
-  background-color: transparent;
-  border: 0;
- border-bottom: 1.5px solid #000000;
- border-radius: 0;
- width: 210px;
+ border-radius: 9px;
+  outline: none;
+  background-color: #F2F2F2;
+  border: 1px solid #e5e5e500;
+ width: 100%;
+ height: 40px;
  font-size: 14px;
 }
 
 input.form-control:focus {
-  box-shadow: none;
-  border-color: #000000;
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 1px #242424;
+  background-color: transparent;
 }
 .iconoPatita{
   width: 20px;
   height: auto;
 margin-right: 10px;
 }
-.alert{
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1050;
-    background-color: #d32f2f;
+
+.regresar {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: #B9CBA5;
     color: white;
-}
-input.form-control {
-  transition: all 0.3s ease;
-}
-input.form-control:hover {
-  box-shadow: 0 1px 0 0 #2f303d, 0px 0px 15px -25px #000;
-    transform: scale(1.01);
+    font-size: 15px;
+    font-weight: bold;
+    width: 110px;
+    height: 40px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
+    transition: 0.3s;
 }
 
+.regresar:hover {
+    background-color: #9DB58F;
+}

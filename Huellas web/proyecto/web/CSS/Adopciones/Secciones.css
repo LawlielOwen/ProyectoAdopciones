@@ -1,3 +1,4 @@
+
 /* ================== BASE ================== */
 body {
     background-color: #FCE7C8;
@@ -62,7 +63,6 @@ body {
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para el input */
 input.form-control {
     border: none;
     background-color: white;
@@ -92,62 +92,7 @@ input.form-control:focus {
     background-color: white;
 }
 
-/* ================== Secciones ================== */
-.contenedorSecciones {
-    margin-top: 50px;
-}
 
-.textSeccion {
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.seccionPerros {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 380px;
-    padding: 20px;
-    background-image: url('../../img/perroSeccion.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
-    transition: transform 0.4s ease;
-}
-.seccionGatos:hover, .seccionPerros:hover{
-    transform: translateY(-10px);
-}
-
-.seccionGatos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 380px;
-    padding: 20px;
-    background-image: url('../../img/gatoSeccion.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
-      text-decoration: none; 
-          transition: transform 0.4s ease;
-}
-
-
-.tituloSeccion {
-    padding-right: 190px;
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    margin-top: 20px;
-}
 
 /* ==================== Rescates Recientes ================= */
 .separador {
@@ -165,12 +110,8 @@ input.form-control:focus {
     margin-top: 10px;
 }
 
-.cartasAnimales {
-    display: flex;
-    justify-content: center;
-    object-fit: cover;
-    margin-bottom: 50px;
-}
+
+
 .cartaAnimal {
     width: 200px;
     height: 360px;
@@ -235,16 +176,27 @@ margin-top: -6px;
 }
 
 .button-carta:hover {
-  background-color: #A9917A;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #A9917A; 
+    color: white;
 }
-
-.fas {
-  font-size: 12px;
+.imgInfo{
+    width: 250px;
+    height: 250px;
 }
+.botonF{
+font-family: 'Inter', sans-serif;
+    background-color: #A4A57E;
+    color: #FFFFFF;
+    width: 100%;
+}
+.botonF:hover{
 
-
+    background-color: #9DB58F;
+    color: white;
+}
+.cartitas{
+    margin-bottom: 50px;
+}
 .modal-content {
   border-radius: 12px !important;
   overflow: hidden;
@@ -292,16 +244,4 @@ margin-top: -6px;
 
 .rounded-4 {
   border-radius: 1rem !important;
-}
-#carga {
-  display: none; 
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  display: flex; 
 }

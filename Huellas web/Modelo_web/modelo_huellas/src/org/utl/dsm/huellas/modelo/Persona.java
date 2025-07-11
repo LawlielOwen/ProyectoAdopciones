@@ -3,7 +3,7 @@ package org.utl.dsm.huellas.modelo;
 import java.time.LocalDate;
 
 public class Persona {
-
+   
     private String nombre;
     private String app;
     private String apm;
@@ -13,11 +13,12 @@ public class Persona {
     private String foto;
     private String telefono;
     private String genero;
+    private int estatus;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String app, String apm, String fechaNacimiento, String correo, String contraseña, String foto, String telefono, String genero) {
+    public Persona(String nombre, String app, String apm, String fechaNacimiento, String correo, String contraseña, String foto, String telefono, String genero, int estatus) {
         this.nombre = nombre;
         this.app = app;
         this.apm = apm;
@@ -27,7 +28,18 @@ public class Persona {
         this.foto = foto;
         this.telefono = telefono;
         this.genero = genero;
+        this.estatus = estatus;
     }
+
+    public int getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(int estatus) {
+        this.estatus = estatus;
+    }
+
+   
 
     public String getNombre() {
         return nombre;

@@ -135,3 +135,19 @@
     width: 180px; 
     flex-shrink: 0; 
 }
+@media (max-width: 768px) {
+    .contenedores{
+        justify-content: center;
+        padding-left: 20px;
+    }
+
+    .stats-container {
+        justify-content: center; 
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .contenedorSolo {
+        margin-bottom: 10px; 
+}
+}

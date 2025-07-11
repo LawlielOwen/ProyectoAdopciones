@@ -14,13 +14,41 @@ function Registro() {
         alerta.classList.add("show");
         return;
     }
+   const seis = /.{6,}/.test(contra);
+    if (seis === false) {
+        document.getElementById("mensaje-error").innerHTML= "La contraseña debe contener al menos 6 caracteres.";
+        alerta.classList.remove("d-none");
+        alerta.classList.add("show");
+        return;
+    }
+
+     const registro = {
+        nombre: nombre,
+        app:app,
+        apm:apm,
+        fechaNacimiento:fechaNacimiento,
+        correo:correo,
+        contraseña:contra,
+        telefono:telefono,
+        genero:genero
+        
+    };
+
+    fetch("http://localhost:8080/ProyectoHuellas/api/adoptante/registroAd", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify(registro)
+       
+    })
+    .then(res => res.json())
+    .then(() => {
+            window.location.href = "Login.html";
+    });
 }
 function cerrarAlerta() {
     const alerta = document.getElementById("fallo");
     alerta.classList.add("d-none");
     alerta.classList.remove("show");
 }
-document.getElementById("formularioRegistro").addEventListener("submit", function (event) {
-    event.preventDefault();
-    Registro();
-});

@@ -50,3 +50,29 @@ header {
     border-radius: 50%;
     margin-right: 15px;
 }
+header .sesionP {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+
+header .sesionP .dropdown-menu {
+    position: absolute;
+    right: 0; 
+    left: auto; 
+    top: 100%;
+    font-size: 14px;
+}
+header .sesionP i {
+    font-size: 25px;
+    line-height: 0; 
+    vertical-align: middle;
+    display: inline-flex; 
+    align-items: center;
+}
+.datosUsuario{
+    height: 50px;
+}

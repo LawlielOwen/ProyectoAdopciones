@@ -8,15 +8,7 @@ public class Empleado extends Persona {
     private String codigo;
     private String rol;
     private int estatus;
-    public Empleado(int idEmpleado, String direccion, int CP, String codigo, String rol, int estatus, String nombre, String app, String apm, String fechaNacimiento, String correo, String contraseña, String foto, String telefono, String genero) {
-        super(nombre, app, apm, fechaNacimiento, correo, contraseña, foto, telefono, genero);
-        this.idEmpleado = idEmpleado;
-        this.direccion = direccion;
-        this.CP = CP;
-        this.codigo = codigo;
-        this.rol = rol;
-        this.estatus = estatus;
-    }
+
    
     public Empleado() {
     }

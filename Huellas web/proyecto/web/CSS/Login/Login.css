@@ -93,28 +93,54 @@ h3 {
 .botonRegistro:hover {
     background-color: #9DB58F;
 }
-
-input.form-control {
-    background-color: transparent;
-    border: 0;
-    border-bottom: 1.5px solid #000000;
-    border-radius: 0;
-    width: 360px;
-    font-size: 14px;
-     transition: box-shadow 0.3s ease;
+.input-container {
+  position: relative;
+  margin: 20px 0;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
-label.form-label {
-    font-size: 15px;
-    font-weight: bold;
-    color: #000000;
-    margin-bottom: 5px;
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
 }
 
-input.form-control:focus {
-     box-shadow: 0 0.5px 0 0 #2f303d, 0px 0px 15px -25px #000;
-    transform: scale(1.01);
+.input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  color: rgba(204, 204, 204, 0);
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
+
+.input-highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #9DB58F;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus+.input-label {
+  top: -20px;
+  font-size: 14px;
+  color: #9DB58F;
+}
+
+.input-field:focus+.input-label+.input-highlight {
+  width: 100%;
+}
+
 
 .textos {
     font-size: 14px;
@@ -123,15 +149,7 @@ input.form-control:focus {
     text-align: center;
 }
 
-.alert {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1050;
-    background-color: #d32f2f;
-    color: white;
-}
+
 
 .regresar {
     position: absolute;

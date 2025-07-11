@@ -1,7 +1,8 @@
-/* Contenedores principales */
+
 .contenedores {
     display: flex;
     align-items: center;
+    justify-content: center;
     justify-content: space-between;
     gap: 16px;
     margin: 20px 0 40px 0;
@@ -80,7 +81,6 @@
  color: #677788;
 }
 
-/* Contenido de las tarjetas */
 .adoptadosOrden, .disponiblesOrden {
     display: flex;
     align-items: center;
@@ -128,10 +128,29 @@
     display: flex;
     gap: 16px;  
     width: 100%;
+
+    flex-wrap: wrap;
 }
 
 
 .adoptados, .disponibles {
     width: 180px; 
     flex-shrink: 0; 
+}
+@media (max-width: 768px) {
+    .contenedores{
+        justify-content: center;
+        padding-left: 20px;
+    }
+
+    .stats-container {
+        justify-content: center; 
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .adoptados,
+    .disponibles {
+        margin-bottom: 10px; 
+}
 }
