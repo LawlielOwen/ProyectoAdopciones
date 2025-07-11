@@ -1,0 +1,101 @@
+.tablita {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0.2, 0, 4);
+}
+
+.tablita .column-header-background {
+    -fx-background-color: #f8fafd;
+    -fx-border-color: transparent transparent rgba(231,234,243,0.7) transparent;
+    -fx-border-width: 1;
+}
+
+.tablita .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 45px;
+    -fx-alignment: center;
+}
+
+.tablita .column-header .label {
+    -fx-text-fill: #3b3d3e;
+    -fx-font-weight: 600;
+    -fx-font-size: 15px;
+    -fx-padding: 0 0 15px 0;
+    -fx-alignment: center;
+}
+
+.tablita .cell {
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+    -fx-text-fill: #677788;
+    -fx-padding: 8 10;
+    -fx-border-color: transparent transparent rgba(0,0,0,0.05) transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: white;
+    -fx-font-weight: 500;
+}
+
+.table-row-cell:even .cell {
+    -fx-background-color: #FDF9F3;
+}
+.table-row-cell:odd .cell {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:hover .cell {
+    -fx-background-color: #f4f1e9;
+}
+
+.table-row-cell:last-child .cell {
+    -fx-border-width: 0;
+}
+
+.table-cell > .image-view {
+    -fx-fit-width: 40px;
+    -fx-fit-height: 40px;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-margin-right: 10px;
+}
+
+.tablita .mascotasCol {
+    -fx-font-weight: 600;
+    -fx-text-fill: black;
+    -fx-wrap-text: true;
+}
+
+.botonAgregar {
+    -fx-background-color: #A4A57E;
+    -fx-text-fill: white;
+    -fx-padding: 8 18;
+    -fx-font-size: 16px;
+    -fx-alignment: center;
+    -fx-spacing: 5;
+}
+
+.botonAgregar:hover {
+    -fx-background-color: #212529;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 5, 0.3, 0, 2);
+}
+
+.indicador {
+    -fx-shape: "M0,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"; /* círculo */
+    -fx-min-width: 10px;
+    -fx-min-height: 10px;
+    -fx-max-width: 10px;
+    -fx-max-height: 10px;
+    -fx-background-radius: 50%;
+    -fx-margin-right: 6px;
+    -fx-padding: 0;
+}
+
+.activo {
+    -fx-background-color: #28a745;
+}
+
+.inactivo {
+    -fx-background-color: #dc3545;
+}

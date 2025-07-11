@@ -1,0 +1,60 @@
+:root {
+    --verde-oliva: #A4A17E;
+    --verde-salvia: #B1C29E;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    --gris: #E0E0E0;
+    --trigo: #FDE3BD;
+}
+
+@font-face {
+    src: url("../Fuentes/Inter_28pt-Regular.ttf");
+    font-family: "Inter";
+}
+@font-face {
+    src: url("../Fuentes/Inter_24pt-Bold.ttf");
+    font-family: "Inter Bold";
+}
+
+.texto{
+     -fx-fill: black;
+     -fx-font-size: 14px;
+}
+.tituloAfiliacion{
+     -fx-font-family:"Inter Bold";
+    -fx-font-size: 40px;
+     -fx-font-weight: bold;
+     -fx-fill: white;
+       -fx-background-color:#A4A17E;
+    -fx-background-radius: 8px;
+    -fx-padding: 2 8 2 8;
+    -fx-pref-width: 700px;
+    -fx-pref-height: 30px;
+}
+.footer{
+    -fx-fill: rgb(255, 255, 255);
+    -fx-background-color: #221E1B;
+     -fx-pref-width: 100%;
+}
+.textoFooter{
+    -fx-fill: rgb(255, 255, 255);
+     -fx-font-family: "Inter";
+    -fx-font-size: 16px;
+}
+
+.btn-unirme {
+    -fx-background-color: #B1C29E;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 8 16 8 16;
+    -fx-border-color: #B1C29E;
+    -fx-cursor: hand;
+    -fx-font-family: "Inter";
+    -fx-font-size: 16px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+}
+
+.btn-unirme:hover {
+    -fx-background-color: #A4A17E;
+    -fx-text-fill: #FFFFFF;
+}
