@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class loginEmpleado implements Initializable {
+    cambioModulo c = new cambioModulo();
     @FXML
     private Button btnLogin;
 
@@ -23,14 +24,35 @@ public class loginEmpleado implements Initializable {
 
     @FXML
     private PasswordField contra;
+    @FXML
+    private Label labelContra;
 
+    @FXML
+    private Label labelCorreo;
     @FXML
     private TextField correo;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         btnVolver.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Iniciar Sesión", btnVolver));
+        configurarFloatingLabel(correo, labelCorreo);
+        configurarFloatingLabel(contra, labelContra);
+        btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Mascotas.fxml","Gestion Mascotas",btnLogin));
+    }
+    private void configurarFloatingLabel(TextField campo, Label etiqueta) {
+        campo.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal || !campo.getText().isEmpty()) {
+                if (!etiqueta.getStyleClass().contains("activa")) {
+                    etiqueta.getStyleClass().add("activa");
+                }
+            } else {
+                etiqueta.getStyleClass().remove("activa");
+            }
+        });
 
+        if (!campo.getText().isEmpty()) {
+            etiqueta.getStyleClass().add("activa");
+        }
     }
 
     public void cambiarPantalla(String rutaFXML, String titulo, Button botonReferencia) {

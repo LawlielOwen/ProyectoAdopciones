@@ -30,6 +30,11 @@ public class loginAdoptante implements Initializable {
     private TextField contra;
 
     @FXML
+    private Label labelContra;
+
+    @FXML
+    private Label labelCorreo;
+    @FXML
     private TextField correo;
 
     @FXML
@@ -40,8 +45,26 @@ public class loginAdoptante implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        configurarFloatingLabel(correo, labelCorreo);
+        configurarFloatingLabel(contra, labelContra);
+
         btnVolver.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Iniciar Sesión", btnVolver));
         registro.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/registro.fxml", "Registro", registro));
+    }
+    private void configurarFloatingLabel(TextField campo, Label etiqueta) {
+        campo.focusedProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal || !campo.getText().isEmpty()) {
+                if (!etiqueta.getStyleClass().contains("activa")) {
+                    etiqueta.getStyleClass().add("activa");
+                }
+            } else {
+                etiqueta.getStyleClass().remove("activa");
+            }
+        });
+
+        if (!campo.getText().isEmpty()) {
+            etiqueta.getStyleClass().add("activa");
+        }
     }
 
     public void cambiarPantalla(String rutaFXML, String titulo, Button botonReferencia) {

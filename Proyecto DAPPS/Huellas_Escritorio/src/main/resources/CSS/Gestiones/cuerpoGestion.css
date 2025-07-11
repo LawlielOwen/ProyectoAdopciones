@@ -1,0 +1,123 @@
+
+.contenedores {
+    -fx-padding: 15 30;
+    -fx-spacing: 20;
+    -fx-alignment: CENTER;
+    -fx-background-color: transparent;
+}
+
+
+.titulo {
+    -fx-background-color: white;
+    -fx-background-radius: 6px;
+    -fx-padding: 0 24 0 24;
+    -fx-pref-height: 70px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.1, 0, 2);
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 20;
+}
+
+.titulo Label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.botonAgregar {
+    -fx-background-color: #B9CBA5;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-color: #b4bbc0;
+    -fx-padding: 8px 16px;
+    -fx-pref-width: 125px;
+    -fx-pref-height: 40px;
+    -fx-background-radius: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.1, 0, 2);
+}
+
+.botonAgregar:hover {
+    -fx-background-color: #000000;
+    -fx-text-fill: white;
+}
+
+.adoptados, .disponibles {
+    -fx-background-color: white;
+    -fx-border-color: rgba(231, 234, 243, 0.7);
+    -fx-padding: 16px;
+    -fx-background-radius: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.1, 0, 2);
+    -fx-pref-width: 180px;
+    -fx-spacing: 8px;
+}
+
+.adoptados Label, .disponibles Label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #677788;
+}
+
+.label-contadores{
+ -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #677788;
+}
+.contador {
+    -fx-font-size: 17px;
+    -fx-text-fill: #333;
+}
+
+.iconoConta, .iconoConta2 {
+    -fx-background-radius: 50%;
+    -fx-padding: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0.1, 0, 1);
+}
+
+.iconoConta {
+    -fx-background-color: linear-gradient(to right, #11cdef, #1171ef);
+}
+
+.iconoConta2 {
+    -fx-background-color: linear-gradient(to right, #f5365c, #f56036);
+}
+
+/* Filtros */
+.filtros-container {
+    -fx-background-color: white;
+    -fx-padding: 20 20 10 20;
+    -fx-spacing: 10;
+    -fx-border-color: #ddd;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-style: solid;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-position: sticky;
+}
+
+.filtros {
+    -fx-spacing: 10;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-wrap-text: true;
+}
+
+.botonOpcion {
+    -fx-border-radius: 10;
+    -fx-border-color: rgba(0,0,0,0.2);
+    -fx-background-radius: 10;
+    -fx-padding: 6px 12px;
+    -fx-text-fill: #1e2022;
+    -fx-background-color: white;
+}
+
+.botonOpcion:hover {
+    -fx-background-color: rgba(189,197,209,0.3);
+    -fx-text-fill: #1e2022;
+}
+
+.botonOpcion:focused {
+    -fx-effect: dropshadow(gaussian, rgba(13, 110, 253, 0.25), 6, 0.2, 0, 0);
+}
+
+.tablaGestiones {
+    -fx-background-color: white;
+    -fx-border-radius: 4px;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.1, 0, 2);
+}

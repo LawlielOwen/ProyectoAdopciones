@@ -43,7 +43,7 @@
                         <Insets top="30" />
                     </padding>
                     <children>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="453.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="form" stylesheets="@../../../../../CSS/login.css">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="453.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="form">
 
                             <children>
                                 <Text layoutX="154.0" layoutY="88.0" text="Iniciar Sesión">
@@ -52,9 +52,9 @@
                                     </font>
                                 </Text>
 
-                                <Label layoutX="73.0" layoutY="136.0" text="Correo electrónico" />
+                                <Label fx:id="labelCorreo" layoutX="73.0" layoutY="136.0" styleClass="floating-label" text="Correo electrónico" />
 
-                                <Label layoutX="73.0" layoutY="212.0" text="Contraseña" />
+                                <Label fx:id="labelContra" layoutX="73.0" layoutY="212.0" styleClass="floating-label" text="Contraseña" />
                                 <PasswordField id="contra" fx:id="contra" layoutX="72.0" layoutY="239.0" prefHeight="32.0" prefWidth="309.0" promptText="Contraseña" />
 
                                 <Button id="logIn" fx:id="btnLogin" layoutX="125.0" layoutY="299.0" prefHeight="40.0" prefWidth="200.0" styleClass="botonSesion" text="Iniciar Sesión" />
@@ -63,6 +63,10 @@
                      <VBox.margin>
                         <Insets bottom="40.0" />
                      </VBox.margin>
+                     <stylesheets>
+                        <URL value="@../../../../../CSS/login.css" />
+                        <URL value="@../../../../../CSS/textFieldLogin.css" />
+                     </stylesheets>
                         </AnchorPane>
                     </children>
                 </VBox>

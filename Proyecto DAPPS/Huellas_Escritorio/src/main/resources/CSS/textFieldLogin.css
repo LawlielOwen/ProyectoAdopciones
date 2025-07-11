@@ -1,0 +1,29 @@
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: #ccc;
+    -fx-border-width: 0 0 2 0;
+    -fx-font-size: 13px;
+    -fx-text-fill: black;
+    -fx-padding: 10 5 5 5;
+}
+
+.text-field:focused {
+    -fx-border-color: #9DB58F;
+}
+
+
+.floating-label {
+    -fx-text-fill: rgba(204,204,204,0);
+    -fx-font-size: 13px;
+    -fx-translate-y: 0;
+    -fx-background-color: transparent;
+    -fx-transition: all 0.3s ease;
+}
+
+.floating-label.activa {
+    -fx-text-fill: #9DB58F;
+    -fx-font-size: 13px;
+    -fx-translate-y: -5;
+}
+
+
