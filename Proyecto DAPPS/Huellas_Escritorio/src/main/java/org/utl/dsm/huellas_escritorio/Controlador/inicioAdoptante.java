@@ -168,7 +168,7 @@ public class inicioAdoptante implements  Initializable {
 
         contenedorCartasBusqueda.getChildren().clear();
 
-        contenedorResultados.getChildren().clear(); // limpia resultados previos
+        contenedorResultados.getChildren().clear();
     }
 
 

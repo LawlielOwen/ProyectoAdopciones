@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="664.0" prefWidth="655.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.formulariosAnimal">
+   <content>
+      <StackPane prefHeight="636.0" prefWidth="665.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="61.0" prefWidth="665.0" style="-fx-background-color: #A4A57E; -fx-border-color: #A4A57E;" StackPane.alignment="TOP_CENTER">
+               <children>
+                  <ImageView fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Iconos/Gestiones/iconosBlancos/animalesGestion.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label text="Agregar Animal" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Pane prefHeight="59.0" prefWidth="362.0" />
+                  <Button fx:id="cerrar" mnemonicParsing="false" onAction="#cerrarVentana" style="-fx-background-color: transparent; -fx-cursor: hand;">
+                     <graphic>
+                        <ImageView fitHeight="117.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Iconos/CERRA.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="665.0" style="-fx-background-color: #FFFFFF;" StackPane.alignment="CENTER">
+               <StackPane.margin>
+                  <Insets top="62.0" />
+               </StackPane.margin>
+               <children>
+                  <TextField fx:id="nombre" layoutX="22.0" layoutY="65.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <Label layoutX="23.0" layoutY="27.0" text="Nombre">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="338.0" layoutY="29.0" text="Genero">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="genero" layoutX="342.0" layoutY="65.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <TextField fx:id="edad" layoutX="22.0" layoutY="162.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <Label layoutX="23.0" layoutY="123.0" text="Edad">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="peso" layoutX="342.0" layoutY="163.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <Label layoutX="343.0" layoutY="124.0" text="Peso (kg)">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="226.0" text="Especie">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="especie" layoutX="24.0" layoutY="262.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <TextField fx:id="raza" layoutX="343.0" layoutY="263.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <Label layoutX="344.0" layoutY="224.0" text="Raza">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="317.0" text="Tamaño">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="tamano" layoutX="24.0" layoutY="353.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <Label layoutX="22.0" layoutY="407.0" text="Nombre del centro">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="nombreCentro" layoutX="26.0" layoutY="443.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <Button fx:id="subirFoto" layoutX="338.0" layoutY="353.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #e9ecef; -fx-border-color: #ced4da; -fx-border-radius: 5px;" text="Subir archivo" textFill="#212529" />
+                  <TextField fx:id="nombreFoto" layoutX="450.0" layoutY="353.0" prefHeight="38.0" prefWidth="185.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px; -fx-border-width: 1px 1px 1px 0;" />
+                  <Label layoutX="338.0" layoutY="317.0" text="Foto">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="descripcion" layoutX="338.0" layoutY="443.0" prefHeight="59.0" prefWidth="293.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <Label layoutX="338.0" layoutY="409.0" text="Descripcion">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ced4da" height="0.5" layoutX="18.0" layoutY="514.0" stroke="#ced4da" strokeType="INSIDE" width="643.0" />
+                  <Button fx:id="guardar" layoutX="212.0" layoutY="537.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #198754;" text="Guardar" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="41.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../Iconos/save-solid-24.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancelar" layoutX="368.0" layoutY="537.0" mnemonicParsing="false" onAction="#cerrarVentana" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #6c757d;" text="Cancelar" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
+         </children>
+      </StackPane>
+   </content>
+</ScrollPane>
