@@ -35,6 +35,7 @@ public class Animales {
     }
 
 
+
     public Animales() {
     }
 
@@ -45,6 +46,7 @@ public class Animales {
     public void setEstatusTexto(String estatusTexto) {
         this.estatusTexto = estatusTexto;
     }
+
 
 
     public int getIdAnimal() {
@@ -150,4 +152,6 @@ public class Animales {
     public void setIdCentro(int idCentro) {
         this.idCentro = idCentro;
     }
+
+
 }

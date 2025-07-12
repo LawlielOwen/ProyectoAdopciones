@@ -113,36 +113,93 @@ public class gestionMascotas implements  Initializable{
     private Button mini;
 
     @FXML
-    private TableColumn<?, ?> tcolClave;
+    private TableColumn<Animales, String> tcolClave;
 
     @FXML
-    private TableColumn<?, ?> tcolEdad;
+    private TableColumn<Animales, String> tcolEdad;
 
     @FXML
-    private TableColumn<?, ?> tcolEspecie;
+    private TableColumn<Animales, String> tcolEspecie;
 
     @FXML
-    private TableColumn<?, ?> tcolEstatus;
+    private TableColumn<Animales, String> tcolEstatus;
 
     @FXML
-    private TableColumn<?, ?> tcolNombre;
+    private TableColumn<Animales, String> tcolNombre;
 
     @FXML
-    private TableColumn<?, ?> tcolOpciones;
-
+    private TableColumn<Animales, Void> tcolOpciones;
     @FXML
-    private TableColumn<?, ?> tcolPeso;
+    private TableView<Animales> tablaAnimales;
+    @FXML
+    private TableColumn<Animales, Double> tcolPeso;
     @FXML
     private Button btnAnimales;
     @FXML
-    private TableColumn<?, ?> tcolRaza;
+    private TableColumn<Animales, String> tcolRaza;
 
     @FXML
-    private TableColumn<?, ?> tcolSexo;
+    private TableColumn<Animales, String> tcolSexo;
 
+    ObservableList <Animales> listAnimales;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cambioModulo c = new cambioModulo();
+        Animales a = new Animales();
+        listAnimales = FXCollections.observableArrayList();
+
+        tablaAnimales.setItems(listAnimales);
+        tcolNombre.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
+                .getNombreAnimal()));
+        tcolClave.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
+                .getCodigoAnimal()));
+        tcolEdad.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
+                .getEdad()));
+        tcolEstatus.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
+                .getEstatusTexto()));
+        tcolEspecie.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
+                .getEspecie()));
+        tcolPeso.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
+                .getPeso()));
+        tcolRaza.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
+                .getRaza()));
+        tcolSexo.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
+                .getGenero()));
+        tcolOpciones.setCellFactory(param -> new TableCell<Animales, Void>() {
+                    private final Button btnModificar = new Button();
+                    private final Button btnEliminar = new Button();
+                    private final Button btnInfo = new Button();
+                    private final HBox contenedorBotones = new HBox(10, btnModificar, btnEliminar, btnInfo);
+
+                    {
+
+                        btnModificar.setText("✏️");
+                        btnEliminar.setText("🗑️");
+                        btnInfo.setText("ℹ️");
+
+                        btnModificar.setStyle("-fx-background-color: transparent;");
+                        btnEliminar.setStyle("-fx-background-color: transparent;");
+                        btnInfo.setStyle("-fx-background-color: transparent;");
+
+
+                        btnModificar.setOnAction(e -> {
+                            Animales animal = getTableView().getItems().get(getIndex());
+                        });
+
+                        btnEliminar.setOnAction(e -> {
+                            Animales animal = getTableView().getItems().get(getIndex());
+                        });
+
+
+                        btnInfo.setOnAction(e -> {
+                            Animales animal = getTableView().getItems().get(getIndex());
+
+                        });
+
+                        contenedorBotones.setAlignment(Pos.CENTER);
+                    }
+                });
+        cargarAnimales();
         btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Afiliaciones.fxml", "Gestion de afiliados", btnAfiliacion));
         btnDonaciones.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Donaciones.fxml", "Gestion de donaciones", btnDonaciones));
         btnAdoptante.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Adoptantes.fxml", "Gestion de adoptantes", btnAdoptante));
@@ -151,7 +208,19 @@ public class gestionMascotas implements  Initializable{
         btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Empleados.fxml", "Gestion de empleados", btnEmpleado));
         cerrarSesion.setOnAction(event -> c.cambiarPantallaMenu("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Iniciar sesion", cerrarSesion));
 
-    }
 
+    }
+    public void cargarAnimales() {
+        HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/mascotas/getAll")
+                .asString();
+
+
+        if (response.getStatus() == 200) {
+            Gson gson = new Gson();
+            Animales[] lista = gson.fromJson(response.getBody(), Animales[].class);
+                listAnimales.addAll(Arrays.asList(lista));
+
+        }
+    }
 
 }

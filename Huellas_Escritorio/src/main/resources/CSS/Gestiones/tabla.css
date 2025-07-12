@@ -26,15 +26,8 @@
     -fx-alignment: center;
 }
 
-.tablita .cell {
-    -fx-alignment: center;
-    -fx-font-size: 14px;
-    -fx-text-fill: #677788;
-    -fx-padding: 8 10;
-    -fx-border-color: transparent transparent rgba(0,0,0,0.05) transparent;
-    -fx-border-width: 0 0 1 0;
-    -fx-background-color: white;
-    -fx-font-weight: 500;
+.table-view .cell {
+    -fx-text-fill: #3b3d3e;
 }
 
 .table-row-cell:even .cell {

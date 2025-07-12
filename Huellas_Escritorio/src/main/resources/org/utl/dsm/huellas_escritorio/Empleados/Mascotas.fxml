@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -285,7 +284,7 @@
                           <Label text="Estatus:" />
                           <ComboBox fx:id="filtroEstatus" maxHeight="-Infinity" promptText="Todos" styleClass="botonOpcion" />
                        </HBox>
-                       <TableView prefHeight="200.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
+                       <TableView fx:id="tablaAnimales" prefHeight="200.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
                           <columns>
                              <TableColumn fx:id="tcolNombre" editable="false" prefWidth="150.0" sortable="false" text="Nombre" />
                              <TableColumn fx:id="tcolEstatus" prefWidth="95.0" text="Estatus" />
@@ -297,11 +296,6 @@
                               <TableColumn fx:id="tcolEspecie" prefWidth="95.0" text="Especie" />
                               <TableColumn fx:id="tcolOpciones" prefWidth="160.0" text="Opciones" />
                           </columns>
-                           <styleClass>
-                              <String fx:value="table-row-cell" />
-                              <String fx:value="tablita" />
-                              <String fx:value="table-row-cell" />
-                           </styleClass>
                        </TableView>
                        <VBox.margin>
                           <Insets left="30.0" />
