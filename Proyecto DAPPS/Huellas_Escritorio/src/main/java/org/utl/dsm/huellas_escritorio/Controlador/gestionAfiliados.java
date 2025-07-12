@@ -27,6 +27,7 @@ import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.utl.dsm.huellas_escritorio.Modelo.Afiliados;
 import org.utl.dsm.huellas_escritorio.Modelo.Animales;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -75,7 +76,7 @@ public class gestionAfiliados implements  Initializable{
     private TableColumn<?, ?> tcolNombre;
 
     @FXML
-    private TableColumn<?, ?> tcolOpciones;
+    private TableColumn<Afiliados, Void> tcolOpciones;
 
     @FXML
     private TableColumn<?, ?> tcolTelefono;
@@ -85,6 +86,63 @@ public class gestionAfiliados implements  Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cambioModulo c = new cambioModulo();
+        // de una vez les genero los botones para que no batallen ya namas encarguense del resto de la tabla
+        // los botones de aqui funcional igual que los demas
+        tcolOpciones.setCellFactory(param -> new TableCell<Afiliados, Void>() {
+            private final HBox container = new HBox(5);
+            private final Button btnEditar = new Button();
+            private final Button btnEliminar = new Button();
+            private final Button btnDetalles = new Button();
+
+            {
+                ImageView modifica= new ImageView(new Image(getClass().getResourceAsStream("/Iconos/Gestiones/editar.png")));
+                ImageView borra = new ImageView(new Image(getClass().getResourceAsStream("/Iconos/borrar.png")));
+                ImageView muestra= new ImageView(new Image(getClass().getResourceAsStream("/Iconos/informacion.png")));
+
+                container.setAlignment(Pos.CENTER);
+
+                btnEditar.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: #6c757d; -fx-border-radius: 8px;");
+                btnEliminar.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: #dc3545; -fx-border-radius: 8px;");
+                btnDetalles.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: #0dcaf0;\n" +
+                        "-fx-border-radius: 8px;");
+                modifica.setFitHeight(16);
+                modifica.setFitWidth(16);
+                borra.setFitHeight(16);
+                borra.setFitWidth(16);
+                muestra.setFitHeight(16);
+                muestra.setFitWidth(16);
+
+                btnEditar.setGraphic(modifica);
+                btnEliminar.setGraphic(borra);
+                btnDetalles.setGraphic(muestra);
+                btnEditar.setPrefWidth(70);
+                btnEliminar.setPrefWidth(70);
+                btnDetalles.setPrefWidth(70);
+
+                container.getChildren().addAll( btnEditar, btnEliminar,btnDetalles);
+
+                btnEditar.setOnAction(event -> {
+                    Afiliados f = getTableView().getItems().get(getIndex());
+
+                });
+
+                btnEliminar.setOnAction(event -> {
+                    Afiliados f = getTableView().getItems().get(getIndex());
+
+                });
+
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(container);
+                }
+            }
+        });
         btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Afiliaciones.fxml", "Gestion de afiliados", btnAfiliacion));
         btnDonaciones.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Donaciones.fxml", "Gestion de donaciones", btnDonaciones));
         btnAdoptante.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Adoptantes.fxml", "Gestion de adoptantes", btnAdoptante));

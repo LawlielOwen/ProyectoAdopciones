@@ -1,5 +1,7 @@
 package org.utl.dsm.huellas_escritorio.Modelo;
 
+import javafx.scene.control.Button;
+
 public class Animales {
 
     private int idAnimal;
@@ -35,6 +37,7 @@ public class Animales {
     }
 
 
+
     public Animales() {
     }
 
@@ -45,6 +48,7 @@ public class Animales {
     public void setEstatusTexto(String estatusTexto) {
         this.estatusTexto = estatusTexto;
     }
+
 
 
     public int getIdAnimal() {
@@ -150,4 +154,6 @@ public class Animales {
     public void setIdCentro(int idCentro) {
         this.idCentro = idCentro;
     }
+
+
 }

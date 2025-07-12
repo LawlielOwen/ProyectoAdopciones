@@ -15,11 +15,10 @@ public class cambioModulo {
         try {
             Stage stage = (Stage) botonReferencia.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource(rutaFXML));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.sizeToScene();
-            stage.setWidth(1106);
-            stage.setHeight(600);
+
+
+            Scene nuevaScene = new Scene(root, stage.getWidth(), stage.getHeight());
+            stage.setScene(nuevaScene);
             stage.setTitle(titulo);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -32,8 +31,8 @@ public class cambioModulo {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.sizeToScene();
-            stage.setWidth(1106);
-            stage.setHeight(600);
+            stage.setWidth(1306);
+            stage.setHeight(800);
             stage.setTitle(titulo);
         } catch (IOException ex) {
             ex.printStackTrace();

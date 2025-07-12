@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -71,10 +70,10 @@
     </top>
     <left>
         <StackPane BorderPane.alignment="CENTER">
-            <AnchorPane fx:id="contenedorBarra" prefHeight="495.0" prefWidth="191.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="contenedorBarra" prefHeight="637.0" prefWidth="41.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
 
                 <children>
-                    <VBox fx:id="barra" prefHeight="495.0" prefWidth="217.0" style="-fx-background-color: white;" styleClass="fuenteGeneral" stylesheets="@../../../../../CSS/Gestiones/barraNavegacion.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <VBox fx:id="barra" prefHeight="637.0" prefWidth="92.0" style="-fx-background-color: white;" styleClass="fuenteGeneral" stylesheets="@../../../../../CSS/Gestiones/barraNavegacion.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <children>
                             <Button fx:id="btnAnimales" mnemonicParsing="false" prefHeight="42.0" prefWidth="225.0" textFill="WHITE">
                                 <graphic>
@@ -229,22 +228,17 @@
                                 <HBox alignment="BOTTOM_CENTER" styleClass="botonAgregarContainer" />
                             </HBox>
 
-                            <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="317.0" prefWidth="1019.0" styleClass="filtros-container">
-                                <TableView prefHeight="200.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
+                            <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="1137.0" styleClass="filtros-container">
+                                <TableView maxWidth="-Infinity" minWidth="-Infinity" prefWidth="1080.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
                                     <columns>
                                         <TableColumn fx:id="tcolNombre" editable="false" prefWidth="150.0" sortable="false" text="Nombre" />
-                                        <TableColumn fx:id="tcolCorreo" prefWidth="110.0" text="Correo" />
-                                        <TableColumn fx:id="tcolTelefono" prefWidth="95.0" text="Telefono" />
+                                        <TableColumn fx:id="tcolCorreo" prefWidth="160.0" text="Correo" />
+                                        <TableColumn fx:id="tcolTelefono" prefWidth="140.0" text="Telefono" />
                                         <TableColumn fx:id="tcolTipo" prefWidth="150.0" text="Tipo de afiliado" />
                                         <TableColumn fx:id="tcolDisponibilidad" prefWidth="150.0" text="Disponibilidad" />
                                         <TableColumn fx:id="tcolMedio" prefWidth="170.0" text="Medio de contacto" />
                                         <TableColumn fx:id="tcolOpciones" prefWidth="160.0" text="Opciones" />
                                     </columns>
-                                    <styleClass>
-                                        <String fx:value="table-row-cell" />
-                                        <String fx:value="tablita" />
-                                        <String fx:value="table-row-cell" />
-                                    </styleClass>
                                 </TableView>
                                 <VBox.margin>
                                     <Insets left="30.0" />
