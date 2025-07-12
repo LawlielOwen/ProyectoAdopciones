@@ -46,9 +46,24 @@
     -fx-background-radius: 6px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.1, 0, 2);
     -fx-pref-width: 180px;
+    -fx-pref-height: 20px;
     -fx-spacing: 8px;
 }
+.header {
+    -fx-background-color: #yourColor;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, 4, 0, 0);
+    -fx-padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
+/* Barra lateral sticky */
+.contenedorBarra {
+    position: sticky;
+    left: 0;
+    z-index: 90;
+}
 .adoptados Label, .disponibles Label {
     -fx-font-size: 14px;
     -fx-font-weight: 600;
@@ -79,7 +94,8 @@
     -fx-background-color: linear-gradient(to right, #f5365c, #f56036);
 }
 
-/* Filtros */
+
+
 .filtros-container {
     -fx-background-color: white;
     -fx-padding: 20 20 10 20;
@@ -89,6 +105,8 @@
     -fx-border-style: solid;
     -fx-alignment: CENTER_RIGHT;
     -fx-position: sticky;
+       -fx-vgrow: ALWAYS;
+        -fx-pref-height: -1;
 }
 
 .filtros {

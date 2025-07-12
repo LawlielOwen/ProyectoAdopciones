@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -71,11 +70,11 @@
 
     </top>
     <left>
-        <StackPane BorderPane.alignment="CENTER">
+        <StackPane prefHeight="637.0" prefWidth="39.0" BorderPane.alignment="CENTER">
             <AnchorPane fx:id="contenedorBarra" prefHeight="495.0" prefWidth="191.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
 
                 <children>
-                    <VBox fx:id="barra" prefHeight="495.0" prefWidth="217.0" style="-fx-background-color: white;" styleClass="fuenteGeneral" stylesheets="@../../../../../CSS/Gestiones/barraNavegacion.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <VBox fx:id="barra" prefHeight="637.0" prefWidth="0.0" style="-fx-background-color: white;" styleClass="fuenteGeneral" stylesheets="@../../../../../CSS/Gestiones/barraNavegacion.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <children>
                             <Button fx:id="btnAnimales" mnemonicParsing="false" prefHeight="42.0" prefWidth="225.0" textFill="WHITE">
                                 <graphic>
@@ -224,7 +223,7 @@
                                 <HBox alignment="CENTER_LEFT" styleClass="titulo" HBox.hgrow="ALWAYS">
                                     <children>
                                         <Label styleClass="fw-bold" text="Gestión de centros" />
-                                        <Pane prefHeight="71.0" prefWidth="580.0" />
+                                        <Pane prefHeight="71.0" prefWidth="733.0" />
                                         <Button fx:id="btnAgregar" alignment="CENTER" styleClass="botonAgregar" text="Agregar" HBox.hgrow="ALWAYS">
                                             <graphic>
                                                 <ImageView fitHeight="18.0" fitWidth="18.0">
@@ -238,26 +237,21 @@
                                 <HBox alignment="BOTTOM_CENTER" styleClass="botonAgregarContainer" />
                             </HBox>
 
-                            <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="317.0" prefWidth="1037.0" styleClass="filtros-container">
+                            <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="313.0" prefWidth="1137.0" styleClass="filtros-container">
                                 <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="979.0" spacing="10" styleClass="filtros-container">
                                     <Label text="Estatus:" />
                                     <ComboBox fx:id="filtroEstatus" maxHeight="-Infinity" prefHeight="40.0" prefWidth="190.0" promptText="Todos" styleClass="botonOpcion" />
                                 </HBox>
-                                <TableView prefHeight="200.0" prefWidth="1000.0">
+                                <TableView prefHeight="303.0" prefWidth="1097.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
                                     <columns>
-                                        <TableColumn fx:id="tcolNombre" editable="false" prefWidth="150.0" sortable="false" text="Nombre del centro" />
-                                        <TableColumn fx:id="tcolEstatus" prefWidth="120.0" text="Estatus" />
-                                        <TableColumn fx:id="tcolDireccion" prefWidth="150.0" text="Direccion" />
+                                        <TableColumn fx:id="tcolNombre" editable="false" prefWidth="160.0" sortable="false" text="Nombre del centro" />
+                                        <TableColumn fx:id="tcolEstatus" prefWidth="150.0" text="Estatus" />
+                                        <TableColumn fx:id="tcolDireccion" prefWidth="180.0" text="Direccion" />
                                         <TableColumn fx:id="tcolTelefono" prefWidth="150.0" text="Telefono" />
                                         <TableColumn fx:id="tcolCorreo" prefWidth="150.0" text="Correo" />
-                                        <TableColumn fx:id="tcolHorario" prefWidth="120.0" text="Horario" />
+                                        <TableColumn fx:id="tcolHorario" prefWidth="150.0" text="Horario" />
                                         <TableColumn fx:id="tcolOpciones" prefWidth="160.0" text="Opciones" />
                                     </columns>
-                                    <styleClass>
-                                        <String fx:value="table-row-cell" />
-                                        <String fx:value="tablita" />
-                                        <String fx:value="table-row-cell" />
-                                    </styleClass>
                                 </TableView>
                                 <VBox.margin>
                                     <Insets left="30.0" />

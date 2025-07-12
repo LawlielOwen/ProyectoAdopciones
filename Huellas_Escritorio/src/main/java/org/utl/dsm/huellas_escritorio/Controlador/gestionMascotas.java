@@ -144,6 +144,7 @@ public class gestionMascotas implements  Initializable{
     ObservableList <Animales> listAnimales;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         cambioModulo c = new cambioModulo();
         Animales a = new Animales();
         listAnimales = FXCollections.observableArrayList();
@@ -151,6 +152,7 @@ public class gestionMascotas implements  Initializable{
         tablaAnimales.setItems(listAnimales);
         tcolNombre.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
                 .getNombreAnimal()));
+
         tcolClave.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
                 .getCodigoAnimal()));
         tcolEdad.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
@@ -207,6 +209,23 @@ public class gestionMascotas implements  Initializable{
         btnAnimales.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Mascotas.fxml", "Gestion de mascotas", btnAnimales));
         btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Empleados.fxml", "Gestion de empleados", btnEmpleado));
         cerrarSesion.setOnAction(event -> c.cambiarPantallaMenu("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Iniciar sesion", cerrarSesion));
+        tcolNombre.setCellFactory(column -> new TableCell<Animales, String>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                    setStyle("");  // limpiar estilo
+                    getStyleClass().removeAll(Collections.singleton("celda-negrita"));
+                } else {
+                    setText(item);
+                    if (!getStyleClass().contains("celda-negrita")) {
+                        getStyleClass().add("celda-negrita");
+                    }
+                }
+            }
+        });
+
 
 
     }
