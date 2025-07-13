@@ -1,5 +1,6 @@
 package org.utl.dsm.huellas_escritorio.Controlador;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -19,6 +22,7 @@ import javafx.collections.ObservableList;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import com.google.gson.Gson;
 import org.utl.dsm.huellas_escritorio.Modelo.Animales;
@@ -70,10 +74,10 @@ public class gestionMascotas implements  Initializable{
     private HBox contenedorBusqueda;
 
     @FXML
-    private ComboBox<?> filtroEspecie;
+    private ComboBox<String> filtroEspecie;
 
     @FXML
-    private ComboBox<?> filtroEstatus;
+    private ComboBox<String> filtroEstatus;
 
     @FXML
     private HBox header;
@@ -125,8 +129,8 @@ public class gestionMascotas implements  Initializable{
     private TableColumn<Animales, Void> tcolOpciones;
     @FXML
     private TableView<Animales> tablaAnimales;
-    @FXML
-    private TableColumn<Animales, Double> tcolPeso;
+  @FXML
+   private TableColumn<Animales, String> tcolPeso;
     @FXML
     private Button btnAnimales;
     @FXML
@@ -151,13 +155,13 @@ public class gestionMascotas implements  Initializable{
         tcolClave.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
                 .getCodigoAnimal()));
         tcolEdad.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
-                .getEdad()));
+                .getEdad()+ " años"));
         tcolEstatus.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
                 .getEstatusTexto()));
         tcolEspecie.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
                 .getEspecie()));
-        tcolPeso.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
-                .getPeso()));
+        tcolPeso.setCellValueFactory(param ->
+                new SimpleObjectProperty<>(param.getValue().getPeso() + " kg"));
         tcolRaza.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
                 .getRaza()));
         tcolSexo.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue()
@@ -258,6 +262,7 @@ public class gestionMascotas implements  Initializable{
             }
         });
         cargarAnimales();
+        cargarContador();
         btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Afiliaciones.fxml", "Gestion de afiliados", btnAfiliacion));
         btnDonaciones.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Donaciones.fxml", "Gestion de donaciones", btnDonaciones));
         btnAdoptante.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Adoptantes.fxml", "Gestion de adoptantes", btnAdoptante));
@@ -266,6 +271,16 @@ public class gestionMascotas implements  Initializable{
         btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Empleados.fxml", "Gestion de empleados", btnEmpleado));
         cerrarSesion.setOnAction(event -> c.cambiarPantallaMenu("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Iniciar sesion", cerrarSesion));
         btnAgregar.setOnAction(event -> abrirAgregar());
+        buscador.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    buscarAnimal();
+                }
+            }
+        });
+        filtroEspecie.setOnAction(event -> filtros());
+        filtroEstatus.setOnAction(event -> filtrarE());
     }
     public void cargarAnimales() {
         HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/mascotas/getAll")
@@ -278,6 +293,16 @@ public class gestionMascotas implements  Initializable{
                 listAnimales.addAll(Arrays.asList(lista));
 
         }
+        ObservableList<String> filtroA = FXCollections.observableArrayList(
+                "Todos", "Perros","Gatos"
+        );
+        filtroEspecie.setItems(filtroA);
+
+
+        ObservableList<String> estatus = FXCollections.observableArrayList(
+                "Todos","En adopcion", "Adoptado"
+        );
+        filtroEstatus.setItems(estatus);
     }
     public void abrirAgregar()  {
         try {
@@ -318,4 +343,83 @@ public class gestionMascotas implements  Initializable{
         }
     }
 
+    public void cargarContador(){
+        HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/mascotas/contarDisponibles")
+                .asString();
+
+        String animalesDisonibles = (String) response.getBody();
+
+        contadorDisponibles.setText(animalesDisonibles);
+
+        HttpResponse<String> respons = Unirest.get("http://localhost:8080/ProyectoHuellas/api/mascotas/contarAdoptados")
+                .asString();
+
+        String animalesAdoptados = (String) respons.getBody();
+
+        contadorAdoptados.setText(animalesAdoptados);
+    }
+
+    public void buscarAnimal(){
+        String nombre =buscador.getText().trim();
+        String json = "{ \"nombreAnimal\": \"" + nombre + "\" }";
+        HttpResponse<JsonNode> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/mascotas/buscarAnimal")
+                .header("Content-Type", "application/json")
+                .body(json)
+                .asJson();
+        listAnimales.clear();
+        Gson gson = new Gson();
+        Animales[] lista = gson.fromJson(String.valueOf(response.getBody()), Animales[].class);
+        listAnimales.addAll(Arrays.asList(lista));
+        tablaAnimales.setItems(listAnimales);
+     if (nombre.isEmpty()){
+         listAnimales.clear();
+         cargarAnimales();
+     }
+
+    }
+
+    public void filtros(){
+        String especies =  filtroEspecie.getValue();
+
+        if (especies == null || especies.equals("Todos")) {
+            listAnimales.clear();
+            cargarAnimales();
+            return;
+        }
+        String json = "{ \"especie\": \"" + especies + "\" }";
+        HttpResponse<JsonNode> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/mascotas/filtroEspecie")
+                .header("Content-Type", "application/json")
+                .body(json)
+                .asJson();
+        listAnimales.clear();
+        Gson gson = new Gson();
+        Animales[] lista = gson.fromJson(String.valueOf(response.getBody()), Animales[].class);
+        listAnimales.addAll(Arrays.asList(lista));
+        tablaAnimales.setItems(listAnimales);
+
+    }
+    public void filtrarE(){
+        String estatus =  filtroEstatus.getValue();
+        int estatusNum= 0;
+
+        if (estatus.equals("Adoptado")) {
+            estatusNum = 2;
+        } else if(estatus.equals("En adopcion")){
+            estatusNum = 1;
+        }else{
+            listAnimales.clear();
+            cargarAnimales();
+            return;
+        }
+        String json = "{ \"estatus\": \"" + estatusNum + "\" }";
+        HttpResponse<JsonNode> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/mascotas/filtroEstatus")
+                .header("Content-Type", "application/json")
+                .body(json)
+                .asJson();
+        listAnimales.clear();
+        Gson gson = new Gson();
+        Animales[] lista = gson.fromJson(String.valueOf(response.getBody()), Animales[].class);
+        listAnimales.addAll(Arrays.asList(lista));
+        tablaAnimales.setItems(listAnimales);
+    }
 }

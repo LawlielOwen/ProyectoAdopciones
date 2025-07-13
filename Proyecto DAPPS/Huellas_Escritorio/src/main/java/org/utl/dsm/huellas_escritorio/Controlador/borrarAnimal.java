@@ -48,6 +48,7 @@ public class borrarAnimal implements Initializable {
                 if (response.getStatus() == 200) {
                     controller.listAnimales.clear();
                     controller.cargarAnimales();
+                    controller.cargarContador();
                     Stage stage = (Stage) borrar.getScene().getWindow();
                     stage.close();
                 }
