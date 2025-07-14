@@ -27,6 +27,8 @@ import kong.unirest.Unirest;
 import com.google.gson.Gson;
 import org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.cambioModulo;
 import org.utl.dsm.huellas_escritorio.Modelo.Animales;
+import org.utl.dsm.huellas_escritorio.Modelo.Centros;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -209,8 +211,9 @@ public class gestionMascotas implements  Initializable{
                 container.getChildren().addAll( btnEditar, btnEliminar,btnDetalles);
 
                 btnEditar.setOnAction(event -> {
-
-                   abrirModificar();
+                    Animales animal = getTableView().getItems().get(getIndex());
+                    Centros centro = obtenerCentro(animal);
+                   abrirModificar(animal,centro);
                 });
                 btnEliminar.setOnAction(event -> {
                     Animales animal = getTableView().getItems().get(getIndex());
@@ -434,24 +437,47 @@ public class gestionMascotas implements  Initializable{
         listAnimales.addAll(Arrays.asList(lista));
         tablaAnimales.setItems(listAnimales);
     }
-    public void abrirModificar()  {
+    public void abrirModificar(Animales animal, Centros centro) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Empleados/Formularios/modificarAnimal.fxml"));
             Parent root = loader.load();
 
+            modificarAnimal controller = loader.getController();
+            controller.setController(this);
+            controller.cargarDatosAnimal(animal,centro);
+
             Stage stage = new Stage();
-            stage.setTitle("Borrar animal");
+            stage.setTitle("Modificar animal");
             stage.setScene(new Scene(root));
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
-            cerrarVentana();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     private void cerrarVentana() {
         Stage stage = (Stage) cancelarMod.getScene().getWindow();
         stage.close();
     }
+    private Centros obtenerCentro(Animales animal) {
+        try {
+            HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/centros/getAll").asString();
+            if (response.getStatus() == 200) {
+                Gson gson = new Gson();
+                Centros[] centros = gson.fromJson(response.getBody(), Centros[].class);
+                for (Centros c : centros) {
+                    if (c.getIdCentro() == animal.getIdCentro()) {
+                        return c;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
