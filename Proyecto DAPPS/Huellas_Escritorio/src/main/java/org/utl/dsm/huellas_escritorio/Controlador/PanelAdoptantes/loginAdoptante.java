@@ -1,21 +1,15 @@
-package org.utl.dsm.huellas_escritorio.Controlador;
+package org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 

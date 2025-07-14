@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="664.0" prefWidth="655.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.formulariosAnimal">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="664.0" prefWidth="655.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionMascotas.formulariosAnimal">
    <content>
       <StackPane prefHeight="636.0" prefWidth="665.0" style="-fx-background-color: #FFFFFF;">
          <children>
@@ -39,18 +39,6 @@
                      </HBox.margin>
                   </Label>
                   <Pane prefHeight="59.0" prefWidth="362.0" />
-                  <Button fx:id="cerrar" mnemonicParsing="false" onAction="#cerrarVentana" style="-fx-background-color: transparent; -fx-cursor: hand;">
-                     <graphic>
-                        <ImageView fitHeight="117.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../Iconos/CERRA.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
             </HBox>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="665.0" style="-fx-background-color: #FFFFFF;" StackPane.alignment="CENTER">

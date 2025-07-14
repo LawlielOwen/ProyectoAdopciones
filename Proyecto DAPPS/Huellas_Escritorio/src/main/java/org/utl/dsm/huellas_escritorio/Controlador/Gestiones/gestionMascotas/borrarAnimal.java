@@ -1,10 +1,8 @@
-package org.utl.dsm.huellas_escritorio.Controlador;
+package org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionMascotas;
 
 import com.google.gson.Gson;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import kong.unirest.HttpResponse;

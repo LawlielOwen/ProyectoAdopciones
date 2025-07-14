@@ -1,4 +1,4 @@
-package org.utl.dsm.huellas_escritorio.Controlador;
+package org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionEmpleado;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.PasswordField;
+import org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.cambioModulo;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -1,4 +1,4 @@
-package org.utl.dsm.huellas_escritorio.Controlador;
+package org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionMascotas;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,6 +25,7 @@ import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import com.google.gson.Gson;
+import org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.cambioModulo;
 import org.utl.dsm.huellas_escritorio.Modelo.Animales;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -32,7 +33,42 @@ import java.net.URL;
 import java.util.*;
 
 public class gestionMascotas implements  Initializable{
+    @FXML
+    private Button cancelarMod;
 
+
+    @FXML
+    private TextArea descripcionMod;
+
+    @FXML
+    private TextField edadMod;
+
+    @FXML
+    private ComboBox<?> especieMod;
+
+    @FXML
+    private ImageView fotoMuestra;
+
+    @FXML
+    private ComboBox<?> generoMod;
+
+    @FXML
+    private Button guardar;
+
+    @FXML
+    private ComboBox<?> nombreCentroMod;
+
+    @FXML
+    private TextField nombreMod;
+
+    @FXML
+    private TextField pesoMod;
+
+    @FXML
+    private TextField razaMod;
+
+    @FXML
+    private ComboBox<?> tamanoMod;
 
     @FXML
     private VBox barra;
@@ -80,35 +116,8 @@ public class gestionMascotas implements  Initializable{
     private ComboBox<String> filtroEstatus;
 
     @FXML
-    private HBox header;
-
-    @FXML
-    private ImageView iconoBoton;
-
-    @FXML
-    private Label labelAdoptantes;
-
-    @FXML
-    private Label labelAfiliaciones;
-
-    @FXML
-    private Label labelAnimales;
-
-    @FXML
-    private Label labelCentros;
-
-    @FXML
-    private Label labelDonaciones;
-
-    @FXML
-    private Label labelEmpleados;
-
-    @FXML
-    private Label labelSolicitudes;
-    @FXML
     private MenuItem cerrarSesion;
-    @FXML
-    private Button mini;
+
 
     @FXML
     private TableColumn<Animales, String> tcolClave;
@@ -200,12 +209,14 @@ public class gestionMascotas implements  Initializable{
                 container.getChildren().addAll( btnEditar, btnEliminar,btnDetalles);
 
                 btnEditar.setOnAction(event -> {
-                    Animales animal = getTableView().getItems().get(getIndex());
+
+                   abrirModificar();
                 });
                 btnEliminar.setOnAction(event -> {
                     Animales animal = getTableView().getItems().get(getIndex());
                     abrirBorrar(animal);
                 });
+
 
             }
 
@@ -281,6 +292,7 @@ public class gestionMascotas implements  Initializable{
         });
         filtroEspecie.setOnAction(event -> filtros());
         filtroEstatus.setOnAction(event -> filtrarE());
+
     }
     public void cargarAnimales() {
         HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/mascotas/getAll")
@@ -421,5 +433,25 @@ public class gestionMascotas implements  Initializable{
         Animales[] lista = gson.fromJson(String.valueOf(response.getBody()), Animales[].class);
         listAnimales.addAll(Arrays.asList(lista));
         tablaAnimales.setItems(listAnimales);
+    }
+    public void abrirModificar()  {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Empleados/Formularios/modificarAnimal.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Borrar animal");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+            cerrarVentana();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void cerrarVentana() {
+        Stage stage = (Stage) cancelarMod.getScene().getWindow();
+        stage.close();
     }
 }

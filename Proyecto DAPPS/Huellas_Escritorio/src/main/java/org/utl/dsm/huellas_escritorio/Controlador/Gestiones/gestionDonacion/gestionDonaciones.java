@@ -1,43 +1,18 @@
-package org.utl.dsm.huellas_escritorio.Controlador;
+package org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionDonacion;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.stage.Stage;
-import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
-import kong.unirest.Unirest;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import org.utl.dsm.huellas_escritorio.Modelo.Afiliados;
-import org.utl.dsm.huellas_escritorio.Modelo.Animales;
-import org.utl.dsm.huellas_escritorio.Modelo.Centros;
+import org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.cambioModulo;
 import org.utl.dsm.huellas_escritorio.Modelo.Donaciones;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.net.URL;
-import java.lang.reflect.Type;
 import java.util.*;
-import java.util.stream.Collectors;
+
 public class gestionDonaciones implements  Initializable{
     @FXML
     private VBox barra;

@@ -1,41 +1,32 @@
-package org.utl.dsm.huellas_escritorio.Controlador;
+package org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes;
 import java.util.*;
 import java.io.ByteArrayInputStream;
 import javafx.geometry.Pos;
-import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.geometry.Insets;
-import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import kong.unirest.HttpResponse;
-import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import com.google.gson.Gson;
 import org.utl.dsm.huellas_escritorio.Modelo.Animales;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
+
 import java.io.IOException;
 import java.net.URL;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.fxml.Initializable;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.application.Platform;
-import java.lang.reflect.Type;
-import java.util.stream.Collectors;
 
-import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import org.utl.dsm.huellas_escritorio.Modelo.Centros;
 

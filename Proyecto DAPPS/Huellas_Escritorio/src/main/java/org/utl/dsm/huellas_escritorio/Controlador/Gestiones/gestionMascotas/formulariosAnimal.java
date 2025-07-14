@@ -1,4 +1,4 @@
-package org.utl.dsm.huellas_escritorio.Controlador;
+package org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionMascotas;
 import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,9 +15,8 @@ import javafx.stage.Stage;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
-import org.utl.dsm.huellas_escritorio.Modelo.Animales;
 import org.utl.dsm.huellas_escritorio.Modelo.Centros;
-import java.awt.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

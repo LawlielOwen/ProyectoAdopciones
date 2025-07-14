@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="691.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../../../CSS/tarjetaAnimal.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.controllerCartaAnimal">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="691.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../../../CSS/tarjetaAnimal.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.controllerCartaAnimal">
    <top>
        <StackPane prefHeight="57.0" prefWidth="600.0" styleClass="header-modal" BorderPane.alignment="CENTER">
            <Label fx:id="nombreAnimal" styleClass="titulo" StackPane.alignment="CENTER" />

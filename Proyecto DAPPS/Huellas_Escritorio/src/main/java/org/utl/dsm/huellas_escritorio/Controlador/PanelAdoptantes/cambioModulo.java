@@ -1,4 +1,4 @@
-package org.utl.dsm.huellas_escritorio.Controlador;
+package org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
