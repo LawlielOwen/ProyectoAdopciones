@@ -22,263 +22,269 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background: #FCE7C8; -fx-border-color: #FCE7C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.afiliacion">
-    <content>
-        <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #FCE7C8;">
-            <top>
-                <HBox alignment="CENTER" prefHeight="64.0" spacing="20.0" style="-fx-background-color: #A4A57E;" BorderPane.alignment="CENTER_LEFT">
-                    <children>
-                        <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../../../img/interfazAdoptante/logo.png" />
-                            </image>
-                            <HBox.margin>
-                                <Insets left="20.0" top="3.0" />
-                            </HBox.margin>
-                        </ImageView>
-                        <Pane prefHeight="69.0" prefWidth="515.0" HBox.hgrow="ALWAYS">
-                            <children>
-                                <HBox alignment="CENTER" layoutX="-5.0" layoutY="-1.0" prefHeight="70.0" prefWidth="631.0" spacing="15.0">
-                                    <children>
-                                        <Button id="btnAdopta" fx:id="btnAdopta" mnemonicParsing="false" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Adopciones" textFill="WHITE">
-                                            <HBox.margin>
-                                                <Insets />
-                                            </HBox.margin>
-                                            <font>
-                                                <Font name="Arial" size="15.0" />
-                                            </font>
-                                        </Button>
-                                        <Button id="btnDonacion" fx:id="btnDonacion" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Donaciones" textFill="WHITE">
-                                            <font>
-                                                <Font name="Arial" size="15.0" />
-                                            </font>
-                                        </Button>
-                                        <Button id="btnAfiliado" fx:id="btnAfiliacion" mnemonicParsing="false" prefHeight="59.0" prefWidth="89.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Afiliacion" textFill="WHITE">
-                                            <font>
-                                                <Font name="Arial" size="15.0" />
-                                            </font>
-                                        </Button>
-                                        <Button id="btnQuien" fx:id="btnQuien" mnemonicParsing="false" prefHeight="59.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="¿Quienes somos?" textFill="WHITE">
-                                            <font>
-                                                <Font name="Arial" size="15.0" />
-                                            </font>
-                                        </Button>
-                                        <Button id="btnEmpleado" fx:id="btnEmpleado" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Empleados" textFill="WHITE">
-                                            <font>
-                                                <Font name="Arial" size="15.0" />
-                                            </font>
-                                        </Button>
-                                    </children>
-                                    <padding>
-                                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                                    </padding>
-                                </HBox>
-                            </children>
-                            <HBox.margin>
-                                <Insets />
-                            </HBox.margin>
-                            <padding>
-                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                            </padding>
-                        </Pane>
-                        <Button id="btnLogin" fx:id="btnLogin" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Iniciar sesion/ Crear cuenta" textFill="WHITE" HBox.hgrow="ALWAYS">
-                            <font>
-                                <Font name="Arial" size="15.0" />
-                            </font>
-                            <HBox.margin>
-                                <Insets right="10.0" />
-                            </HBox.margin>
-                        </Button>
-                    </children>
-                    <BorderPane.margin>
-                        <Insets />
-                    </BorderPane.margin>
-                    <effect>
-                        <DropShadow height="5.0" radius="3.25" width="10.0" />
-                    </effect>
-                </HBox>
-            </top>
-            <center>
-                <VBox spacing="20" style="-fx-background-color: #FCE7C8;" stylesheets="@../../../../../CSS/fuentes.css">
 
-                          <!-- Imagen con textos encima (tipo hero-section) -->
-                    <StackPane prefHeight="224.0" style="-fx-background-color: transparent;" stylesheets="@../../../../../CSS/afiliaciones.css">
-
-                              <!-- Texto principal -->
-                        <VBox alignment="CENTER" prefHeight="284.0" spacing="10">
-                     <Label text="¡Únete a la familia Huellitas Suaves!" textAlignment="CENTER">
-                        <styleClass>
-                           <String fx:value="fuenteGeneral-blanca" />
-                           <String fx:value="tituloAfiliacion" />
-                           <String fx:value="form" />
-                        </styleClass>
-                     </Label>
-                            <Text fill="WHITE" text="La afiliación es completamente gratuita. Al formar parte de nuestra comunidad, recibirás noticias, invitaciones a eventos y muchas otras cosas más." textAlignment="CENTER" translateY="20.0" wrappingWidth="718.6666595339775">
-                                <font>
-                           <Font size="18" />
-                        </font>
-                        <styleClass>
-                           <String fx:value="fuenteGeneral" />
-                           <String fx:value="texto" />
-                        </styleClass>
-                            </Text>
-                     <Text fill="WHITE" layoutX="202.0" layoutY="243.0" text="Si deseas apoyar con una aportación económica, ¡puedes hacerlo más adelante!" textAlignment="CENTER" translateY="20.0" wrappingWidth="718.6666595339775">
-                        <font>
-                           <Font size="18" />
-                        </font>
-                        <styleClass>
-                           <String fx:value="fuenteGeneral" />
-                           <String fx:value="texto" />
-                        </styleClass>
-                     </Text>
-                     <StackPane.margin>
-                        <Insets top="30.0" />
-                     </StackPane.margin>
-                        </VBox>
-                  <VBox.margin>
-                     <Insets />
-                  </VBox.margin>
-                    </StackPane>
-
-                          <!-- Sección ¿Deseas adoptar? -->
-                    <VBox alignment="CENTER" spacing="20">
-                  <children>
-                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="820.0" style="-fx-background-color: white; -fx-border-radius: 8px; -fx-border-width: 8; -fx-background-radius: 8px;" styleClass="form">
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.afiliacion">
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background: #FCE7C8; -fx-border-color: #FCE7C8;">
+          <content>
+              <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #FCE7C8;">
+                  <center>
+                      <VBox spacing="20" style="-fx-background-color: #FCE7C8;" stylesheets="@../../../../../CSS/fuentes.css">
+      
+                                <!-- Imagen con textos encima (tipo hero-section) -->
+                          <StackPane prefHeight="224.0" style="-fx-background-color: transparent;" stylesheets="@../../../../../CSS/afiliaciones.css">
+      
+                                    <!-- Texto principal -->
+                              <VBox alignment="CENTER" prefHeight="284.0" spacing="10">
+                           <Label text="¡Únete a la familia Huellitas Suaves!" textAlignment="CENTER">
+                              <styleClass>
+                                 <String fx:value="fuenteGeneral-blanca" />
+                                 <String fx:value="tituloAfiliacion" />
+                                 <String fx:value="form" />
+                              </styleClass>
+                           </Label>
+                                  <Text fill="WHITE" text="La afiliación es completamente gratuita. Al formar parte de nuestra comunidad, recibirás noticias, invitaciones a eventos y muchas otras cosas más." textAlignment="CENTER" translateY="20.0" wrappingWidth="718.6666595339775">
+                                      <font>
+                                 <Font size="18" />
+                              </font>
+                              <styleClass>
+                                 <String fx:value="fuenteGeneral" />
+                                 <String fx:value="texto" />
+                              </styleClass>
+                                  </Text>
+                           <Text fill="WHITE" layoutX="202.0" layoutY="243.0" text="Si deseas apoyar con una aportación económica, ¡puedes hacerlo más adelante!" textAlignment="CENTER" translateY="20.0" wrappingWidth="718.6666595339775">
+                              <font>
+                                 <Font size="18" />
+                              </font>
+                              <styleClass>
+                                 <String fx:value="fuenteGeneral" />
+                                 <String fx:value="texto" />
+                              </styleClass>
+                           </Text>
+                           <StackPane.margin>
+                              <Insets top="30.0" />
+                           </StackPane.margin>
+                              </VBox>
                         <VBox.margin>
                            <Insets />
                         </VBox.margin>
+                          </StackPane>
+      
+                                <!-- Sección ¿Deseas adoptar? -->
+                          <VBox alignment="CENTER" spacing="20">
                         <children>
-                           <TextField id="nombreCompleto" layoutX="56.0" layoutY="132.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
-                           <Label layoutX="56.0" layoutY="106.0" text="Nombre Completo">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <TextField id="correo" layoutX="52.0" layoutY="225.0" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
-                           <Label layoutX="56.0" layoutY="196.0" text="Correo electronico">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <TextField id="telefono" layoutX="56.0" layoutY="318.0" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
-                           <Label layoutX="56.0" layoutY="284.0" text="Telefono">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <Label layoutX="313.0" layoutY="106.0" text="¿Tienes mascotas actualmente?">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <Label layoutX="313.0" layoutY="196.0" text="¿Con que frecuencia puedes apoyar?">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <TextField id="disponibilidad" layoutX="313.0" layoutY="318.0" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
-                           <Label layoutX="313.0" layoutY="284.0" text="Disponibilidad de horario">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <ComboBox id="mascotasActuales" layoutX="313.0" layoutY="131.0" prefHeight="36.0" prefWidth="223.0" promptText="Selecciona una opcion" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
-                           <ComboBox id="frecuenciaApoyo" layoutX="313.0" layoutY="225.0" prefHeight="36.0" prefWidth="223.0" promptText="Selecciona una opcion" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
-                           <Label layoutX="568.0" layoutY="106.0" text="Tipo de apoyo">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <Label layoutX="568.0" layoutY="196.0" text="Medio de contacto preferido">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <Label layoutX="568.0" layoutY="284.0" text="¿Desea que lo contactemos?">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <ComboBox id="tipoApoyo" layoutX="568.0" layoutY="131.0" prefHeight="36.0" prefWidth="223.0" promptText="Selecciona una opcion" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
-                           <ComboBox id="medioPreferido" layoutX="568.0" layoutY="225.0" prefHeight="36.0" prefWidth="223.0" promptText="Selecciona una opcion" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
-                           <RadioButton id="SiContactar" layoutX="557.0" layoutY="318.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="!Si contacteme!">
-                              <toggleGroup>
-                                 <ToggleGroup fx:id="contacto" />
-                              </toggleGroup>
-                           </RadioButton>
-                           <RadioButton id="noContactar" layoutX="557.0" layoutY="345.0" mnemonicParsing="false" text="No, gracias" toggleGroup="$contacto" />
-                           <TextField id="comentarios" layoutX="53.0" layoutY="405.0" prefHeight="65.0" prefWidth="733.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
-                           <Label layoutX="53.0" layoutY="371.0" text="Mensaje o Comentario (opcional)">
-                              <font>
-                                 <Font size="13.0" />
-                              </font>
-                           </Label>
-                           <Button id="btnUnirme" layoutX="331.0" layoutY="479.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="154.0" styleClass="btn-unirme" text="Unirme" />
-                           <Text layoutX="286.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="TituloA" text="Unete a la familia" />
+                           <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="820.0" style="-fx-background-color: white; -fx-border-radius: 8px; -fx-border-width: 8; -fx-background-radius: 8px;" styleClass="form">
+                              <VBox.margin>
+                                 <Insets />
+                              </VBox.margin>
+                              <children>
+                                 <TextField id="nombreCompleto" layoutX="56.0" layoutY="132.0" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
+                                 <Label layoutX="56.0" layoutY="106.0" text="Nombre Completo">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <TextField id="correo" layoutX="52.0" layoutY="225.0" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
+                                 <Label layoutX="56.0" layoutY="196.0" text="Correo electronico">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <TextField id="telefono" layoutX="56.0" layoutY="318.0" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
+                                 <Label layoutX="56.0" layoutY="284.0" text="Telefono">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <Label layoutX="313.0" layoutY="106.0" text="¿Tienes mascotas actualmente?">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <Label layoutX="313.0" layoutY="196.0" text="¿Con que frecuencia puedes apoyar?">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <TextField id="disponibilidad" layoutX="313.0" layoutY="318.0" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
+                                 <Label layoutX="313.0" layoutY="284.0" text="Disponibilidad de horario">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <ComboBox id="mascotasActuales" layoutX="313.0" layoutY="131.0" prefHeight="36.0" prefWidth="223.0" promptText="Selecciona una opcion" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
+                                 <ComboBox id="frecuenciaApoyo" layoutX="313.0" layoutY="225.0" prefHeight="36.0" prefWidth="223.0" promptText="Selecciona una opcion" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
+                                 <Label layoutX="568.0" layoutY="106.0" text="Tipo de apoyo">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <Label layoutX="568.0" layoutY="196.0" text="Medio de contacto preferido">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <Label layoutX="568.0" layoutY="284.0" text="¿Desea que lo contactemos?">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <ComboBox id="tipoApoyo" layoutX="568.0" layoutY="131.0" prefHeight="36.0" prefWidth="223.0" promptText="Selecciona una opcion" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
+                                 <ComboBox id="medioPreferido" layoutX="568.0" layoutY="225.0" prefHeight="36.0" prefWidth="223.0" promptText="Selecciona una opcion" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
+                                 <RadioButton id="SiContactar" layoutX="557.0" layoutY="318.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="!Si contacteme!">
+                                    <toggleGroup>
+                                       <ToggleGroup fx:id="contacto" />
+                                    </toggleGroup>
+                                 </RadioButton>
+                                 <RadioButton id="noContactar" layoutX="557.0" layoutY="345.0" mnemonicParsing="false" text="No, gracias" toggleGroup="$contacto" />
+                                 <TextField id="comentarios" layoutX="53.0" layoutY="405.0" prefHeight="65.0" prefWidth="733.0" style="-fx-background-color: transparent; -fx-border-color: #E0E0E0; -fx-border-radius: 5px;" />
+                                 <Label layoutX="53.0" layoutY="371.0" text="Mensaje o Comentario (opcional)">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font>
+                                 </Label>
+                                 <Button id="btnUnirme" layoutX="331.0" layoutY="479.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="154.0" styleClass="btn-unirme" text="Unirme" />
+                                 <Text layoutX="286.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="TituloA" text="Unete a la familia" />
+                              </children>
+                           </AnchorPane>
                         </children>
-                     </AnchorPane>
-                  </children>
-                  <VBox.margin>
-                     <Insets top="40.0" />
-                  </VBox.margin>
-                    </VBox>
-               <HBox alignment="CENTER" prefHeight="100.0">
-                  <children>
-                     <Text fill="#6c757d" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textSecondary" text="¿Ya eres parte y quieres hacer una donación? Visita nuestra sección de Donaciones." />
-                  </children>
-                  <VBox.margin>
-                     <Insets bottom="20.0" top="20.0" />
-                  </VBox.margin>
-               </HBox>
-
-                      </VBox>
-            </center>
-            <bottom>
-                <HBox prefHeight="119.0" styleClass="footer" stylesheets="@../../../../../CSS/inicioAdopciones.css" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
-
-                    <children>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textoFooter" text="Derechos reservados  |  Términos de servicio |  2025 Todos los derechos reservados" translateX="200.0">
-                            <HBox.margin>
-                                <Insets top="40.0" />
-                            </HBox.margin>
-                        </Text>
-                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0" translateX="279.0" translateY="35.0">
-                            <children>
-                                <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../Iconos/fb_icon.png" />
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../Iconos/instagram_icono.png" />
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../Iconos/twitter_icono.png" />
-                                    </image></ImageView>
-                                <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../../../../Iconos/whatsapp_icono.png" />
-                                    </image>
-                                </ImageView>
-                            </children>
-                        </HBox>
-                    </children>
-                    <BorderPane.margin>
-                        <Insets />
-                    </BorderPane.margin>
-                </HBox>
-            </bottom>
+                        <VBox.margin>
+                           <Insets top="40.0" />
+                        </VBox.margin>
+                          </VBox>
+                     <HBox alignment="CENTER" prefHeight="100.0">
+                        <children>
+                           <Text fill="#6c757d" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textSecondary" text="¿Ya eres parte y quieres hacer una donación? Visita nuestra sección de Donaciones." />
+                        </children>
+                        <VBox.margin>
+                           <Insets bottom="20.0" top="20.0" />
+                        </VBox.margin>
+                     </HBox>
+      
+                            </VBox>
+                  </center>
+                  <bottom>
+                      <HBox prefHeight="119.0" styleClass="footer" stylesheets="@../../../../../CSS/inicioAdopciones.css" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+      
+                          <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textoFooter" text="Derechos reservados  |  Términos de servicio |  2025 Todos los derechos reservados" translateX="200.0">
+                                  <HBox.margin>
+                                      <Insets top="40.0" />
+                                  </HBox.margin>
+                              </Text>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0" translateX="279.0" translateY="35.0">
+                                  <children>
+                                      <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                              <Image url="@../../../../../Iconos/fb_icon.png" />
+                                          </image>
+                                      </ImageView>
+                                      <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                              <Image url="@../../../../../Iconos/instagram_icono.png" />
+                                          </image>
+                                      </ImageView>
+                                      <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                              <Image url="@../../../../../Iconos/twitter_icono.png" />
+                                          </image>
+                              </ImageView>
+                                      <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                              <Image url="@../../../../../Iconos/whatsapp_icono.png" />
+                                          </image>
+                                      </ImageView>
+                                  </children>
+                              </HBox>
+                          </children>
+                          <BorderPane.margin>
+                              <Insets />
+                          </BorderPane.margin>
+                      </HBox>
+                  </bottom>
+               <stylesheets>
+      
+                  <URL value="@../../../../../CSS/afiliaciones.css" />
+               </stylesheets>
+              </BorderPane>
+          </content>
          <stylesheets>
-
             <URL value="@../../../../../CSS/afiliaciones.css" />
+            <URL value="@../../../../../CSS/inicioAdopciones.css" />
          </stylesheets>
-        </BorderPane>
-    </content>
-   <stylesheets>
-      <URL value="@../../../../../CSS/afiliaciones.css" />
-      <URL value="@../../../../../CSS/inicioAdopciones.css" />
-   </stylesheets>
-</ScrollPane>
+      </ScrollPane>
+   </center>
+   <top>
+          <HBox alignment="CENTER" prefHeight="64.0" spacing="20.0" style="-fx-background-color: #A4A57E;" BorderPane.alignment="CENTER">
+              <children>
+                  <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                          <Image url="@../../../../../img/interfazAdoptante/logo.png" />
+                      </image>
+                      <HBox.margin>
+                          <Insets left="20.0" top="3.0" />
+                      </HBox.margin>
+                  </ImageView>
+                  <Pane prefHeight="69.0" prefWidth="515.0" HBox.hgrow="ALWAYS">
+                      <children>
+                          <HBox alignment="CENTER" layoutX="-5.0" layoutY="-1.0" prefHeight="70.0" prefWidth="631.0" spacing="15.0">
+                              <children>
+                                  <Button id="btnAdopta" fx:id="btnAdopta" mnemonicParsing="false" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Adopciones" textFill="WHITE">
+                                      <HBox.margin>
+                                          <Insets />
+                                      </HBox.margin>
+                                      <font>
+                                          <Font name="Arial" size="15.0" />
+                                      </font>
+                                  </Button>
+                                  <Button id="btnDonacion" fx:id="btnDonacion" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Donaciones" textFill="WHITE">
+                                      <font>
+                                          <Font name="Arial" size="15.0" />
+                                      </font>
+                                  </Button>
+                                  <Button id="btnAfiliado" fx:id="btnAfiliacion" mnemonicParsing="false" prefHeight="59.0" prefWidth="89.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Afiliacion" textFill="WHITE">
+                                      <font>
+                                          <Font name="Arial" size="15.0" />
+                                      </font>
+                                  </Button>
+                                  <Button id="btnQuien" fx:id="btnQuien" mnemonicParsing="false" prefHeight="59.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="¿Quienes somos?" textFill="WHITE">
+                                      <font>
+                                          <Font name="Arial" size="15.0" />
+                                      </font>
+                                  </Button>
+                                  <Button id="btnEmpleado" fx:id="btnEmpleado" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Empleados" textFill="WHITE">
+                                      <font>
+                                          <Font name="Arial" size="15.0" />
+                                      </font>
+                                  </Button>
+                              </children>
+                              <padding>
+                                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                              </padding>
+                          </HBox>
+                      </children>
+                      <HBox.margin>
+                          <Insets />
+                      </HBox.margin>
+                      <padding>
+                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                      </padding>
+                  </Pane>
+                  <Button id="btnLogin" fx:id="btnLogin" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Iniciar sesion/ Crear cuenta" textFill="WHITE" HBox.hgrow="ALWAYS">
+                      <font>
+                          <Font name="Arial" size="15.0" />
+                      </font>
+                      <HBox.margin>
+                          <Insets right="10.0" />
+                      </HBox.margin>
+                  </Button>
+              </children>
+              <BorderPane.margin>
+                  <Insets />
+              </BorderPane.margin>
+              <effect>
+                  <DropShadow height="5.0" radius="3.25" width="10.0" />
+              </effect>
+          </HBox>
+   </top>
+</BorderPane>

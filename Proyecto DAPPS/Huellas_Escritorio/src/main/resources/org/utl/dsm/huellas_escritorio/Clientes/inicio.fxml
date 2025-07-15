@@ -19,246 +19,255 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="1697.0" prefWidth="1106.0" style="-fx-background: #FCE7C8; -fx-border-color: #FCE7C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.inicioAdoptante">
-   <content>
-      <BorderPane prefHeight="995.0" prefWidth="1102.0" style="-fx-background-color: #FCE7C8;" stylesheets="@../../../../../CSS/fuentes.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-         <top>
-            <HBox alignment="CENTER" prefHeight="64.0" spacing="20.0" style="-fx-background-color: #A4A57E;" BorderPane.alignment="CENTER_LEFT">
-               <children>
-                  <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../img/interfazAdoptante/logo.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="20.0" top="3.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Pane prefHeight="69.0" prefWidth="515.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <HBox alignment="CENTER" layoutX="-5.0" layoutY="-1.0" prefHeight="70.0" prefWidth="631.0" spacing="15.0">
-                           <children>
-                              <Button id="btnAdopta" fx:id="btnAdopta" mnemonicParsing="false" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Adopciones" textFill="WHITE">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="Arial" size="15.0" />
-                                 </font>
-                              </Button>
-                              <Button id="btnDonacion" fx:id="btnDonacion" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Donaciones" textFill="WHITE">
-                                 <font>
-                                    <Font name="Arial" size="15.0" />
-                                 </font>
-                              </Button>
-                              <Button id="btnAfiliado" fx:id="btnAfiliacion" mnemonicParsing="false" prefHeight="59.0" prefWidth="89.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Afiliacion" textFill="WHITE">
-                                 <font>
-                                    <Font name="Arial" size="15.0" />
-                                 </font>
-                              </Button>
-                              <Button id="btnQuien" fx:id="btnQuien" mnemonicParsing="false" prefHeight="59.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="¿Quienes somos?" textFill="WHITE">
-                                 <font>
-                                    <Font name="Arial" size="15.0" />
-                                 </font>
-                              </Button>
-                              <Button id="btnEmpleado" fx:id="btnEmpleado" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Empleados" textFill="WHITE">
-                                 <font>
-                                    <Font name="Arial" size="15.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                           <padding>
-                              <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-                           </padding>
-                        </HBox>
-                     </children>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </Pane>
-                  <Button id="btnLogin" fx:id="btnLogin" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Iniciar sesion/ Crear cuenta" textFill="WHITE" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Arial" size="15.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-               <effect>
-                  <DropShadow height="5.0" radius="3.25" width="10.0" />
-               </effect>
-            </HBox>
-         </top>
-         <center>
-
-            <VBox prefWidth="1100.0" spacing="20" style="-fx-background-color: #FCE7C8;">
-
-               <StackPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="0.0" VBox.vgrow="NEVER">
-                  <ImageView fx:id="imagenFondo" fitHeight="400.0" pickOnBounds="true" preserveRatio="false" smooth="true">
-                     <image>
-                        <Image url="@../../../../../img/interfazAdoptante/labradorFondo.jpg" />
-                     </image>
-                  </ImageView>
-                  <Rectangle fx:id="rectanguloFondo" arcHeight="5.0" arcWidth="5.0" height="404.0" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="1106.0" />
-
-
-                  <!-- Texto principal -->
-                  <VBox alignment="CENTER" prefHeight="400.0" spacing="10">
-                     <Text fill="WHITE" styleClass="Titulo" text="Adopta amor, cambia una vida con tu apoyo" textAlignment="CENTER" translateY="-60.0" wrappingWidth="606.55078125">
-                        <font><Font size="42" /></font>
-                     </Text>
-                     <Text fill="WHITE" text="En nuestro centro de acopio, nos dedicamos a encontrar hogares amorosos para los animales en situación de calle. Nuestra misión es promover la adopción responsable y el bienestar animal en un ambiente acogedor." textAlignment="CENTER" wrappingWidth="600">
-                        <font><Font size="18" /></font>
-                        <styleClass>
-                           <String fx:value="subtitulo" />
-                           <String fx:value="fuenteGeneral" />
-                        </styleClass>
-                     </Text>
-                  </VBox>
-               </StackPane>
-
-               <HBox alignment="CENTER" translateY="-45.0">
-                  <TextField id="buscardor" fx:id="buscador" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45" prefWidth="500" promptText="Buscar..." styleClass="buscador" stylesheets="@../../../../../CSS/inicioAdopciones.css">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <padding>
-                        <Insets left="40.0" />
-                     </padding>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fitHeight="20" fitWidth="15.0" preserveRatio="true" translateX="-30.0">
-                     <image>
-                        <Image url="@../../../../../Iconos/magnifying-glass-solid.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="20" fitWidth="15.0" layoutX="801.0" layoutY="23.0" preserveRatio="true" translateX="-510.0" HBox.hgrow="ALWAYS">
-                     <image>
-                        <Image url="@../../../../../Iconos/barrasBusqueda.png" />
-                     </image>
-                  </ImageView>
-                  <VBox.margin>
-                     <Insets bottom="20.0" />
-                  </VBox.margin>
-               </HBox>
-
-               <VBox fx:id="contenedorSecciones" alignment="CENTER" spacing="20">
-                  <Text styleClass="TituloSecciones" text="¿Deseas adoptar?" />
-                  <HBox alignment="CENTER" spacing="30">
-
-                     <StackPane fx:id="seccionPerros" style="-fx-cursor: hand;">
-                        <ImageView fitHeight="380" fitWidth="400" preserveRatio="false">
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.inicioAdoptante">
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="1697.0" prefWidth="1106.0" style="-fx-background: #FCE7C8; -fx-border-color: #FCE7C8;">
+         <content>
+            <BorderPane prefHeight="995.0" prefWidth="1102.0" style="-fx-background-color: #FCE7C8;" stylesheets="@../../../../../CSS/fuentes.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+               <center>
+      
+                  <VBox prefWidth="1100.0" spacing="20" style="-fx-background-color: #FCE7C8;">
+      
+                     <StackPane fx:id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="0.0" VBox.vgrow="NEVER">
+                        <ImageView fx:id="imagenFondo" fitHeight="400.0" pickOnBounds="true" preserveRatio="false" smooth="true">
                            <image>
-                              <Image url="@../../../../../img/interfazAdoptante/perroSeccion.jpg" />
+                              <Image url="@../../../../../img/interfazAdoptante/labradorFondo.jpg" />
                            </image>
                         </ImageView>
-                        <Label styleClass="fuenteGeneral-blanca" text="Perros" StackPane.alignment="TOP_LEFT">
-                           <StackPane.margin>
-                              <Insets left="40.0" top="30.0" />
-                           </StackPane.margin>
-                        </Label>
+                        <Rectangle fx:id="rectanguloFondo" arcHeight="5.0" arcWidth="5.0" height="404.0" opacity="0.4" stroke="BLACK" strokeType="INSIDE" width="1106.0" />
+      
+      
+                        <!-- Texto principal -->
+                        <VBox alignment="CENTER" prefHeight="400.0" spacing="10">
+                           <Text fill="WHITE" styleClass="Titulo" text="Adopta amor, cambia una vida con tu apoyo" textAlignment="CENTER" translateY="-60.0" wrappingWidth="606.55078125">
+                              <font>
+                                 <Font size="42" />
+                              </font>
+                           </Text>
+                           <Text fill="WHITE" text="En nuestro centro de acopio, nos dedicamos a encontrar hogares amorosos para los animales en situación de calle. Nuestra misión es promover la adopción responsable y el bienestar animal en un ambiente acogedor." textAlignment="CENTER" wrappingWidth="600">
+                              <font>
+                                 <Font size="18" />
+                              </font>
+                              <styleClass>
+                                 <String fx:value="subtitulo" />
+                                 <String fx:value="fuenteGeneral" />
+                              </styleClass>
+                           </Text>
+                        </VBox>
                      </StackPane>
-
-                     <StackPane fx:id="seccionGatos" style="-fx-cursor: hand;">
-                        <ImageView fitHeight="380" fitWidth="400" preserveRatio="false">
-                           <image>
-                              <Image url="@../../../../../img/interfazAdoptante/gatoSeccion.jpg" />
-                           </image>
-                        </ImageView>
-                        <Label styleClass="fuenteGeneral-blanca" text="Gatos" StackPane.alignment="TOP_LEFT">
-                           <StackPane.margin>
-                              <Insets left="40.0" top="30.0" />
-                           </StackPane.margin>
-                        </Label>
-                     </StackPane>
-                  </HBox>
-               </VBox>
-
-               <HBox fx:id="contenedorBusqueda" managed="false" spacing="20" style="-fx-background-color: #FCE7C8; -fx-padding: 20;" visible="false">
-                  <VBox fx:id="contenedorFiltros" prefWidth="250" spacing="10" style="-fx-background-color: #F0F0F0; -fx-padding: 10;">
-                     <Label style="-fx-font-weight: bold;" text="Filtros" />
-                  </VBox>
-
-                  <VBox fx:id="contenedorResultados" spacing="15" style="-fx-padding: 10;">
-
-                  </VBox>
-               </HBox>
-               <VBox fx:id="contenedorTarjetas" alignment="CENTER" spacing="20" style="-fx-padding: 20;">
-                  <Rectangle fill="#A4A57E" height="2.0" width="200.0" />
-                  <Text styleClass="TituloSecciones" text="Rescates Recientes" />
-
-                  <HBox fx:id="contenedorCartitas" alignment="CENTER" prefHeight="452.0" prefWidth="1062.0" spacing="30">
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" />
-                     </padding>
-                     <children>
-                        <HBox fx:id="contenedorCartas" alignment="CENTER" prefHeight="420.0" prefWidth="1062.0" spacing="40.0" HBox.hgrow="ALWAYS">
-                           <opaqueInsets>
+      
+                     <HBox alignment="CENTER" translateY="-45.0">
+                        <TextField id="buscardor" fx:id="buscador" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45" prefWidth="500" promptText="Buscar..." styleClass="buscador" stylesheets="@../../../../../CSS/inicioAdopciones.css">
+                           <HBox.margin>
                               <Insets />
-                           </opaqueInsets>
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <ImageView fitHeight="20" fitWidth="15.0" preserveRatio="true" translateX="-30.0">
+                           <image>
+                              <Image url="@../../../../../Iconos/magnifying-glass-solid.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="20" fitWidth="15.0" layoutX="801.0" layoutY="23.0" preserveRatio="true" translateX="-510.0" HBox.hgrow="ALWAYS">
+                           <image>
+                              <Image url="@../../../../../Iconos/barrasBusqueda.png" />
+                           </image>
+                        </ImageView>
+                        <VBox.margin>
+                           <Insets bottom="20.0" />
+                        </VBox.margin>
+                     </HBox>
+      
+                     <VBox fx:id="contenedorSecciones" alignment="CENTER" spacing="20">
+                        <Text styleClass="TituloSecciones" text="¿Deseas adoptar?" />
+                        <HBox alignment="CENTER" spacing="30">
+      
+                           <StackPane fx:id="seccionPerros" style="-fx-cursor: hand;">
+                              <ImageView fitHeight="380" fitWidth="400" preserveRatio="false">
+                                 <image>
+                                    <Image url="@../../../../../img/interfazAdoptante/perroSeccion.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label styleClass="fuenteGeneral-blanca" text="Perros" StackPane.alignment="TOP_LEFT">
+                                 <StackPane.margin>
+                                    <Insets left="40.0" top="30.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </StackPane>
+      
+                           <StackPane fx:id="seccionGatos" style="-fx-cursor: hand;">
+                              <ImageView fitHeight="380" fitWidth="400" preserveRatio="false">
+                                 <image>
+                                    <Image url="@../../../../../img/interfazAdoptante/gatoSeccion.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label styleClass="fuenteGeneral-blanca" text="Gatos" StackPane.alignment="TOP_LEFT">
+                                 <StackPane.margin>
+                                    <Insets left="40.0" top="30.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </StackPane>
+                        </HBox>
+                     </VBox>
+      
+                     <HBox fx:id="contenedorBusqueda" managed="false" spacing="20" style="-fx-background-color: #FCE7C8; -fx-padding: 20;" visible="false">
+                        <VBox fx:id="contenedorFiltros" prefWidth="250" spacing="10" style="-fx-background-color: #F0F0F0; -fx-padding: 10;">
+                           <Label style="-fx-font-weight: bold;" text="Filtros" />
+                        </VBox>
+      
+                        <VBox fx:id="contenedorResultados" spacing="15" style="-fx-padding: 10;">
+
+                  </VBox>
+                     </HBox>
+                     <VBox fx:id="contenedorTarjetas" alignment="CENTER" spacing="20" style="-fx-padding: 20;">
+                        <Rectangle fill="#A4A57E" height="2.0" width="200.0" />
+                        <Text styleClass="TituloSecciones" text="Rescates Recientes" />
+      
+                        <HBox fx:id="contenedorCartitas" alignment="CENTER" prefHeight="452.0" prefWidth="1062.0" spacing="30">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                           <children>
+                              <HBox fx:id="contenedorCartas" alignment="CENTER" prefHeight="420.0" prefWidth="1062.0" spacing="40.0" HBox.hgrow="ALWAYS">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                           </children>
+      
+      
+                        </HBox>
+                     </VBox>
+      
+                     <stylesheets>
+                        <URL value="@../../../../../CSS/inicioAdopciones.css" />
+                        <URL value="@../../../../../CSS/fuentes.css" />
+                     </stylesheets>
+      
+                  </VBox>
+               </center>
+               <bottom>
+                 <HBox prefHeight="119.0" styleClass="footer" stylesheets="@../../../../../CSS/inicioAdopciones.css" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+      
+                     <children>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textoFooter" text="Derechos reservados  |  Términos de servicio |  2025 Todos los derechos reservados" translateX="200.0">
+                           <HBox.margin>
+                              <Insets top="40.0" />
+                           </HBox.margin>
+                        </Text>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0" translateX="279.0" translateY="35.0">
+                           <children>
+                              <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../Iconos/fb_icon.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../Iconos/instagram_icono.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../Iconos/twitter_icono.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../Iconos/whatsapp_icono.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
                         </HBox>
                      </children>
-
-
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
                   </HBox>
-               </VBox>
-
-               <stylesheets>
-                  <URL value="@../../../../../CSS/inicioAdopciones.css" />
-                  <URL value="@../../../../../CSS/fuentes.css" />
-               </stylesheets>
-
-            </VBox>
-         </center>
-         <bottom>
-           <HBox prefHeight="119.0" styleClass="footer" stylesheets="@../../../../../CSS/inicioAdopciones.css" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
-
+               </bottom>
+            </BorderPane>
+         </content>
+      </ScrollPane>
+   </center>
+   <top>
+      <HBox alignment="CENTER" prefHeight="64.0" spacing="20.0" style="-fx-background-color: #A4A57E;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../img/interfazAdoptante/logo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="20.0" top="3.0" />
+               </HBox.margin>
+            </ImageView>
+            <Pane prefHeight="69.0" prefWidth="515.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textoFooter" text="Derechos reservados  |  Términos de servicio |  2025 Todos los derechos reservados" translateX="200.0">
-                     <HBox.margin>
-                        <Insets top="40.0" />
-                     </HBox.margin>
-                  </Text>
-                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0" translateX="279.0" translateY="35.0">
+                  <HBox alignment="CENTER" layoutX="-5.0" layoutY="-1.0" prefHeight="70.0" prefWidth="631.0" spacing="15.0">
                      <children>
-                        <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../Iconos/fb_icon.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../Iconos/instagram_icono.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../Iconos/twitter_icono.png" />
-                           </image></ImageView>
-                        <ImageView fitHeight="66.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../Iconos/whatsapp_icono.png" />
-                           </image>
-                        </ImageView>
+                        <Button id="btnAdopta" fx:id="btnAdopta" mnemonicParsing="false" prefHeight="59.0" prefWidth="104.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Adopciones" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </Button>
+                        <Button id="btnDonacion" fx:id="btnDonacion" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Donaciones" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </Button>
+                        <Button id="btnAfiliado" fx:id="btnAfiliacion" mnemonicParsing="false" prefHeight="59.0" prefWidth="89.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Afiliacion" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </Button>
+                        <Button id="btnQuien" fx:id="btnQuien" mnemonicParsing="false" prefHeight="59.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="¿Quienes somos?" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </Button>
+                        <Button id="btnEmpleado" fx:id="btnEmpleado" mnemonicParsing="false" prefHeight="59.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Empleados" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </Button>
                      </children>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </padding>
                   </HBox>
                </children>
-               <BorderPane.margin>
+               <HBox.margin>
                   <Insets />
-               </BorderPane.margin>
-            </HBox>
-         </bottom>
-      </BorderPane>
-   </content>
-</ScrollPane>
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Pane>
+            <Button id="btnLogin" fx:id="btnLogin" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Iniciar sesion/ Crear cuenta" textFill="WHITE" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <effect>
+            <DropShadow height="5.0" radius="3.25" width="10.0" />
+         </effect>
+      </HBox>
+   </top>
+</BorderPane>

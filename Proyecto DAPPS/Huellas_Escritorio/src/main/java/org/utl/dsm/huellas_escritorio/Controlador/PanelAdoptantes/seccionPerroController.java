@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.geometry.Insets;
@@ -87,27 +88,20 @@ public class seccionPerroController implements  Initializable {
         btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnEmpleado));
         btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesión", btnLogin));
         btnAdopta.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Inicio", btnAdopta));
-
+        buscador.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                String texto = buscador.getText().trim();
+                if (texto.isEmpty()) {
+                    buscarAnimal(texto);
+                } else {
+                    buscarAnimal(texto);
+                }
+            }
+        });
     }
 
 
-    private void mostrarVistaPrincipal() {
-        contenedorBusqueda.setVisible(false);
-        contenedorBusqueda.setManaged(false);
 
-        contenedorSecciones.setVisible(true);
-        contenedorSecciones.setManaged(true);
-
-        contenedorTarjetas.setVisible(true);
-        contenedorTarjetas.setManaged(true);
-
-        contenedorCartasBusqueda.setVisible(false);
-        contenedorCartasBusqueda.setManaged(false);
-
-        contenedorCartasBusqueda.getChildren().clear();
-
-        contenedorResultados.getChildren().clear();
-    }
 
     public void cargarAnimales() {
         HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/mascotas/getPerros")
@@ -128,7 +122,35 @@ public class seccionPerroController implements  Initializable {
             });
         }
     }
+    private void buscarAnimal(String nombre) {
+        HttpResponse<String> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/inicio/buscarPerro")
+                .header("Content-Type", "application/json")
+                .body("{\"nombreAnimal\":\"" + nombre + "\"}")
+                .asString();
 
+        if (response.getStatus() == 200) {
+            Animales[] encontrados = new Gson().fromJson(response.getBody(), Animales[].class);
+
+            Platform.runLater(() -> {
+            contenedorTarjetas.getChildren().clear();
+           for (Animales animal : encontrados){
+               VBox carta = crearCartaAnimal(animal);
+               contenedorTarjetas.getChildren().add(carta);
+           }
+           if(encontrados.length == 0){
+               VBox vacio = new VBox();
+               vacio.setAlignment(Pos.CENTER);
+               Text mensaje = new Text("No se encontraron resultados.");
+               vacio.getChildren().add(mensaje);
+               contenedorTarjetas.getChildren().add(vacio);
+           }
+            });
+        }
+        if(nombre.isEmpty()){
+            contenedorTarjetas.getChildren().clear();
+            cargarAnimales();
+        }
+    }
     private VBox crearCartaAnimal(Animales animal) {
         String base64Image = animal.getFoto().split(",")[1];
         byte[] imageBytes = Base64.getDecoder().decode(base64Image);

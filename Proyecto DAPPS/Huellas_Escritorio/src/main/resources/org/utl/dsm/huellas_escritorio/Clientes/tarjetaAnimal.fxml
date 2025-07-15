@@ -42,7 +42,7 @@
       </StackPane>
    </left>
    <bottom>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f9fa" height="31.0" stroke="#f8f9fa" strokeType="INSIDE" width="601.0" BorderPane.alignment="CENTER" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f9fa" height="31.0" stroke="#f8f9fa" strokeType="INSIDE" width="692.0" BorderPane.alignment="CENTER" />
    </bottom>
    <right>
         <VBox fx:id="contenedorInfo" prefHeight="400.0" prefWidth="426.0" spacing="15.0" BorderPane.alignment="CENTER">
