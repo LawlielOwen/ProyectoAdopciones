@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.geometry.Insets;
@@ -29,8 +28,7 @@ import javafx.application.Platform;
 
 import javafx.stage.Stage;
 import org.utl.dsm.huellas_escritorio.Modelo.Centros;
-
-public class inicioAdoptante implements  Initializable {
+public class seccionPerroController implements  Initializable {
     private Stage cerrarVentanas;
     @FXML
     private Button btnAdopta;
@@ -54,13 +52,12 @@ public class inicioAdoptante implements  Initializable {
     private VBox contenedorSecciones;
 
     @FXML
-    private VBox contenedorTarjetas;
+    private FlowPane contenedorTarjetas;
     @FXML
     private TextField buscador;
     @FXML
     private Rectangle rectanguloFondo;
-    @FXML
-    private HBox contenedorCartitas;
+
     @FXML
     private ImageView imagenFondo;
     @FXML
@@ -77,11 +74,6 @@ public class inicioAdoptante implements  Initializable {
     @FXML
     private HBox contenedorCartas;
 
-    @FXML
-    private StackPane seccionGatos;
-
-    @FXML
-    private StackPane seccionPerros;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -89,68 +81,15 @@ public class inicioAdoptante implements  Initializable {
         imagenFondo.fitWidthProperty().bind(container.widthProperty());
         rectanguloFondo.widthProperty().bind(container.widthProperty());
         cargarAnimales();
-        buscador.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                String texto = buscador.getText().trim();
-                if (texto.isEmpty()) {
-                    mostrarVistaPrincipal();
-                } else {
-                    buscarAnimal(texto);
-                }
-            }
-        });
+
 
         btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Afiliacion.fxml", "Afiliación", btnAfiliacion));
         btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnEmpleado));
         btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesión", btnLogin));
         btnAdopta.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Inicio", btnAdopta));
-        seccionPerros.setOnMouseClicked(event -> {
-          c.cambiarPantallaStackPane("/org/utl/dsm/huellas_escritorio/Clientes/seccionPerros.fxml","Seccion de perros", seccionPerros);
-        });
+
     }
-    private void buscarAnimal(String nombre) {
-        HttpResponse<String> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/inicio/buscarAnimal")
-                .header("Content-Type", "application/json")
-                .body("{\"nombreAnimal\":\"" + nombre + "\"}")
-                .asString();
 
-        if (response.getStatus() == 200) {
-            Animales[] encontrados = new Gson().fromJson(response.getBody(), Animales[].class);
-
-            Platform.runLater(() -> {
-                contenedorBusqueda.setVisible(true);
-                contenedorBusqueda.setManaged(true);
-
-                contenedorSecciones.setVisible(false);
-                contenedorSecciones.setManaged(false);
-                contenedorTarjetas.setVisible(false);
-                contenedorTarjetas.setManaged(false);
-
-                contenedorResultados.getChildren().clear();
-
-
-                HBox filaActual = null;
-                for (int i = 0; i < encontrados.length; i++) {
-                    if (i % 3 == 0) {
-                        filaActual = new HBox(20);
-                        filaActual.setAlignment(Pos.CENTER);
-                        contenedorResultados.getChildren().add(filaActual);
-                    }
-
-                    VBox carta = crearCartaAnimal(encontrados[i]);
-                    filaActual.getChildren().add(carta);
-                }
-
-                if (filaActual != null && filaActual.getChildren().size() < 3) {
-                    while (filaActual.getChildren().size() < 3) {
-                        filaActual.getChildren().add(new Pane());
-                    }
-                }
-            });
-        } else {
-            System.out.println("Error al buscar animales: " + response.getStatus());
-        }
-    }
 
     private void mostrarVistaPrincipal() {
         contenedorBusqueda.setVisible(false);
@@ -171,7 +110,7 @@ public class inicioAdoptante implements  Initializable {
     }
 
     public void cargarAnimales() {
-        HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/mascotas/getAll")
+        HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/mascotas/getPerros")
                 .asString();
 
         if (response.getStatus() == 200) {
@@ -179,12 +118,12 @@ public class inicioAdoptante implements  Initializable {
             Animales[] lista = gson.fromJson(response.getBody(), Animales[].class);
 
             Platform.runLater(() -> {
-                contenedorCartas.getChildren().clear();
 
-                int maxCartas = 4;
+
+                int maxCartas = 6;
                 for (int i = 0; i < lista.length && i < maxCartas; i++) {
                     VBox carta = crearCartaAnimal(lista[i]);
-                    contenedorCartas.getChildren().add(carta);
+                    contenedorTarjetas.getChildren().add(carta);
                 }
             });
         }
@@ -279,3 +218,4 @@ public class inicioAdoptante implements  Initializable {
 
 
 }
+

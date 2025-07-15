@@ -13,6 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
@@ -21,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="1601.0" prefWidth="1106.0" style="-fx-background: #FCE7C8; -fx-border-color: #FCE7C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.inicioAdoptante">
+<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="1530.0" prefWidth="1106.0" style="-fx-background: #FCE7C8; -fx-border-color: #FCE7C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.seccionPerroController">
     <content>
         <BorderPane prefHeight="995.0" prefWidth="1102.0" style="-fx-background-color: #FCE7C8;" stylesheets="@../../../../../CSS/fuentes.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
             <top>
@@ -98,7 +99,7 @@
                 </HBox>
             </top>
             <bottom>
-                <HBox prefHeight="119.0" styleClass="footer" stylesheets="@../../../../../CSS/inicioAdopciones.css" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+                <HBox prefHeight="119.0" prefWidth="1102.0" styleClass="footer" stylesheets="@../../../../../CSS/inicioAdopciones.css" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
 
                     <children>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textoFooter" text="Derechos reservados  |  Términos de servicio |  2025 Todos los derechos reservados" translateX="200.0">
@@ -196,64 +197,85 @@
                             <Insets />
                         </VBox.margin>
                     </HBox>
-               <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="260.0">
+               <HBox prefHeight="100.0" prefWidth="200.0">
                   <children>
-                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="257.0" styleClass="contenedor-filtro" stylesheets="@../../../../../CSS/filtros.css">
-                        <opaqueInsets>
-                           <Insets left="10.0" />
-                        </opaqueInsets>
-                        <VBox.margin>
-                           <Insets bottom="20.0" />
-                        </VBox.margin>
+                     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="446.0" prefWidth="260.0">
                         <children>
-                           <Text layoutX="53.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Filtros">
-                              <font>
-                                 <Font size="23.0" />
-                              </font></Text>
-                           <ImageView fitHeight="28.0" fitWidth="40.0" layoutX="12.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                              <image>
-                                 <Image url="@../../../../../Iconos/filter-alt-regular-24.png" />
-                              </image>
-                           </ImageView>
-                           <Text layoutX="19.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Tipo">
-                              <font>
-                                 <Font size="17.0" />
-                              </font>
-                           </Text>
-                           <CheckBox layoutX="20.0" layoutY="94.0" mnemonicParsing="false" selected="true" styleClass="fuenteGeneral" text="Perros">
-                              <font>
-                                 <Font size="15.0" />
-                              </font>
-                           </CheckBox>
-                           <Text layoutX="18.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Tamaño">
-                              <font>
-                                 <Font size="17.0" />
-                              </font>
-                           </Text>
-                           <ComboBox layoutX="20.0" layoutY="160.0" prefHeight="35.0" prefWidth="219.0" promptText="Todos" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
-                           <Text layoutX="18.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Sexo">
-                              <font>
-                                 <Font size="17.0" />
-                              </font>
-                           </Text>
-                           <ComboBox layoutX="20.0" layoutY="249.0" prefHeight="35.0" prefWidth="219.0" promptText="Todos" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
-                           <Text layoutX="18.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Caracter">
-                              <font>
-                                 <Font size="17.0" />
-                              </font>
-                           </Text>
-                           <ComboBox layoutX="20.0" layoutY="336.0" prefHeight="35.0" prefWidth="219.0" promptText="Todos" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
-                           <Button layoutX="21.0" layoutY="393.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="215.0" styleClass="btn-unirme" text="Aplicar filtro" />
+                           <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="257.0" styleClass="contenedor-filtro" stylesheets="@../../../../../CSS/filtros.css">
+                              <opaqueInsets>
+                                 <Insets left="10.0" />
+                              </opaqueInsets>
+                              <VBox.margin>
+                                 <Insets bottom="20.0" />
+                              </VBox.margin>
+                              <children>
+                                 <Text layoutX="53.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Filtros">
+                                    <font>
+                                       <Font size="23.0" />
+                                    </font>
+                                 </Text>
+                                 <ImageView fitHeight="28.0" fitWidth="40.0" layoutX="12.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@../../../../../Iconos/filter-alt-regular-24.png" />
+                                    </image>
+                                 </ImageView>
+                                 <Text layoutX="19.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Tipo">
+                                    <font>
+                                       <Font size="17.0" />
+                                    </font>
+                                 </Text>
+                                 <CheckBox layoutX="20.0" layoutY="94.0" mnemonicParsing="false" selected="true" styleClass="fuenteGeneral" text="Perros">
+                                    <font>
+                                       <Font size="15.0" />
+                                    </font>
+                                 </CheckBox>
+                                 <Text layoutX="18.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Tamaño">
+                                    <font>
+                                       <Font size="17.0" />
+                                    </font>
+                                 </Text>
+                                 <ComboBox layoutX="20.0" layoutY="160.0" prefHeight="35.0" prefWidth="219.0" promptText="Todos" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                                 <Text layoutX="18.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Sexo">
+                                    <font>
+                                       <Font size="17.0" />
+                                    </font>
+                                 </Text>
+                                 <ComboBox layoutX="20.0" layoutY="249.0" prefHeight="35.0" prefWidth="219.0" promptText="Todos" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                                 <Text layoutX="18.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Caracter">
+                                    <font>
+                                       <Font size="17.0" />
+                                    </font>
+                                 </Text>
+                                 <ComboBox layoutX="20.0" layoutY="336.0" prefHeight="35.0" prefWidth="219.0" promptText="Todos" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                                 <Button layoutX="21.0" layoutY="393.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="215.0" text="Aplicar filtro">
+                                    <styleClass>
+                                       <String fx:value="btn-unirme" />
+                                       <String fx:value="fuenteGeneral-negritas" />
+                                    </styleClass>
+                                 </Button>
+                              </children>
+                           </AnchorPane>
                         </children>
-                     </AnchorPane>
+                        <opaqueInsets>
+                           <Insets />
+                        </opaqueInsets>
+                        <HBox.margin>
+                           <Insets left="20.0" />
+                        </HBox.margin>
+                     </VBox>
+                     <HBox fx:id="contenedorCartas" alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="764.0" prefWidth="718.0" spacing="30">
+                        <padding>
+                           <Insets bottom="10.0" />
+                        </padding>
+                        <HBox.margin>
+                           <Insets left="30.0" />
+                        </HBox.margin>
+                        <children>
+                           <FlowPane fx:id="contenedorTarjetas" alignment="TOP_CENTER" hgap="55.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="837.0" prefWidth="718.0" vgap="20.0" />
+                        </children>
+                     </HBox>
                   </children>
-                  <opaqueInsets>
-                     <Insets />
-                  </opaqueInsets>
-                  <VBox.margin>
-                     <Insets left="20.0" />
-                  </VBox.margin>
-               </VBox>
+               </HBox>
 
                     <stylesheets>
                         <URL value="@../../../../../CSS/inicioAdopciones.css" />
