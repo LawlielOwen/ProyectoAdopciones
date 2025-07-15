@@ -46,7 +46,8 @@ public class registro implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        btnVolver.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Registro", btnVolver));
+        cambioModulo c = new cambioModulo();
+        btnVolver.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Registro", btnVolver));
 
     }
 

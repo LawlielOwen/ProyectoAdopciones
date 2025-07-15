@@ -16,8 +16,9 @@ public class Main extends Application {
 
         primaryStage.setTitle("Huellitas Suaves");
         primaryStage.setScene(scene);
-        primaryStage.setWidth(1106);
-        primaryStage.setHeight(600);
+        primaryStage.setMaximized(true); // Esto la pone al tamaño completo de la pantalla (ventana maximizada)
+        primaryStage.show();
+
 
 
         primaryStage.show();

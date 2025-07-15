@@ -37,11 +37,11 @@ public class afiliacion implements  Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        btnAfiliacion.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Afiliacion.fxml", "Afiliacion", btnAfiliacion));
-        btnEmpleado.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnAfiliacion));
-        btnLogin.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesion", btnAfiliacion));
-        btnAdopta.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Iniciar Sesion", btnAfiliacion));
+        cambioModulo c = new cambioModulo();
+        btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Afiliacion.fxml", "Afiliacion", btnAfiliacion));
+        btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnAfiliacion));
+        btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesion", btnAfiliacion));
+        btnAdopta.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Iniciar Sesion", btnAfiliacion));
 
     }
     private void cambiarPantalla(String rutaFXML, String titulo, Button botonReferencia) {

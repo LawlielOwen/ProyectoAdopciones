@@ -25,6 +25,10 @@
 .fuenteGeneral{
     -fx-font-family: "Inter";
 }
+.fuenteGeneral-negritas{
+    -fx-font-family: "Inter bold";
+     -fx-font-weight: bold;
+}
 .fuenteGeneral-blanca{
     -fx-font-family: "Inter bold";
       -fx-text-fill: white;

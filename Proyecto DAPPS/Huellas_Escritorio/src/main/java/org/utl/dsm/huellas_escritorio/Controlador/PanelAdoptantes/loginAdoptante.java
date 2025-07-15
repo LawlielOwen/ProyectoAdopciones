@@ -39,11 +39,12 @@ public class loginAdoptante implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cambioModulo c = new cambioModulo();
         configurarFloatingLabel(correo, labelCorreo);
         configurarFloatingLabel(contra, labelContra);
 
-        btnVolver.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Iniciar Sesión", btnVolver));
-        registro.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/registro.fxml", "Registro", registro));
+        btnVolver.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Iniciar Sesión", btnVolver));
+        registro.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/registro.fxml", "Registro", registro));
     }
     private void configurarFloatingLabel(TextField campo, Label etiqueta) {
         campo.focusedProperty().addListener((obs, oldVal, newVal) -> {

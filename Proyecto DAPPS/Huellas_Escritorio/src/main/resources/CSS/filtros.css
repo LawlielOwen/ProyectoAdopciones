@@ -1,0 +1,5 @@
+.contenedor-filtro{
+-fx-background-color: white;
+-fx-border-radius:  20px;
+ -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 8);
+}

@@ -36,7 +36,8 @@ public class loginEmpleado implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        btnVolver.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Iniciar Sesión", btnVolver));
+        cambioModulo c = new cambioModulo();
+        btnVolver.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Iniciar Sesión", btnVolver));
         configurarFloatingLabel(correo, labelCorreo);
         configurarFloatingLabel(contra, labelContra);
         btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/Mascotas.fxml","Gestion Mascotas",btnLogin));

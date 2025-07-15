@@ -80,6 +80,7 @@ public class inicioAdoptante implements  Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cambioModulo c = new cambioModulo();
         imagenFondo.fitWidthProperty().bind(container.widthProperty());
         rectanguloFondo.widthProperty().bind(container.widthProperty());
         cargarAnimales();
@@ -94,10 +95,10 @@ public class inicioAdoptante implements  Initializable {
             }
         });
 
-        btnAfiliacion.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Afiliacion.fxml", "Afiliación", btnAfiliacion));
-        btnEmpleado.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnEmpleado));
-        btnLogin.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesión", btnLogin));
-        btnAdopta.setOnAction(event -> cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Inicio", btnAdopta));
+        btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Afiliacion.fxml", "Afiliación", btnAfiliacion));
+        btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnEmpleado));
+        btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesión", btnLogin));
+        btnAdopta.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Inicio", btnAdopta));
 
     }
     private void buscarAnimal(String nombre) {
