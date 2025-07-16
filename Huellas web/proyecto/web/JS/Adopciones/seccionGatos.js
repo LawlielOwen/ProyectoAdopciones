@@ -201,3 +201,23 @@ function actualizarTabla(animalesFiltrados) {
       </div>`;
   });
 }
+function aplicarFiltros() {
+  const genero = document.getElementById("filtroSexo").value;
+  const edad = document.getElementById("filtroedad").value;
+  fetch("http://localhost:8080/ProyectoHuellas/api/inicio/filtroGatos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      genero: genero,
+      edad: edad
+    })
+  })
+    .then(res => res.json())
+    .then(data => {
+
+      actualizarTabla(data);
+    })
+    ;
+}

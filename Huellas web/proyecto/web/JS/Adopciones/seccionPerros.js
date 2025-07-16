@@ -139,30 +139,30 @@ function mostrarInfo(id) {
 
 }
 document.getElementById("buscar").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        const termino = this.value.trim();
+  if (e.key === "Enter") {
+    const termino = this.value.trim();
 
-        if (termino === "") {
-            cargarMascotas();
-        } else {
-            buscarMascotasPorNombre(termino);
-        }
+    if (termino === "") {
+      cargarMascotas();
+    } else {
+      buscarMascotasPorNombre(termino);
     }
+  }
 });
 function buscarMascotasPorNombre(nombre) {
-    fetch("http://localhost:8080/ProyectoHuellas/api/inicio/buscarPerro", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ nombreAnimal: nombre })
+  fetch("http://localhost:8080/ProyectoHuellas/api/inicio/buscarPerro", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ nombreAnimal: nombre })
+  })
+    .then(res => res.json())
+    .then(data => {
+
+      actualizarTabla(data);
     })
-        .then(res => res.json())
-        .then(data => {
-     
-            actualizarTabla(data);
-        })
-        ;
+    ;
 }
 function actualizarTabla(animalesFiltrados) {
   const contenedor = document.getElementById("contenedorCartas");
@@ -202,4 +202,24 @@ function actualizarTabla(animalesFiltrados) {
         </div>
       </div>`;
   });
+}
+function aplicarFiltros() {
+  const genero = document.getElementById("filtroSexo").value;
+  const tamano = document.getElementById("filtroTamano").value;
+  fetch("http://localhost:8080/ProyectoHuellas/api/inicio/filtroPerros", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      genero: genero,
+      tamano: tamano
+    })
+  })
+    .then(res => res.json())
+    .then(data => {
+
+      actualizarTabla(data);
+    })
+    ;
 }

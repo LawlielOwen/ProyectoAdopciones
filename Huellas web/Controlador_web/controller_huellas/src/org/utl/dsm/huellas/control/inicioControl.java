@@ -51,6 +51,7 @@ public class inicioControl {
         }
 
     }
+  
        public List<Animales> busquedaAnimal(String nombre) throws Exception {
     List<Animales> lista = new ArrayList<>();
     ConexionMySQL conn = new ConexionMySQL();
@@ -108,4 +109,46 @@ public class inicioControl {
 
     return lista;
 }
+             public List<Animales> filtrarPerros(Animales a) throws Exception {
+        List<Animales> lista = new ArrayList<>();
+        ConexionMySQL conn = new ConexionMySQL();
+        Connection con = conn.open();
+
+        String sql = "CALL filtrarPerros(?,?)";
+        CallableStatement stmt = con.prepareCall(sql);
+        stmt.setString(1, a.getTamano());
+         stmt.setString(2, a.getGenero());
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            lista.add(fill(rs));
+        }
+
+        rs.close();
+        stmt.close();
+        con.close();
+
+        return lista;
+    }
+                   public List<Animales> filtrarGatos(Animales a) throws Exception {
+        List<Animales> lista = new ArrayList<>();
+        ConexionMySQL conn = new ConexionMySQL();
+        Connection con = conn.open();
+
+        String sql = "CALL filtrarGatos(?,?)";
+        CallableStatement stmt = con.prepareCall(sql);
+        stmt.setString(1, a.getEdad());
+         stmt.setString(2, a.getGenero());
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            lista.add(fill(rs));
+        }
+
+        rs.close();
+        stmt.close();
+        con.close();
+
+        return lista;
+    }
 }
