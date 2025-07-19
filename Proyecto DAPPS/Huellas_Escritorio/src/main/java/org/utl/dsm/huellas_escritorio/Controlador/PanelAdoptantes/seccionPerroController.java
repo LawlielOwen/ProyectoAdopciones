@@ -2,6 +2,7 @@ package org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes;
 import java.util.*;
 import java.io.ByteArrayInputStream;
 import javafx.geometry.Pos;
+import javafx.scene.CacheHint;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
@@ -152,8 +153,11 @@ public class seccionPerroController implements  Initializable {
         }
     }
     private VBox crearCartaAnimal(Animales animal) {
+
         String base64Image = animal.getFoto().split(",")[1];
         byte[] imageBytes = Base64.getDecoder().decode(base64Image);
+
+
         Image img = new Image(new ByteArrayInputStream(imageBytes));
 
         ImageView imageView = new ImageView(img);
@@ -167,9 +171,7 @@ public class seccionPerroController implements  Initializable {
         clip.setArcHeight(20);
         imageView.setClip(clip);
 
-
         VBox.setMargin(imageView, new Insets(20, 0, 0, 0));
-
 
         Label lblCategoria = new Label(animal.getEspecie());
         lblCategoria.getStyleClass().add("categoria");
@@ -177,30 +179,38 @@ public class seccionPerroController implements  Initializable {
         Text txtNombre = new Text(animal.getNombreAnimal());
         txtNombre.getStyleClass().add("nombreAnimal");
 
-        Text txtCaracter = new Text("Carácter: N/A");
-        txtCaracter.getStyleClass().add("infoAnimal");
-
-        Text txtEdad = new Text("Edad: " + animal.getEdad());
-        txtEdad.getStyleClass().add("infoAnimal");
-
-        HBox contInfo = new HBox(10, txtCaracter, txtEdad);
 
         Text txtSexo = new Text("Sexo: " + animal.getGenero());
         txtSexo.getStyleClass().add("infoAnimal");
 
+
+        Text txtEdad = new Text("Edad: " + animal.getEdad());
+        txtEdad.getStyleClass().add("infoAnimal");
+
+        HBox contInfo = new HBox(10, txtSexo, txtEdad);
+
+        Text txtCaracter = new Text("Carácter: " + animal.getCaracter());
+        txtCaracter.getStyleClass().add("infoAnimal");
+
         Button btnAdoptame = new Button("Adóptame 🐾");
         btnAdoptame.getStyleClass().add("button-carta");
         btnAdoptame.setOnAction(e -> mostrarDetalleAnimal(animal));
-        VBox contInfoBox = new VBox(4, lblCategoria, txtNombre, contInfo, txtSexo);
+
+        VBox contInfoBox = new VBox(4, lblCategoria, txtNombre, contInfo, txtCaracter);
         VBox.setMargin(contInfoBox, new Insets(10, 0, 20, 20));
         VBox.setMargin(btnAdoptame, new Insets(0, 0, 20, 0));
 
+        // Contenedor final
         VBox carta = new VBox();
         carta.setAlignment(Pos.TOP_CENTER);
         carta.setPrefHeight(380);
-        carta.setPrefWidth(250);
+        carta.setPrefWidth(260);
         carta.getStyleClass().add("cartaAnimal");
         carta.getChildren().addAll(imageView, contInfoBox, btnAdoptame);
+
+
+        carta.setCache(true);
+        carta.setCacheHint(CacheHint.SPEED);
 
         return carta;
     }

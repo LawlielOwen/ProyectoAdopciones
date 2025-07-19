@@ -50,29 +50,43 @@ header {
     border-radius: 50%;
     margin-right: 15px;
 }
-header .sesionP {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
+
+.perfil-container {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 
-header .sesionP .dropdown-menu {
-    position: absolute;
-    right: 0; 
-    left: auto; 
-    top: 100%;
-    font-size: 14px;
+.navbar {
+  position: relative; 
+  width: 100%;
+  display: flex;
+  justify-content: center; 
 }
-header .sesionP i {
-    font-size: 25px;
-    line-height: 0; 
-    vertical-align: middle;
-    display: inline-flex; 
-    align-items: center;
+
+
+.perfil {
+  margin-left: auto;
+  padding-right: 40px;
 }
-.datosUsuario{
-    height: 50px;
+
+
+.perfil-dropdown {
+  min-width: 280px;
+  padding: 8px;
+  right: 0 !important; 
+  left: auto !important;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+.foto-perfil-teams {
+    width: 48px;
+    height: 48px; 
+    border-radius: 50%;
+    object-fit: cover; 
+    margin-right: 12px;
+   
 }

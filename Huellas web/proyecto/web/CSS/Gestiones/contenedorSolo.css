@@ -100,7 +100,7 @@
                  
 }
 
-.iconoConta, .iconoConta2 {
+.iconoConta, .iconoConta2, .iconoConta3 {
     position: absolute;
     right: 21px;
     top: 50%;
@@ -119,7 +119,10 @@
 .iconoConta2{
     background: linear-gradient(87deg, #f5365c 0, #f56036 100%);
 }
-.iconoConta img , .iconoConta2 img {
+.iconoConta3 {
+    background: linear-gradient(87deg, #2dce89 0, #2dcecc 100%);
+}
+.iconoConta img , .iconoConta2 img, .iconoConta3 img{
     width: 32px;
     height: 32px;
 }

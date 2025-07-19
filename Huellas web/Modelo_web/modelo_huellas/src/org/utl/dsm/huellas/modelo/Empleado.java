@@ -1,16 +1,30 @@
-
 package org.utl.dsm.huellas.modelo;
-import java.time.LocalDate;
+
 public class Empleado extends Persona {
     private int idEmpleado;
     private String direccion;
     private int CP;
     private String codigo;
     private String rol;
-    private int estatus;
+    private int centro;
 
-   
-    public Empleado() {
+    public Empleado(int idEmpleado, String direccion, int CP, String codigo, String rol, int centro) {
+        this.idEmpleado = idEmpleado;
+        this.direccion = direccion;
+        this.CP = CP;
+        this.codigo = codigo;
+        this.rol = rol;
+        this.centro = centro;
+    }
+
+    public Empleado(int idEmpleado, String direccion, int CP, String codigo, String rol, int centro, String nombre, String app, String apm, String fechaNacimiento, String correo, String contraseña, String foto, String telefono, String genero, int estatus) {
+        super(nombre, app, apm, fechaNacimiento, correo, contraseña, foto, telefono, genero, estatus);
+        this.idEmpleado = idEmpleado;
+        this.direccion = direccion;
+        this.CP = CP;
+        this.codigo = codigo;
+        this.rol = rol;
+        this.centro = centro;
     }
 
     public int getIdEmpleado() {
@@ -53,13 +67,15 @@ public class Empleado extends Persona {
         this.rol = rol;
     }
 
-    public int getEstatus() {
-        return estatus;
+    public int getCentro() {
+        return centro;
     }
 
-    public void setEstatus(int estatus) {
-        this.estatus = estatus;
+    public void setCentro(int centro) {
+        this.centro = centro;
     }
-    
-    
+
+    public Empleado() {
+    }
+
 }

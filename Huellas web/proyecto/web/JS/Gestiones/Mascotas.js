@@ -1,5 +1,6 @@
 animales = [];
 buscarid = [];
+centros = [];
 let idAnimalEliminar = null;
 let especieSeleccionada = "Todos";
 let estatusSeleccionado = "Todos";
@@ -21,6 +22,7 @@ function cargarCentros() {
     fetch("http://localhost:8080/ProyectoHuellas/api/centros/getAll")
         .then(res => res.json())
         .then(data => {
+            centros = data;
             let opciones = `<option value="">Selecciona una opción</option>`;
             data.forEach(c => {
                 opciones += `<option value="${c.idCentro}">${c.nombreCentro}</option>`;
@@ -57,8 +59,9 @@ function cargarMascotas() {
                                 </button>
                                 <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
                                     data-bs-target="#eliminarAnimal"  onclick="prepararEliminar(${a.idAnimal})"><i class='bx bx-trash'></i></button>
-                                <button class="btn btn-sm btn-outline-info">
-                                    <i class='bx bxs-info-circle'></i>
+                                <button class="btn btn-sm btn-outline-info"  data-bs-toggle="modal" data-bs-target="#infoAnimal"
+                                onclick="mostrarInfoAnimal(${a.idAnimal})">
+                                    <i class='bx bxs-info-circle' ></i>
                                 </button>
                         </td>
                     </tr>
@@ -83,12 +86,16 @@ function actualizarTabla(data) {
                 <td>${a.peso}</td>
                 <td>${a.especie}</td>
                 <td>
-                    <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal"
-                            data-bs-target="#modAnimal"><i class='bx bxs-edit'></i></button>
-                    <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                            data-bs-target="#eliminarAnimal"><i class='bx bx-trash'></i></button>
-                    <button class="btn btn-sm btn-outline-info">
-                        <i class='bx bxs-info-circle'></i></button>
+                     <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal"
+                                    data-bs-target="#modAnimal"  onclick="cargarAnimal(${a.idAnimal})">
+                                    <i class='bx bxs-edit'></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                                    data-bs-target="#eliminarAnimal"  onclick="prepararEliminar(${a.idAnimal})"><i class='bx bx-trash'></i></button>
+                                <button class="btn btn-sm btn-outline-info"  data-bs-toggle="modal" data-bs-target="#infoAnimal"
+                                onclick="mostrarInfoAnimal(${a.idAnimal})">
+                                    <i class='bx bxs-info-circle' ></i>
+                                </button>
                 </td>
             </tr>
         `;
@@ -130,6 +137,7 @@ function agregarMascota() {
     const fotoFile = document.getElementById("fotoAnimal").files[0];
     const centro = document.getElementById("centro").value;
     const descripcion = document.getElementById("descripcionAnimal").value.trim();
+    const caracter = document.getElementById("caracter").value;
 
 
     if (!nombre || !genero || !edad || !peso || !especie || !fotoFile || !centro) {
@@ -154,7 +162,8 @@ function agregarMascota() {
             raza: raza,
             tamano: tamanio,
             foto: base64Foto,
-            idCentro: parseInt(centro)
+            idCentro: parseInt(centro),
+            caracter: caracter
         };
 
 
@@ -189,6 +198,7 @@ function cargarAnimal(id) {
         document.getElementById("descripcionMod").value = animal.descripcion;
         document.getElementById("centroMod").value = animal.idCentro;
         document.getElementById("fotoVistaMod").src = animal.foto;
+        document.getElementById("caracterMod").value = animal.caracter;
     }
 }
 
@@ -205,7 +215,7 @@ function modificarAnimal() {
         tamano: document.getElementById("tamanioMod").value,
         descripcion: document.getElementById("descripcionMod").value,
         idCentro: parseInt(document.getElementById("centroMod").value),
-
+        caracter: document.getElementById("caracterMod").value
     };
 
     fetch("http://localhost:8080/ProyectoHuellas/api/mascotas/updateAnimal", {
@@ -290,4 +300,38 @@ function cargarContadores() {
             document.getElementById("contadorAdoptados").innerHTML = num;
         })
 
+}
+function mostrarInfoAnimal(idAnimal) {
+  const animal = animales.find(a => a.idAnimal == idAnimal);
+   const centro = centros.find(c => c.idCentro == animal.idCentro);
+  if (!animal) return;
+
+
+  document.getElementById('infoFotoAnimal').src = animal.foto;
+  document.getElementById('infoNombre').textContent = animal.nombreAnimal;
+  document.getElementById('infoCodigo').textContent = animal.codigoAnimal;
+  document.getElementById('infoGenero').textContent = animal.genero;
+  document.getElementById('infoEdad').textContent = animal.edad;
+  document.getElementById('infoTamanio').textContent = animal.tamano;
+  document.getElementById('infoEspecie').textContent = animal.especie;
+  document.getElementById('infoRaza').textContent = animal.raza;
+  document.getElementById('infoPeso').textContent = `${animal.peso} kg`;
+  document.getElementById('infoCentro').textContent = centro.nombreCentro;
+  document.getElementById('infoDescripcion').textContent = animal.descripcion;
+
+  const estatusBadge = document.getElementById('infoEstatusBadge');
+  const estatusText = document.getElementById('infoEstatus');
+  
+  if (animal.estatus === 1) {
+    estatusBadge.className = 'badge bg-success py-2 px-3 rounded-pill';
+    estatusText.textContent = 'Disponible';
+  } else if (animal.estatus === 2) {
+    estatusBadge.className = 'badge bg-warning py-2 px-3 rounded-pill';
+    estatusText.textContent = 'Adoptado';
+  } else {
+    estatusBadge.className = 'badge bg-secondary py-2 px-3 rounded-pill';
+    estatusText.textContent = 'No disponible';
+  }
+
+ 
 }

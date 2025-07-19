@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../CSS/Gestiones/contenedorSolo.css">
     <link rel="stylesheet" href="../CSS/Gestiones/contenedor.css  ">
     <link rel="stylesheet" href="../CSS/Gestiones/tablaGestion.css">
+    <link rel="stylesheet" href="../CSS/Gestiones/solicitud.css">
 </head>
 
 <body>
@@ -30,7 +31,7 @@
                         <span class="input-group-text p-0 border-0 bg-transparent" id="basic-addon1">
                             <img src="../iconos/magnifying-glass-solid.svg" class="botonBusqueda">
                         </span>
-                        <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+                        <input type="text" class="form-control" placeholder="Buscar por nombre del animal o del adoptante" aria-label="Buscar" id="buscar"
                             aria-describedby="basic-addon1">
                     </div>
                 </div>
@@ -116,15 +117,35 @@
                     <h4 class="fw-bold">Gestión de solicitudes</h4>
                 </div>
 
-                <div class="contenedorSolo ">
-                    <h4>Solicitudes Pendientes</h4>
-                    <div class="adoptadosOrden">
-                        <p id="contadorAdoptados">4</p>
-                        <i class="iconoConta">
-                            <img src="../iconos/IconosGestion/informe-medico.png">
-                        </i>
-                    </div>
-                </div>
+              <div class="contenedorSolo">
+    <h4>Solicitudes Pendientes</h4>
+    <div class="adoptadosOrden">
+        <p id="contadorPendientes"></p>
+        <i class="iconoConta">
+            <img src="../iconos/IconosGestion/informe-medico.png" alt="pendientes">
+        </i>
+    </div>
+</div>
+
+<div class="contenedorSolo">
+    <h4>Solicitudes Aceptadas</h4>
+    <div class="adoptadosOrden">
+        <p id="contadorAceptadas"></p>
+        <i class="iconoConta3">
+            <img src="../iconos/IconosGestion/check-circle-solid-24.png" alt="aceptadas">
+        </i>
+    </div>
+</div>
+
+<div class="contenedorSolo">
+    <h4>Solicitudes Rechazadas</h4>
+    <div class="adoptadosOrden">
+        <p id="contadorRechazadas"></p>
+        <i class="iconoConta2">
+            <img src="../iconos/IconosGestion/x-circle-solid-24.png" alt="rechazadas">
+        </i>
+    </div>
+</div>
             </div>
             </div>
         </section>
@@ -138,10 +159,10 @@
                             Todos
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Todos</a></li>
-                            <li><a class="dropdown-item" href="#">Aceptada</a></li>
-                            <li><a class="dropdown-item" href="#">Pendiente</a></li>
-                            <li><a class="dropdown-item" href="#">Rechazada</a></li>
+                            <li><a class="dropdown-item" href="#" id="Todos">Todos</a></li>
+                            <li><a class="dropdown-item" href="#" id="Aceptada">Aceptada</a></li>
+                            <li><a class="dropdown-item" href="#" id="Pendiente">Pendiente</a></li>
+                            <li><a class="dropdown-item" href="#" id="Rechazada">Rechazada</a></li>
                         </ul>
                     </div>
                 </div>
@@ -159,32 +180,11 @@
                             <th scope="col">Adoptante</th>
                             <th scope="col">Contacto</th>
                             <th scope="col">Correo</th>
-                            <th scope="col">Direccion</th>
                             <th scope="col">Revisar Solicitud</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-
-                            <td class=" mascotasCol"><span><img src="../img/fotoPrueba.jpg">
-                                    Laika</span></td>
-                            <td>
-                                <span class="active bg-success"></span>
-                                Activo
-                            </td>
-                            <td>Macho</td>
-                            <td>2 años</td>
-                            <td>PUGM000</td>
-                            <td>Pug</td>
-                            <td>5 kg</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#revisarSolicitud">
-                                    <i class='bx bxs-info-circle'></i>
-                                </button>
-                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                                data-bs-target="#eliminarSolicitud"><i class='bx bx-trash'></i></button>
-                            </td>
-                        </tr>
+                    <tbody id="cuerpoTabla">
+                      
                     </tbody>
                 </table>
             </div>
@@ -207,32 +207,17 @@
             </nav>
         </div>
     </main>
-<!-- Ver la solciitud aqui-->
-<div class="modal fade" id="revisarSolicitud" tabindex="-1" aria-labelledby="revisarSolicitud" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-info text-white">
-        <h5 class="modal-title" id="revisar"><i class='bx bxs-info-circle'></i> Revisar Solicitud</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <p><strong>Mascota:</strong> <span id="solicitudMascota"></span></p>
-        <p><strong>Adoptante:</strong> <span id="solicitudAdoptante"></span></p>
-        <p><strong>Fecha:</strong> <span id="solicitudFecha"></span></p>
-        <p><strong>Contacto:</strong> <span id="solicitudContacto"></span></p>
-        <p><strong>Correo:</strong> <span id="solicitudCorreo"></span></p>
-        <p><strong>Dirección:</strong> <span id="solicitudDireccion"></span></p>
-        <p><strong>Estatus actual:</strong> <span id="solicitudEstatus"></span></p>
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button type="button" id="btnAceptar" class="btn btn-success">Aceptar</button>
-        <button type="button" id="btnRechazar" class="btn btn-danger">Rechazar</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
+
+
+<div class="modal fade" id="revisarSolicitud" tabindex="-1" aria-labelledby="revisarSolicitudLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" id="informacion">
+    
+      
     </div>
   </div>
 </div>
-<!-- aqui se elimina a solicitud -->
+
 <div class="modal fade" id="eliminarSolicitud" tabindex="-1" aria-labelledby="eliminarSolicitud" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -247,7 +232,7 @@
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-danger"><i class='bx bxs-trash'></i> Eliminar</button>
+          <button type="submit" class="btn btn-danger" onclick="eliminarSolicitud()"><i class='bx bxs-trash'></i> Eliminar</button>
         </div>
       </form>
     </div>
@@ -256,6 +241,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../JS/Gestiones/BarraNavegacion.js"></script>
+    <script src="../JS/Gestiones/solcitudes.js"></script>
 </body>
 
 </html>

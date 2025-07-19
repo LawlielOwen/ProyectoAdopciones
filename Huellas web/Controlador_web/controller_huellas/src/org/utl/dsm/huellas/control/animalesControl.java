@@ -26,6 +26,7 @@ public class animalesControl {
         a.setDescripcion(rs.getString("descripcion_animal"));
         a.setRaza(rs.getString("raza_animal"));
         a.setTamano(rs.getString("tamaño_animal"));
+        a.setCaracter(rs.getString("caracter_animal"));
         int estatusInt = rs.getInt("estatus_animal");
         a.setEstatus(estatusInt);
         a.setEstatusTexto(tomarEstatus(estatusInt));
@@ -155,7 +156,7 @@ public class animalesControl {
         ConexionMySQL conexion = new ConexionMySQL();
         Connection conn = conexion.open();
 
-        String call = "{CALL agregarA(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+        String call = "{CALL agregarA(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)}";
         CallableStatement cstmt = conn.prepareCall(call);
 
         cstmt.setString(1, a.getNombreAnimal());
@@ -169,7 +170,7 @@ public class animalesControl {
         cstmt.setString(9, codigoAnimal);
         cstmt.setString(10, fotoBase64);
         cstmt.setInt(11, a.getIdCentro());
-
+        cstmt.setString(12, a.getCaracter());
         cstmt.executeUpdate();
 
         cstmt.close();
@@ -204,7 +205,7 @@ public class animalesControl {
     }
 
     public void modificarAanimal(Animales a) throws Exception {
-        String sql = "{CALL  modAnimal(?, ?, ?, ?, ?,?,?,?,?,?)}";
+        String sql = "{CALL  modAnimal(?, ?, ?, ?, ?,?,?,?,?,?,?)}";
 
         ConexionMySQL conn = new ConexionMySQL();
         Connection conns = conn.open();
@@ -220,6 +221,7 @@ public class animalesControl {
         cstmt.setString(8, a.getRaza());
         cstmt.setString(9, a.getTamano());
         cstmt.setInt(10, a.getIdCentro());
+                cstmt.setString(11, a.getCaracter());
         cstmt.executeUpdate();
         cstmt.close();
         conn.close();

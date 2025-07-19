@@ -58,7 +58,8 @@ public class modificarAnimal implements  Initializable{
 
     @FXML
     private TextField pesoMod;
-
+    @FXML
+    private ComboBox<String> caracterMod;
     @FXML
     private TextField razaMod;
 
@@ -104,7 +105,10 @@ public class modificarAnimal implements  Initializable{
                 "Perros", "Gatos"
         );
         especieMod.setItems(especies);
-
+        ObservableList<String> caracte = FXCollections.observableArrayList(
+                "Juguetón", "Tranquilo","Guardián","Tímido","Activo"
+        );
+        caracterMod.setItems(caracte);
         HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/centros/getAll").asString();
 
         if (response.getStatus() == 200) {
@@ -135,6 +139,7 @@ public class modificarAnimal implements  Initializable{
         tamanoMod.setValue(a.getTamano());
         nombreCentroMod.setValue(c.getNombreCentro());
         descripcionMod.setText(a.getDescripcion());
+        caracterMod.setValue(a.getCaracter());
         String base64 = a.getFoto().split(",")[1];
         byte[] imgBytes = Base64.getDecoder().decode(base64);
         Image img = new Image(new ByteArrayInputStream(imgBytes));
@@ -158,6 +163,7 @@ public class modificarAnimal implements  Initializable{
         String Descrip =  descripcionMod.getText();
         String Especie = especieMod.getValue();
         String nombreC = nombreCentroMod.getValue();
+        String caracter = caracterMod.getValue();
         int idCentro = -1;
         idCentro = obtenerCentros(nombreC);
         String Tamano =  tamanoMod.getValue();
@@ -172,6 +178,7 @@ public class modificarAnimal implements  Initializable{
                 + "\"descripcion\":\"" + Descrip + "\","
                 + "\"raza\":\"" + razaA + "\","
                 + "\"tamano\":\"" + Tamano + "\","
+                + "\"caracter\":\"" + caracter + "\","
                 + "\"idCentro\":" + idCentro
                 + "}";
 
@@ -212,5 +219,6 @@ public class modificarAnimal implements  Initializable{
         nombreCentroMod.setValue(null);
         tamanoMod.setValue(null);
         fotoMuestra.setImage(null);
+        caracterMod.setValue(null);
     }
 }

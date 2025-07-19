@@ -321,7 +321,7 @@ public class gestionMascotas implements  Initializable{
     }
     public void abrirAgregar()  {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Empleados/Formularios/agregarAnimal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Empleados/Formularios/GestionAnimales/agregarAnimal.fxml"));
             Parent root = loader.load();
 
             formulariosAnimal controller = loader.getController();
@@ -341,7 +341,7 @@ public class gestionMascotas implements  Initializable{
     }
     public void abrirBorrar(Animales animal)  {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Empleados/Formularios/borrarAnimal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Empleados/Formularios/GestionAnimales/borrarAnimal.fxml"));
             Parent root = loader.load();
            borrarAnimal controller = loader.getController();
            controller.setController(this);
@@ -439,7 +439,7 @@ public class gestionMascotas implements  Initializable{
     }
     public void abrirModificar(Animales animal, Centros centro) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Empleados/Formularios/modificarAnimal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Empleados/Formularios/GestionAnimales/modificarAnimal.fxml"));
             Parent root = loader.load();
 
             modificarAnimal controller = loader.getController();

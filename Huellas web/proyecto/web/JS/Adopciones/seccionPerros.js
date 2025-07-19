@@ -26,34 +26,34 @@ function cargarMascotas() {
       let cards = "";
 
       animales.forEach(a => {
-        cards += `
-                <div class="col">
-                  <div class="card cartaAnimal">
-                    <img src="${a.foto}" class="card-img-top" alt="Foto de ${a.nombreAnimal}">
-                    <div class="card-body">
-                      <p class="card-text categoria">${a.especie}</p>
-                      <div class="info">
-                        <h5 class="card-title fw-bold">${a.nombreAnimal}</h5>
-                        <div class="row">
-                          <div class="col-6">
-                            <p class="card-text nowrap">Carácter: N/A</p>
-                          </div>
-                          <div class="col-6">
-                            <p class="card-text nowrap">Edad: ${a.edad} años</p>
-                          </div>
-                        </div>
-                        <p class="card-text mt-1">Sexo: ${a.genero}</p>
-                      </div>
-                      <div class="text-center">
-                        <button class="btn button-carta" data-bs-toggle="modal" data-bs-target="#info"
-                         onclick="mostrarInfo(${a.idAnimal})">
-                          Adóptame 🐾
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                `;
+       cards += `
+  <div class="col">
+    <div class="card cartaAnimal">
+      <img src="${a.foto}" class="card-img-top" alt="Foto de ${a.nombreAnimal}">
+      <div class="card-body">
+        <p class="card-text categoria">${a.especie}</p>
+        <div class="info">
+          <h5 class="card-title fw-bold">${a.nombreAnimal}</h5>
+          <div class="row">
+            <div class="col-6">
+              <p class="card-text nowrap">Edad: ${a.edad} años</p>
+            </div>
+            <div class="col-6">
+              <p class="card-text nowrap">Sexo: ${a.genero}</p>
+            </div>
+          </div>
+          <p class="card-text mt-1">Carácter: ${a.caracter}</p>
+        </div>
+        <div class="text-center">
+          <button class="btn button-carta" data-bs-toggle="modal" data-bs-target="#info"
+            onclick="mostrarInfo(${a.idAnimal})">
+            Adóptame 🐾
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
       });
 
       document.getElementById("contenedorCartas").innerHTML = cards;
@@ -119,7 +119,7 @@ function mostrarInfo(id) {
           </div>
           <div class="d-flex flex-wrap gap-2">
            <button class="btn btn-success px-4 py-2 rounded-3 d-flex align-items-center gap-2 shadow-sm"
-             onclick="revisarSesion()">
+            onclick="revisarSesion(${animal.idAnimal})">
               <i class='bx bxs-heart'></i> Adóptame
             </button>
             <button class="btn btn-outline-dark px-4 py-2 rounded-3 d-flex align-items-center gap-2 shadow-sm" data-bs-dismiss="modal">
@@ -175,37 +175,38 @@ function actualizarTabla(animalesFiltrados) {
 
   animalesFiltrados.forEach(a => {
     contenedor.innerHTML += `
-      <div class="col">
-        <div class="card cartaAnimal">
-          <img src="${a.foto}" class="card-img-top" alt="Foto de ${a.nombreAnimal}">
-          <div class="card-body">
-            <p class="card-text categoria">${a.especie}</p>
-            <div class="info">
-              <h5 class="card-title fw-bold">${a.nombreAnimal}</h5>
-              <div class="row">
-                <div class="col-6">
-                  <p class="card-text nowrap">Carácter: N/A</p>
-                </div>
-                <div class="col-6">
-                  <p class="card-text nowrap">Edad: ${a.edad} años</p>
-                </div>
-              </div>
-              <p class="card-text mt-1">Sexo: ${a.genero}</p>
+       <div class="col">
+    <div class="card cartaAnimal">
+      <img src="${a.foto}" class="card-img-top" alt="Foto de ${a.nombreAnimal}">
+      <div class="card-body">
+        <p class="card-text categoria">${a.especie}</p>
+        <div class="info">
+          <h5 class="card-title fw-bold">${a.nombreAnimal}</h5>
+          <div class="row">
+            <div class="col-6">
+              <p class="card-text nowrap">Edad: ${a.edad} años</p>
             </div>
-            <div class="text-center">
-              <button class="btn button-carta" data-bs-toggle="modal" data-bs-target="#info"
-                onclick="mostrarInfo(${a.idAnimal})">
-                Adóptame 🐾
-              </button>
+            <div class="col-6">
+              <p class="card-text nowrap">Sexo: ${a.genero}</p>
             </div>
           </div>
+          <p class="card-text mt-1">Carácter: ${a.caracter}</p>
         </div>
-      </div>`;
+        <div class="text-center">
+          <button class="btn button-carta" data-bs-toggle="modal" data-bs-target="#info"
+            onclick="mostrarInfo(${a.idAnimal})">
+            Adóptame 🐾
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>`;
   });
 }
 function aplicarFiltros() {
   const genero = document.getElementById("filtroSexo").value;
   const tamano = document.getElementById("filtroTamano").value;
+   const caracter = document.getElementById("filtroCaracter").value;
   fetch("http://localhost:8080/ProyectoHuellas/api/inicio/filtroPerros", {
     method: "POST",
     headers: {
@@ -213,7 +214,8 @@ function aplicarFiltros() {
     },
     body: JSON.stringify({
       genero: genero,
-      tamano: tamano
+      tamano: tamano,
+      caracter : caracter
     })
   })
     .then(res => res.json())

@@ -59,6 +59,8 @@ public class formulariosAnimal implements Initializable  {
     private Button subirFoto;
 
     @FXML
+    private ComboBox<String> caracter;
+    @FXML
     private ComboBox<String> tamano;
 
 
@@ -103,6 +105,10 @@ public class formulariosAnimal implements Initializable  {
                 "Perros","Gatos"
         );
         especie.setItems(especies);
+        ObservableList<String> caracte = FXCollections.observableArrayList(
+                "Juguetón", "Tranquilo","Guardián","Tímido","Activo"
+        );
+        caracter.setItems(caracte);
         HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/centros/getAll").asString();
 
         if (response.getStatus() == 200) {
@@ -149,6 +155,7 @@ public class formulariosAnimal implements Initializable  {
        String Descrip =  descripcion.getText();
         String Especie = especie.getValue();
         String nombreC = nombreCentro.getValue();
+        String cara = caracter.getValue();
         String foto = "";
         if (archivoSeleccionado != null) {
             try {
@@ -170,6 +177,7 @@ public class formulariosAnimal implements Initializable  {
                 + "\"descripcion\":\"" + Descrip + "\","
                 + "\"raza\":\"" + razaA + "\","
                 + "\"tamano\":\"" + Tamano + "\","
+                + "\"caracter\":\"" + cara + "\","
                 + "\"foto\":\"" + foto + "\","
                 + "\"idCentro\":" + idCentro
                 + "}";
@@ -213,6 +221,7 @@ public class formulariosAnimal implements Initializable  {
         especie.setValue(null);
         nombreCentro.setValue(null);
         tamano.setValue(null);
+        caracter.setValue(null);
     }
     private String convertirImagenABase64(File file) throws IOException {
         byte[] fileContent = Files.readAllBytes(file.toPath());

@@ -28,7 +28,7 @@ public class inicioControl {
         a.setEstatus(estatusInt);
         a.setEstatusTexto(tomarEstatus(estatusInt));
         a.setCodigoAnimal(rs.getString("codigo_animal"));
-
+a.setCaracter(rs.getString("caracter_animal"));
         String base64 = rs.getString("foto_animal");
 
         byte[] imageBytes = Base64.getDecoder().decode(base64);
@@ -114,10 +114,34 @@ public class inicioControl {
         ConexionMySQL conn = new ConexionMySQL();
         Connection con = conn.open();
 
-        String sql = "CALL filtrarPerros(?,?)";
+        String sql = "CALL filtrarPerros(?,?,?)";
         CallableStatement stmt = con.prepareCall(sql);
         stmt.setString(1, a.getTamano());
          stmt.setString(2, a.getGenero());
+         stmt.setString(3, a.getCaracter());
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            lista.add(fill(rs));
+        }
+
+        rs.close();
+        stmt.close();
+        con.close();
+
+        return lista;
+    }
+              public List<Animales> filtrarTodos(Animales a) throws Exception {
+        List<Animales> lista = new ArrayList<>();
+        ConexionMySQL conn = new ConexionMySQL();
+        Connection con = conn.open();
+
+        String sql = "CALL filtrarAnimalesTodos(?,?,?,?)";
+        CallableStatement stmt = con.prepareCall(sql);
+        stmt.setString(1, a.getEspecie());
+        stmt.setString(2, a.getEdad());
+         stmt.setString(3, a.getGenero());
+         stmt.setString(4, a.getCaracter());
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
@@ -135,10 +159,11 @@ public class inicioControl {
         ConexionMySQL conn = new ConexionMySQL();
         Connection con = conn.open();
 
-        String sql = "CALL filtrarGatos(?,?)";
+        String sql = "CALL filtrarGatos(?,?,?)";
         CallableStatement stmt = con.prepareCall(sql);
         stmt.setString(1, a.getEdad());
          stmt.setString(2, a.getGenero());
+            stmt.setString(3, a.getCaracter());
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {

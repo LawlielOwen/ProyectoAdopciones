@@ -17,9 +17,10 @@ public class Animales {
     private String estatusTexto;
     private String codigoAnimal;
     private String foto;
+    private String caracter;
     private int idCentro;
 
-    public Animales(int idAnimal, String nombreAnimal, String genero, String edad, Double peso, String especie, String descripcion, String raza, String tamano, int estatus, String estatusTexto, String codigoAnimal, String foto, int idCentro) {
+    public Animales(int idAnimal, String nombreAnimal, String genero, String edad, Double peso, String especie, String descripcion, String raza, String tamano, int estatus, String estatusTexto, String codigoAnimal, String foto, String caracter, int idCentro) {
         this.idAnimal = idAnimal;
         this.nombreAnimal = nombreAnimal;
         this.genero = genero;
@@ -33,12 +34,19 @@ public class Animales {
         this.estatusTexto = estatusTexto;
         this.codigoAnimal = codigoAnimal;
         this.foto = foto;
+        this.caracter = caracter;
         this.idCentro = idCentro;
     }
 
-
-
     public Animales() {
+    }
+
+    public String getCaracter() {
+        return caracter;
+    }
+
+    public void setCaracter(String caracter) {
+        this.caracter = caracter;
     }
 
     public String getEstatusTexto() {

@@ -37,7 +37,7 @@ function LogIn(){
             alerta.classList.add("show"); 
     } else {
           localStorage.setItem("usuario", JSON.stringify({
-                id: response.idAdoptante,
+                idAdoptante: response.idAdoptante,
                 nombre: response.nombre,
                 app: response.app,
                 apm : response.apm,
@@ -46,10 +46,17 @@ function LogIn(){
         window.location.href = "inicioAdopciones.html";
     }})
 }
-document.getElementById("formularioLogin").addEventListener("submit", function (event) {
-    event.preventDefault();
-    LogIn();
+document.addEventListener("DOMContentLoaded", function () {
+    const formLogin = document.getElementById("formularioLogin");
+
+    if (formLogin) {
+        formLogin.addEventListener("submit", function (e) {
+            e.preventDefault();
+            LogIn(); 
+        });
+    }
 });
+
 function cerrarAlerta() {
     const alerta = document.getElementById("fallo");
     alerta.classList.add("d-none");

@@ -102,6 +102,27 @@ public class inicioApi extends Application{
 
         return Response.status(Response.Status.OK).entity(out).build();
     }
+        @Path("filtroTodos")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response filtroTodos(String filtracion) {
+        Gson gson = new Gson();
+        String out;
+
+        try {
+            Animales filtro = gson.fromJson(filtracion, Animales.class);
+            String especie = filtro.getEspecie();
+            inicioControl control = new inicioControl();
+            List<Animales> lista = control.filtrarTodos(filtro);
+            out = gson.toJson(lista);
+        } catch (Exception e) {
+            e.printStackTrace();
+            out = "{\"error\": \"" + e.getMessage() + "\"}";
+        }
+
+        return Response.status(Response.Status.OK).entity(out).build();
+    }
         @Path("filtroGatos")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

@@ -215,29 +215,30 @@ public class inicioAdoptante implements  Initializable {
 
         VBox.setMargin(imageView, new Insets(20, 0, 0, 0));
 
-        // Elementos de texto e info
         Label lblCategoria = new Label(animal.getEspecie());
         lblCategoria.getStyleClass().add("categoria");
 
         Text txtNombre = new Text(animal.getNombreAnimal());
         txtNombre.getStyleClass().add("nombreAnimal");
 
-        Text txtCaracter = new Text("Carácter: N/A");
-        txtCaracter.getStyleClass().add("infoAnimal");
+
+        Text txtSexo = new Text("Sexo: " + animal.getGenero());
+        txtSexo.getStyleClass().add("infoAnimal");
+
 
         Text txtEdad = new Text("Edad: " + animal.getEdad());
         txtEdad.getStyleClass().add("infoAnimal");
 
-        HBox contInfo = new HBox(10, txtCaracter, txtEdad);
+        HBox contInfo = new HBox(10, txtSexo, txtEdad);
 
-        Text txtSexo = new Text("Sexo: " + animal.getGenero());
-        txtSexo.getStyleClass().add("infoAnimal");
+        Text txtCaracter = new Text("Carácter: " + animal.getCaracter());
+        txtCaracter.getStyleClass().add("infoAnimal");
 
         Button btnAdoptame = new Button("Adóptame 🐾");
         btnAdoptame.getStyleClass().add("button-carta");
         btnAdoptame.setOnAction(e -> mostrarDetalleAnimal(animal));
 
-        VBox contInfoBox = new VBox(4, lblCategoria, txtNombre, contInfo, txtSexo);
+        VBox contInfoBox = new VBox(4, lblCategoria, txtNombre, contInfo, txtCaracter);
         VBox.setMargin(contInfoBox, new Insets(10, 0, 20, 20));
         VBox.setMargin(btnAdoptame, new Insets(0, 0, 20, 0));
 
@@ -245,7 +246,7 @@ public class inicioAdoptante implements  Initializable {
         VBox carta = new VBox();
         carta.setAlignment(Pos.TOP_CENTER);
         carta.setPrefHeight(380);
-        carta.setPrefWidth(250);
+        carta.setPrefWidth(260);
         carta.getStyleClass().add("cartaAnimal");
         carta.getChildren().addAll(imageView, contInfoBox, btnAdoptame);
 
