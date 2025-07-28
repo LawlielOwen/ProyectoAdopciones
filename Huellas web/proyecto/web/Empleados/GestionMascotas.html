@@ -16,11 +16,24 @@
     <link rel="stylesheet" href="../CSS/Gestiones/contenedorTitulo.css">
     <link rel="stylesheet" href="../CSS/Gestiones/contenedor.css  ">
     <link rel="stylesheet" href="../CSS/Gestiones/tablaGestion.css">
-    <link rel="stylesheet" href="../CSS/Gestiones/headerModal.css">
     <link rel="stylesheet" href="../CSS/Gestiones/Mascotas/info.css">
+    <link rel="stylesheet" href="../CSS/Gestiones/Mascotas/paginacion.css">
+    <link rel="stylesheet" href="../CSS/Gestiones/headerModal.css">
+    <link rel="stylesheet" href="../CSS/Gestiones/alertError.css">
 </head>
 
 <body>
+     <div class="alert alert-dismissible fade show d-none custom-alert" role="alert" id="fallo">
+        <svg class="alert-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z">
+            </path>
+        </svg>
+        <div class="alert-content">
+            <span id="mensaje-error"></span>
+        </div>
+        <button type="button" class="btn-close" aria-label="Close" onclick="cerrarAlerta()"></button>
+    </div>
     <header>
         <nav class="navbar navbar-expand-lg text-light">
             <div class="container-fluid ">
@@ -31,14 +44,9 @@
             </a>
             <div class="collapse navbar-collapse secciones " id="navbarNavAltMarkup">
                 <div class="navbar-nav ">
-                    <div class="input-group busquedas">
-                        <span class="input-group-text p-0 border-0 bg-transparent" id="basic-addon1">
-                            <img src="../iconos/magnifying-glass-solid.svg" class="botonBusqueda">
-                        </span>
-                        <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                            aria-describedby="basic-addon1" id="buscar">
-                    </div>
+
                 </div>
+
                 <span class="navbar-text perfil text-light d-flex align-items-center">
                     <img src="../img/fotoPrueba.jpg" class="fotoPerfil">
                     <li class=" dropdown despliegueLogin">
@@ -53,6 +61,13 @@
                         </ul>
                     </li>
                 </span>
+            </div>
+            <div class="input-group busquedas">
+                <span class="input-group-text p-0 border-0 bg-transparent" id="basic-addon1">
+                    <img src="../iconos/magnifying-glass-solid.svg" class="botonBusqueda">
+                </span>
+                <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+                    aria-describedby="basic-addon1" id="buscar">
             </div>
             </div>
         </nav>
@@ -112,6 +127,22 @@
                     </a>
                 </li>
             </ul>
+            <div class="footerBarra">
+                <div class="menu">
+                    <div class="user">
+                        <div class="user-img">
+                            <img src="../img/fotoPrueba.jpg">
+                        </div>
+                        <div class="user-data">
+                            <span class="name">Usuario</span>
+                            <span class="email">Empleado@gmail.com</span>
+                        </div>
+                        <div class="user-icon">
+                            <i class='bx bx-exit'></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </nav>
@@ -183,7 +214,7 @@
             </div>
             <div class="d-flex justify-content-start">
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive tabla-scroll">
                 <table class="tablaGestiones table table-hover shadow-sm">
                     <thead>
                         <tr>
@@ -202,7 +233,16 @@
                     <tbody id="cuerpoTabla">
                     </tbody>
                 </table>
+              
             </div>
+              <div class="d-flex justify-content-center mt-3">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                    </ul>
+                </nav>
+                </div>
+            </div>
+            
         </div>
 
         <div class="modal fade" id="agregarAnimal" tabindex="-1" aria-labelledby="agregarAnimalLabel"
@@ -370,7 +410,7 @@
                                     <textarea class="form-control" id="descripcionMod" name="descripcion" rows="3"
                                         required></textarea>
                                 </div>
-                                 <div class="form-group w-100">
+                                <div class="form-group w-100">
                                     <label for="caracter">Carácter del animal:</label>
                                     <select id="caracterMod" name="caracter" class="form-control w-100" required>
                                         <option value="">Seleccione una opción</option>
@@ -407,7 +447,7 @@
                 <form id="formEliminarAnimal">
                     <div class="modal-body">
                         <input type="hidden" id="idAnimalEliminar" name="id_animal">
-                        <p class="mb-0">¿Estás seguro que deseas eliminar al animal </p>
+                        <p class="mb-0">¿Estás seguro que deseas eliminar al animal <strong id="nombreA"></strong>?</p>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -422,7 +462,7 @@
     <div class="modal fade" id="infoAnimal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-               
+
                 <div class="modal-header text-white" style="background: linear-gradient(135deg, #3b82f6, #6366f1);">
                     <h5 class="modal-title d-flex align-items-center gap-2">
                         <i class='bx bxs-dog fs-4'></i> Información Completa
@@ -433,7 +473,7 @@
 
                 <div class="modal-body p-4">
                     <div class="row">
-                      
+
                         <div class="col-md-4 mb-4 mb-md-0">
                             <img id="infoFotoAnimal" src="" alt="Foto del animal" class="img-fluid rounded shadow w-100"
                                 style="max-height: 200px; object-fit: cover;">
@@ -446,7 +486,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="col-md-8">
                             <div class="row g-3">
                                 <div class="col-md-6">

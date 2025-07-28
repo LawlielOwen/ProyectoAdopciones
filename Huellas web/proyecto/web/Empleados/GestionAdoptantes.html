@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Iniciar sesion</title>
+    <title>Gestion de Adoptantes</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -14,9 +14,21 @@
     <link rel="stylesheet" href="../CSS/Gestiones/contenedor.css  ">
     <link rel="stylesheet" href="../CSS/Gestiones/tablaGestion.css">
     <link rel="stylesheet" href="../CSS/Gestiones/headerModal.css">
+    <link rel="stylesheet" href="../CSS/Gestiones/alertError.css">
 </head>
 
 <body>
+     <div class="alert alert-dismissible fade show d-none custom-alert" role="alert" id="fallo">
+        <svg class="alert-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z">
+            </path>
+        </svg>
+        <div class="alert-content">
+            <span id="mensaje-error"></span>
+        </div>
+        <button type="button" class="btn-close" aria-label="Close" onclick="cerrarAlerta()"></button>
+    </div>
     <header>
         <nav class="navbar navbar-expand-lg text-light">
             <div class="container-fluid ">
@@ -27,14 +39,9 @@
             </a>
             <div class="collapse navbar-collapse secciones " id="navbarNavAltMarkup">
                 <div class="navbar-nav ">
-                    <div class="input-group busquedas">
-                        <span class="input-group-text p-0 border-0 bg-transparent" id="basic-addon1">
-                            <img src="../iconos/magnifying-glass-solid.svg" class="botonBusqueda">
-                        </span>
-                        <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                            aria-describedby="basic-addon1">
-                    </div>
+                 
                 </div>
+                 
                 <span class="navbar-text perfil text-light d-flex align-items-center">
                     <img src="../img/fotoPrueba.jpg" class="fotoPerfil">
                     <li class=" dropdown despliegueLogin">
@@ -50,6 +57,13 @@
                     </li>
                 </span>
             </div>
+             <div class="input-group busquedas">
+                        <span class="input-group-text p-0 border-0 bg-transparent" id="basic-addon1">
+                            <img src="../iconos/magnifying-glass-solid.svg" class="botonBusqueda">
+                        </span>
+                        <input type="text" class="form-control" placeholder="Buscar por nombre" aria-label="Buscar"
+                            aria-describedby="basic-addon1" id="buscar">
+                    </div>
             </div>
         </nav>
     </header>
@@ -108,6 +122,22 @@
                     </a>
                 </li>
             </ul>
+            <div class="footerBarra">
+                <div class="menu">
+                    <div class="user">
+                        <div class="user-img">
+                            <img src="../img/fotoPrueba.jpg">
+                        </div>
+                        <div class="user-data">
+                            <span class="name">Usuario</span>
+                            <span class="email">Empleado@gmail.com</span>
+                        </div>
+                        <div class="user-icon">
+                            <i class='bx bx-exit'></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </nav>
@@ -122,7 +152,7 @@
                 <div class="contenedorSolo ">
                     <h4>Adoptantes Registrados</h4>
                     <div class="adoptadosOrden">
-                        <p id="contadorAdoptados">4</p>
+                        <p id="contadorRegistrados"></p>
                         <i class="iconoConta">
                             <img src="../iconos/IconosGestion/user-solid.svg">
                         </i>
@@ -145,33 +175,15 @@
                         <tr>
 
                             <th scope="col">Nombre</th>
-                            <th scope="col">Fecha</th>
+                            <th scope="col">Fecha de nacimiento</th>
                             <th scope="col">Genero</th>
                             <th scope="col">Correo</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Opciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-
-                            <td class=" mascotasCol"><span><img src="../img/fotoPrueba.jpg">
-                                    Laika</span></td>
-                            <td>
-                                <span class="active bg-success"></span>
-                                Activo
-                            </td>
-                            <td>Macho</td>
-                            <td>2 años</td>
-                            <td>PUGM000</td>
-                            <td>
-                                <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal" data-bs-target="#modAdoptante">
-                                    <i class='bx bxs-edit'></i>
-                                </button>
-                                <button class="btn btn-sm btn-outline-danger"
-                                data-bs-toggle="modal" data-bs-target="#eliminarAdoptante"><i class='bx bx-trash'></i></button>
-                            </td>
-                        </tr>
+                    <tbody id="cuerpoTabla">
+                       
                     </tbody>
                 </table>
             </div>
@@ -238,10 +250,14 @@
               <label for="telefonoMod" class="form-label">Teléfono</label>
               <input type="tel" class="form-control" id="telefonoMod" name="telefono" required>
             </div>
+              <div class="col-md-6">
+              <label for="contramod" class="form-label">Contraseña</label>
+              <input type="text" class="form-control" id="contraMod" name="contra" required>
+            </div>
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary"><i class='bx bxs-save'></i> Guardar Cambios</button>
+          <button type="submit" class="btn btn-primary" onclick="modificarAdoptante()"><i class='bx bxs-save'></i> Guardar Cambios</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
         </div>
       </form>
@@ -263,7 +279,7 @@
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-danger"><i class='bx bxs-trash'></i> Eliminar</button>
+          <button type="submit" class="btn btn-danger" onclick="eliminarAdoptante()"><i class='bx bxs-trash'></i> Eliminar</button>
         </div>
       </form>
     </div>
@@ -272,6 +288,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../JS/Gestiones/BarraNavegacion.js"></script>
+    <script src="../JS/Gestiones/GestionAdoptantes.js"></script>
 </body>
 
 </html>

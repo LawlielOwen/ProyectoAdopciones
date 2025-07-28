@@ -30,7 +30,12 @@ const telefono = document.getElementById("telefono").value;
 const correo = document.getElementById("correo").value;
 const direccion = document.getElementById("direccion").value;
 const motivo = document.getElementById("motivo").value;
-
+if(!telefono || !correo || !direccion || !motivo) {
+    const alerta = document.getElementById("fallo");
+    document.getElementById("mensaje-error").innerHTML = "Por favor, completa todos los campos.";
+    alerta.classList.remove("d-none");
+    return;
+}
 const nuevaSoli = {
     motivo: motivo,
     telefono: telefono,
@@ -52,3 +57,8 @@ fetch("http://localhost:8080/ProyectoHuellas/api/solicitudes/saveSolicitud", {
               window.location.href="inicioAdopciones.html"
             })
     };
+function cerrarAlerta() {
+    const alerta = document.getElementById("fallo");
+    alerta.classList.add("d-none");
+    alerta.classList.remove("show");
+}

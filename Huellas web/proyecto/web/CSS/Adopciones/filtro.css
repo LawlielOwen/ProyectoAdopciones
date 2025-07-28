@@ -39,3 +39,8 @@
     background-color: #9DB58F;
     color: white;
 }
+@media (max-width: 991.98px) {
+  .filtros {
+    display: none !important;
+  }
+}

@@ -1,0 +1,101 @@
+.pagination {
+    -fx-background-color: transparent;
+    -fx-page-information-visible: false;
+    -fx-arrows-visible: true;
+
+}
+
+.pagination .control-box {
+    -fx-spacing: 10px;
+}
+
+
+.pagination .number-button {
+    -fx-background-color: white;
+    -fx-text-fill: #677788;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-border-color: transparent;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-pref-width: 40px;
+    -fx-pref-height: 40px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+/* Botón seleccionado */
+.pagination .number-button:selected {
+    -fx-background-color: #A4A57E; /* Verde-beige */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(three-pass-box, rgba(164, 165, 126, 0.3), 4, 0, 0, 2);
+}
+
+/* Hover en botones */
+.pagination .number-button:hover {
+    -fx-background-color: #E0D8C0;
+    -fx-translate-y: -2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 4, 0, 0, 2);
+}
+
+/* Flechas */
+.pagination .arrow-button {
+    -fx-background-color: #F8F5EC;
+    -fx-text-fill: #5E503F;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-padding: 0 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+/* Flechas hover */
+.pagination .arrow-button:hover {
+    -fx-background-color: #E0D8C0;
+    -fx-text-fill: #3A3328;
+}
+
+/* Botones deshabilitados */
+.pagination .arrow-button:disabled,
+.pagination .number-button:disabled {
+    -fx-opacity: 0.6;
+    -fx-background-color: transparent;
+}
+.pagination .left-arrow-button .arrow {
+     -fx-text-fill: #677788;
+        -fx-font-weight: bold;
+        -fx-font-size: 16px;
+        -fx-border-color: transparent;
+        -fx-border-radius: 50%;
+        -fx-background-radius: 50%;
+        -fx-min-width: 40px;
+        -fx-min-height: 40px;
+        -fx-pref-width: 40px;
+        -fx-pref-height: 40px;
+        -fx-alignment: center;
+        -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 2);
+        -fx-transition: all 0.3s ease;
+
+}
+
+/* Cambiar el ícono de la flecha derecha */
+.pagination .right-arrow-button .arrow {
+    -fx-text-fill: #677788;
+       -fx-font-weight: bold;
+       -fx-font-size: 16px;
+       -fx-border-color: transparent;
+       -fx-border-radius: 50%;
+       -fx-background-radius: 50%;
+       -fx-min-width: 40px;
+       -fx-min-height: 40px;
+       -fx-pref-width: 40px;
+       -fx-pref-height: 40px;
+       -fx-alignment: center;
+       -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 2, 0, 0, 2);
+       -fx-transition: all 0.3s ease;
+
+}

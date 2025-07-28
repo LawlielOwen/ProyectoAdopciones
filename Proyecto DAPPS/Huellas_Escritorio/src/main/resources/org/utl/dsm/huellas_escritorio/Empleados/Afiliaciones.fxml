@@ -19,11 +19,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="702.0" prefWidth="1315.0"
-            style="-fx-background-color: #FCE7C8;" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionAfiliado.gestionAfiliados">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1315.0" style="-fx-background-color: #FCE7C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionAfiliado.gestionAfiliados">
     <top>
         <HBox fx:id="header" spacing="10" styleClass="header" stylesheets="@../../../../../CSS/Gestiones/Header.css" BorderPane.alignment="TOP_CENTER">
             <children>
@@ -38,7 +34,7 @@
                     </children>
                 </HBox>
 
-                <HBox fx:id="contenedorBusqueda" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="346.0" styleClass="busquedas" HBox.hgrow="ALWAYS">
+                <HBox fx:id="contenedorBusqueda" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="370.0" styleClass="busquedas" HBox.hgrow="ALWAYS">
                     <children>
                         <ImageView fitHeight="18.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" styleClass="botonBusqueda">
                             <image>

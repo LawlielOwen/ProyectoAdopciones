@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="CSS/Footer/footer.css">
   <link rel="stylesheet" href="CSS/Adopciones/alert.css">
   <link rel="stylesheet" href="CSS/Adopciones/filtro.css">
+  <link rel="stylesheet" href="CSS/Adopciones/paginacion.css">
 </head>
 
 <body>
@@ -41,29 +42,37 @@
       </div>
     </div>
   </div>
-  <header>
-    <nav class="navbar navbar-expand-lg text-light">
-      <div class="container-fluid ">
-        <a class="navbar-brand imagenLogo">
-          <img src="iconos/icon.png" alt="Logo" width="65" height="65" class="d-inline-block align-text-top">
-        </a>
-        <div class="collapse navbar-collapse secciones" id="navbarNavAltMarkup">
-          <div class="navbar-nav ">
-            <a class="nav-link text-light" aria-current="page" href="inicioAdopciones.html">Adopciones</a>
-            <a class="nav-link text-light" href="Donaciones.html">Donaciones</a>
-            <a class="nav-link text-light" href="Afiliaciones.html">Afiliacion</a>
-            <a class="nav-link text-light" href="QuienesSomos.html">¿Quienes somos?</a>
-            <a class="nav-link text-light" href="Empleados/loginEmpleados.html">Empleados</a>
-          </div>
-          <span class="navbar-text perfil text-light d-flex align-items-center" id="usuario">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-custom fixed-top">
+    <div class="container-fluid">
+    
+        <a class="navbar-brand imagenLogo" href="#">
+        <img src="iconos/icon.png" alt="Logo" width="65" height="65">
+      </a>
 
+  
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <a class="nav-link text-light" href="Login.html">Iniciar sesion / Crear cuenta</a>
-          </span>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <div class="navbar-nav mx-auto text-center">
+          <a class="nav-link active" href="inicioAdopciones.html">Adopciones</a>
+          <a class="nav-link" href="Donaciones.html">Donaciones</a>
+          <a class="nav-link" href="Afiliaciones.html">Afiliación</a>
+          <a class="nav-link" href="QuienesSomos.html">¿Quiénes somos?</a>
+          <a class="nav-link" href="Empleados/loginEmpleados.html" id="btnEmpleado">Empleados</a>
         </div>
+        <span class="navbar-text perfil d-flex align-items-center" id="usuario">
+          <a class="nav-link" href="Login.html">Iniciar sesión / Crear cuenta</a>
+        </span>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
+
+
   <section class="hero-container">
     <div class="hero-image imagenFondo">
       <div class="textosImagen">
@@ -73,17 +82,21 @@
           responsable y el bienestar animal en un ambiente acogedor.</p>
       </div>
     </div>
-
+    </div>
   </section>
-  <div class="input-group buscador">
-    <span class="input-group-text barritas">
-      <img src="iconos/barrasBusqueda.svg" width="15px" height="15px">
-    </span>
-    <input type="text" class="form-control busquedas" placeholder="Buscar por nombre" id="buscar">
-    <button class=" botonBuscar" type="button">
-      <img src="iconos/magnifying-glass-solid.svg" width="15px" height="15px" alt="Buscar">
-    </button>
-  </div>
+
+  <section>
+    <div class="input-group buscador">
+      <span class="input-group-text barritas">
+        <img src="iconos/barrasBusqueda.svg" width="15px" height="15px">
+      </span>
+      <input type="text" class="form-control busquedas" placeholder="Buscar por nombre" id="buscar">
+      <button class=" botonBuscar" type="button">
+        <img src="iconos/magnifying-glass-solid.svg" width="15px" height="15px" alt="Buscar">
+      </button>
+    </div>
+  </section>
+
   <section class="container mt-5">
     <div class="row">
       <div class="col-md-3 mb-4 filtros">
@@ -139,10 +152,12 @@
         </div>
       </div>
     </div>
+  <div class="d-flex justify-content-center mt-3" id="paginacion">
 
+    </div>
   </section>
 
-  <footer class="container-fluid  p-3">
+   <footer class="container-fluid  p-3">
     <div class="d-flex justify-content-between align-items-center">
       <div class="text-center text-light textosFooter ">
         <span>Derechos reservados</span>

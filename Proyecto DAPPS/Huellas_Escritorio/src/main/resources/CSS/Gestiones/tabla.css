@@ -68,12 +68,12 @@
 }
 
 .table-row-cell:hover {
-    -fx-background-color: #f4f1e9 !important;
+
     -fx-cursor: hand;
 }
 
 .mascotasCol {
-    -fx-font-weight: 600;
+    -fx-font-weight: bold;
     -fx-text-fill: black !important;
     -fx-wrap-text: true;
     -fx-alignment: CENTER_LEFT;

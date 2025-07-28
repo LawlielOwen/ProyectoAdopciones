@@ -51,7 +51,7 @@ body {
     background-image: url('../../img/perroLogin.png');
     background-size: cover;
     background-position: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
         url('../../img/perroLogin.png') center/cover no-repeat;
     position: relative;
     display: flex;
@@ -168,7 +168,9 @@ h3 {
     display: inline-block;
     transition: 0.3s;
 }
-
+.botonRegistroRes{
+  color:black
+}
 .regresar:hover {
     background-color: #9DB58F;
 }
@@ -180,5 +182,87 @@ input.form-control:active {
   box-shadow: 0 0.5px 0 0 #2f303d, 0px 0px 15px -25px #000;
     transform: scale(1.01);
 }
+.registro-movil{
+  display: none;
+}
+@media (max-width: 991.98px) {
+
+  .contenedor-login {
+    flex-direction: column;
+    width: 98vw;
+    max-width: 400px;
+    height: auto;
+    min-height: unset;
+    box-shadow: none;
+    margin: 100px auto;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+ .input-container {
+    width: 90%;
+    max-width: 320px;
+    margin: 20px auto 30px;
+  }
+   .input-field {
+    width: 100%;
+    margin-top: 50px;
+    font-size: 14px;
+    padding: 10px 0; 
+  }
+
+  .input-field:focus + .input-label {
+    top: -20px;
+    font-size: 13px;
+    color: #9DB58F;
+    left: 0; 
+    width: 100%; 
+    text-align: left; 
+  }
 
 
+  .input-field:focus + .input-label + .input-highlight {
+    width: 100%;
+  }
+  .regresar {
+    left: 10px;
+    width: 90px;
+    height: 35px;
+    font-size: 15px;
+    line-height: 35px;
+  }
+  .info-lateral {
+    display: none !important;
+  }
+
+   .formulario-login {
+    width: 100%;
+    padding: 30px 10px 10px 10px;
+    min-height: unset;
+  }
+ .registro-movil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    width: 100%;
+  }
+  .registro-movil .textos {
+    margin-top: 0;
+}
+  .botonRegistro {
+    width: 90%;
+    max-width: 320px;
+    padding: 12px 0;
+    font-size: 16px;
+  }
+  .input-field:focus+.input-label {
+  top: -20px;
+  font-size: 13px;
+  color: #9DB58F;
+}
+
+.input-field:focus+.input-label+.input-highlight {
+  width: 90%;
+}
+}

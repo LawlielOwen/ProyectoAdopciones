@@ -1,8 +1,8 @@
-// Asegúrate de que Mapbox GL JS esté cargado en tu HTML antes de este script
+
 mapboxgl.accessToken = "pk.eyJ1IjoiYXVndXN0dGUtYW5ndWxsaW5pNjkiLCJhIjoiY2x6M2Rwc3dyMDdpOTJqcHc1amlxNWQxMyJ9.s1gZ9OAstoclyciBDKZ5Ug";
 
 const apiKeyHERE = "LZTNryiMeQ4IPZ-ZZNHLBqCC00GexjyBR2I98CM5Sro";
-const direccion = "Ceferino Ortiz 1317, Leon, Guanajuato";
+const direccion = "Río Verde 243, La Luz, 37458 León de los Aldama, Gto., México";
 
 fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${encodeURIComponent(direccion)}&apiKey=${apiKeyHERE}`)
   .then(response => response.json())
@@ -14,15 +14,26 @@ fetch(`https://geocode.search.hereapi.com/v1/geocode?q=${encodeURIComponent(dire
       // Crear el mapa y centrarlo en la ubicación obtenida
       const mapa = new mapboxgl.Map({
         container: "mapa",
-        style: "mapbox://styles/mapbox/streets-v12",
+         style: "mapbox://styles/mapbox/streets-v12",
         center: [lng, lat],
         zoom: 15
       });
 
-      // Agregar marcador verde con rotación
       new mapboxgl.Marker({ color: "green", rotation: 45 })
         .setLngLat([lng, lat])
+        .setPopup(new mapboxgl.Popup().setHTML("<b>Centro de Control y Bienestar Animal de León</b><br>Río Verde 243"))
         .addTo(mapa);
+      mapa.addControl(new mapboxgl.NavigationControl());
+
+      mapa.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      }));
+ window.addEventListener('resize', () => {
+  map.resize();
+});
 
     } else {
       console.error("No se encontró la ubicación para la dirección dada.");

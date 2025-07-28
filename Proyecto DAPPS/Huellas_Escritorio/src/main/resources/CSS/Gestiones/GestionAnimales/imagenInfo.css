@@ -1,0 +1,28 @@
+/* En tu archivo .css o como estilo en línea */
+.modal-header {
+    -fx-background-color: linear-gradient(to bottom right, #3b82f6, #6366f1);
+    -fx-text-fill: white;
+
+}
+
+.modal-title {
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.close-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-radius: 50%;
+}
+.animal-image {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 2);
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: white;
+    -fx-padding: 3px;
+}

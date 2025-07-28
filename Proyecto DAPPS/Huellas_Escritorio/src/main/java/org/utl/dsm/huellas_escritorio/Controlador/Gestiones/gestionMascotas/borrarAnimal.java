@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class borrarAnimal implements Initializable {
+
     private gestionMascotas controller;
     private Animales animalAEliminar;
     @FXML
@@ -59,6 +60,7 @@ public class borrarAnimal implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         borrar.setOnAction(event -> {
             try {
                 eliminarAnimal();

@@ -127,7 +127,7 @@ function modificarAfiliado() {
 
 // --------- BUSCAR ---------
 // Escucha cuando el usuario escribe en el input de búsqueda
-document.getElementById('inputBuscarAfiliado').addEventListener('input', function () {
+document.getElementById('buscar').addEventListener('input', function () {
     let texto = this.value.trim();
     if (texto === "") {
         getAllAfiliados(); // Si está vacío, muestra todo

@@ -31,7 +31,7 @@ function cargarSolicitudes() {
                 ${animal.nombreAnimal}
               </span>
             </td>
-            <td><span class="active bg-${soli.estatus === 1 ? 'success' : soli.estatus === 2 ? 'warning' : 'danger'}"></span> 
+            <td><span class="activado  bg-${soli.estatus === 1 ? 'success' : soli.estatus === 2 ? 'warning' : 'danger'}"></span> 
                 ${soli.estatus === 1 ? 'Aceptada' : soli.estatus === 2 ? 'Pendiente' : 'Rechazada'}
             </td>
             <td>${soli.fecha}</td>
@@ -263,7 +263,7 @@ function actualizarTabla(data) {
                 ${animal.nombreAnimal}
               </span>
             </td>
-            <td><span class="active bg-${a.estatus === 1 ? 'success' : a.estatus === 2 ? 'warning' : 'danger'}"></span> 
+            <td><span class="activado  bg-${a.estatus === 1 ? 'success' : a.estatus === 2 ? 'warning' : 'danger'}"></span> 
                 ${a.estatus === 1 ? 'Aceptada' : a.estatus === 2 ? 'Pendiente' : 'Rechazada'}
             </td>
             <td>${a.fecha}</td>

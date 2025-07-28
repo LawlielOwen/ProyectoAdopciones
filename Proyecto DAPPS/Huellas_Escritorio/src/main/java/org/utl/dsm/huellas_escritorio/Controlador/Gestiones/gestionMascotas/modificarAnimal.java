@@ -76,6 +76,7 @@ public class modificarAnimal implements  Initializable{
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         cargarDatos();
         cancelarMod.setOnAction(event -> cerrarVentana());
         guardar.setOnAction(event -> {

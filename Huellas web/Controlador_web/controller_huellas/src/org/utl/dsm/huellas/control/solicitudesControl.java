@@ -44,7 +44,7 @@ public class solicitudesControl {
         return soli;
     }
         public List<Solicitudes> getSolicitudes(String filtro) throws Exception {
-        String sql = "select * from verTodasSolicitudes ORDER BY id_solicitud DESC";
+        String sql = "select * from vertodassolicitudes ORDER BY id_solicitud DESC";
         ConexionMySQL conn = new ConexionMySQL();
         Connection conns = conn.open();
         CallableStatement cstmt = conns.prepareCall(sql);

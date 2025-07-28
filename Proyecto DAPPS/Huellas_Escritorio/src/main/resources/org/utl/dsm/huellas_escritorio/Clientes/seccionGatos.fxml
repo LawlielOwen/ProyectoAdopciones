@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -22,8 +23,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.seccionGatoController">
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.seccionGatoController">
     <center>
         <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="1530.0" prefWidth="1106.0" style="-fx-background: #FCE7C8; -fx-border-color: #FCE7C8;">
             <content>
@@ -81,7 +81,7 @@
 
 
                                 <!-- Texto principal -->
-                                <VBox alignment="CENTER" prefHeight="400.0" spacing="10">
+                                <VBox alignment="CENTER" prefHeight="363.0" prefWidth="1102.0" spacing="10">
                                     <Text fill="WHITE" styleClass="Titulo" text="Adopta amor, cambia una vida con tu apoyo" textAlignment="CENTER" translateY="-60.0" wrappingWidth="606.55078125">
                                         <font>
                                             <Font size="42" />
@@ -183,6 +183,9 @@
                                                             <String fx:value="btn-unirme" />
                                                             <String fx:value="fuenteGeneral-negritas" />
                                                         </styleClass>
+                                          <font>
+                                             <Font name="System Bold" size="12.0" />
+                                          </font>
                                                     </Button>
                                                 </children>
                                             </AnchorPane>
@@ -207,6 +210,14 @@
                                     </HBox>
                                 </children>
                             </HBox>
+                     <Pagination fx:id="paginacion" maxPageIndicatorCount="0" prefHeight="65.0" prefWidth="1102.0" stylesheets="@../../../../../CSS/Gestiones/paginacion.css">
+                        <styleClass>
+                           <String fx:value="pagination" />
+                           <String fx:value="right-arrow" />
+                           <String fx:value="left-arrow" />
+                           <String fx:value="toggle-button" />
+                        </styleClass>
+                     </Pagination>
 
                             <stylesheets>
                                 <URL value="@../../../../../CSS/inicioAdopciones.css" />

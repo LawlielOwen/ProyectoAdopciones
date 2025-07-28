@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="704.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="353.0" prefWidth="699.0" style="-fx-background-color: white;">
+            <children>
+                <HBox layoutX="-3.0" layoutY="-5.0" prefHeight="67.0" prefWidth="702.0" style="-fx-background-color: linear-gradient(to bottom right, #3b82f6, #6366f1);">
+                    <children>
+                        <ImageView fitHeight="36.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <!-- Usa una ruta más simple o carga la imagen desde recursos -->
+                                <Image url="@../../../../../../../Iconos/Gestiones/iconosBlancos/donar.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="25.0" top="20.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Detalles de la donacion">
+                            <font>
+                                <Font name="System Bold" size="23.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="10.0" top="17.0" />
+                            </HBox.margin>
+                        </Text>
+                    </children>
+                </HBox>
+                <Label layoutX="26.0" layoutY="127.0" text="Nombre del donador" textFill="#6c757d">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="28.0" layoutY="199.0" text="Fecha de la donacion" textFill="#6c757d">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="BtnCerrar" layoutX="278.0" layoutY="286.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="132.0" style="-fx-background-color: #6c757d; -fx-cursor: hand; -fx-border-radius: 8; -fx-background-radius: 8;" text="Cerrar" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../../../../../Iconos/Gestiones/GestionSolicitudes/door-open-regular-24.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Pane layoutX="14.0" layoutY="77.0" prefHeight="36.0" prefWidth="315.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #212529; -fx-border-width: 0 0 0.5 0;">
+                    <children>
+                        <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informacion Principal">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+                <Pane layoutX="362.0" layoutY="77.0" prefHeight="36.0" prefWidth="323.0" style="-fx-background-color: #f8f9fa; -fx-border-color: #212529; -fx-border-width: 0 0 0.5 0;">
+                    <children>
+                        <Text layoutX="7.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Datos del donativo">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+                <Label layoutX="373.0" layoutY="130.0" text="Centro beneficiado" textFill="#6c757d">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label layoutX="375.0" layoutY="202.0" text="Monto de la donacion" textFill="#6c757d">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+            <stylesheets>
+
+                <URL value="@../../../../../../../CSS/Gestiones/GestionSolicitud/infoSoli.css" />
+            </stylesheets>
+        </AnchorPane>
+    </content>
+</ScrollPane>

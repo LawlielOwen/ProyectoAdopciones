@@ -1,6 +1,8 @@
 animales = [];
 buscarid = [];
 centros = [];
+let paginaActual = 1;
+const animalesPorPagina = 5;
 let idAnimalEliminar = null;
 let especieSeleccionada = "Todos";
 let estatusSeleccionado = "Todos";
@@ -39,46 +41,95 @@ function cargarMascotas() {
         .then(res => res.json())
         .then(data => {
             animales = data;
-            let filas = "";
-
-            data.forEach(a => {
-                filas += `
-                    <tr>
-                        <td class="mascotasCol"><span><img src="${a.foto}" alt="Foto de mascota">${a.nombreAnimal}</span></td>
-                       <td> <span class="active ${a.estatus === 1 ? 'bg-success' : a.estatus === 2 ? 'bg-warning' : ''}"></span> ${a.estatusTexto}</td>
-                        <td>${a.genero}</td>
-                        <td>${a.edad}</td>
-                        <td>${a.codigoAnimal}</td>
-                        <td>${a.raza}</td>
-                        <td>${a.peso} kg</td>
-                        <td>${a.especie}</td>
-                        <td>
-                             <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal"
-                                    data-bs-target="#modAnimal"  onclick="cargarAnimal(${a.idAnimal})">
-                                    <i class='bx bxs-edit'></i>
-                                </button>
-                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                                    data-bs-target="#eliminarAnimal"  onclick="prepararEliminar(${a.idAnimal})"><i class='bx bx-trash'></i></button>
-                                <button class="btn btn-sm btn-outline-info"  data-bs-toggle="modal" data-bs-target="#infoAnimal"
-                                onclick="mostrarInfoAnimal(${a.idAnimal})">
-                                    <i class='bx bxs-info-circle' ></i>
-                                </button>
-                        </td>
-                    </tr>
-                `;
-            });
-
-            document.getElementById("cuerpoTabla").innerHTML = filas;
+            paginaActual = 1;
+            mostrarAnimalesPorPagina();
+            mostrarBotonesPaginacion();
         });
+}
+function mostrarAnimalesPorPagina() {
+    const inicio = (paginaActual - 1) * animalesPorPagina;
+    const fin = inicio + animalesPorPagina;
+    const animalesPagina = animales.slice(inicio, fin);
+
+    let filas = "";
+    animalesPagina.forEach(a => {
+        const foto = a.foto || "img/default.jpg";
+        filas += `
+            <tr>
+                <td class="mascotasCol"><span><img src="${foto}" alt="Foto de mascota">${a.nombreAnimal}</span></td>
+                <td><span class="activado ${a.estatus === 1 ? 'bg-success' : a.estatus === 2 ? 'bg-warning' : ''}"></span> ${a.estatusTexto}</td>
+                <td>${a.genero}</td>
+                <td>${a.edad}</td>
+                <td>${a.codigoAnimal}</td>
+                <td>${a.raza}</td>
+                <td>${a.peso} kg</td>
+                <td>${a.especie}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal"
+                        data-bs-target="#modAnimal" onclick="cargarAnimal(${a.idAnimal})">
+                        <i class='bx bxs-edit'></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#eliminarAnimal" onclick="prepararEliminar(${a.idAnimal})">
+                        <i class='bx bx-trash'></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
+                        data-bs-target="#infoAnimal" onclick="mostrarInfoAnimal(${a.idAnimal})">
+                        <i class='bx bxs-info-circle'></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("cuerpoTabla").innerHTML = filas;
+}
+function mostrarBotonesPaginacion() {
+    const totalPaginas = Math.ceil(animales.length / animalesPorPagina);
+    let botones = "";
+
+    botones += `
+        <li class="page-item ${paginaActual === 1 ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="cambiarPagina(${paginaActual - 1})">Anterior</a>
+        </li>
+    `;
+
+    for (let i = 1; i <= totalPaginas; i++) {
+        botones += `
+            <li class="page-item ${paginaActual === i ? 'active' : ''}">
+                <a class="page-link" href="#" onclick="cambiarPagina(${i})">${i}</a>
+            </li>
+        `;
+    }
+
+    botones += `
+        <li class="page-item ${paginaActual === totalPaginas ? 'disabled' : ''}">
+            <a class="page-link" href="#" onclick="cambiarPagina(${paginaActual + 1})">Siguiente</a>
+        </li>
+    `;
+
+    document.querySelector(".pagination").innerHTML = botones;
+}
+function cambiarPagina(pagina) {
+    const totalPaginas = Math.ceil(animales.length / animalesPorPagina);
+    if (pagina >= 1 && pagina <= totalPaginas) {
+        paginaActual = pagina;
+        mostrarAnimalesPorPagina();
+        mostrarBotonesPaginacion();
+    }
 }
 
 function actualizarTabla(data) {
+     animales = data;
+    paginaActual = 1;
+    mostrarAnimalesPorPagina();
+    mostrarBotonesPaginacion();
     let filas = "";
     data.forEach(a => {
         filas += `
             <tr>
                 <td class="mascotasCol"><span><img src="${a.foto}" alt="Foto de mascota">${a.nombreAnimal}</span></td>
-                <td> <span class="active ${a.estatus === 1 ? 'bg-success' : a.estatus === 2 ? 'bg-warning' : ''}"></span> ${a.estatusTexto}</td>
+                <td> <span class="activado ${a.estatus === 1 ? 'bg-success' : a.estatus === 2 ? 'bg-warning' : ''}"></span> ${a.estatusTexto}</td>
                 <td>${a.genero}</td>
                 <td>${a.edad}</td>
                 <td>${a.codigoAnimal}</td>
@@ -138,11 +189,13 @@ function agregarMascota() {
     const centro = document.getElementById("centro").value;
     const descripcion = document.getElementById("descripcionAnimal").value.trim();
     const caracter = document.getElementById("caracter").value;
+ const alerta = document.getElementById("fallo");
 
-
-    if (!nombre || !genero || !edad || !peso || !especie || !fotoFile || !centro) {
-        alert("Por favor, completa todos los campos obligatorios.");
-        return;
+    if (!nombre || !genero || !edad || !peso || !especie || !fotoFile || !centro || !descripcion || !raza || !tamanio || !caracter) {
+        document.getElementById("mensaje-error").innerHTML = "Por favor, completa todos los campos.";
+       alerta.classList.remove("d-none");
+       alerta.classList.add("show");
+       return;
     }
 
 
@@ -217,6 +270,13 @@ function modificarAnimal() {
         idCentro: parseInt(document.getElementById("centroMod").value),
         caracter: document.getElementById("caracterMod").value
     };
+    if( !animal.nombreAnimal || !animal.genero || !animal.edad || !animal.peso || !animal.especie || !animal.raza || !animal.tamano || !animal.descripcion || !animal.idCentro || !animal.caracter) {
+        const alerta = document.getElementById("fallo");
+        document.getElementById("mensaje-error").innerHTML = "Por favor, completa todos los campos.";
+        alerta.classList.remove("d-none");
+        alerta.classList.add("show");
+        return;
+    }
 
     fetch("http://localhost:8080/ProyectoHuellas/api/mascotas/updateAnimal", {
         method: "PUT",
@@ -236,6 +296,10 @@ function modificarAnimal() {
 
 function prepararEliminar(id) {
     idAnimalEliminar = id;
+     const animal = animales.find(a => a.idAnimal == id);
+     if(animal){
+        document.getElementById("nombreA").innerText = `${animal.nombreAnimal}`;
+     }
 }
 
 function eliminarAnimal() {
@@ -335,3 +399,15 @@ function mostrarInfoAnimal(idAnimal) {
 
  
 }
+function cerrarAlerta() {
+    const alerta = document.getElementById("fallo");
+    alerta.classList.add("d-none");
+    alerta.classList.remove("show");
+}
+
+document.getElementById('agregarAnimal').addEventListener('hidden.bs.modal', function () {
+    cerrarAlerta(); 
+});
+document.getElementById('modAnimal').addEventListener('hidden.bs.modal', function () {
+    cerrarAlerta(); 
+});

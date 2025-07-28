@@ -25,29 +25,35 @@
   </div>
   <button type="button" class="btn-close" aria-label="Close" onclick="cerrarAlerta()"></button>
 </div>
-   <header>
-    <nav class="navbar navbar-expand-lg text-light">
-      <div class="container-fluid ">
-        <a class="navbar-brand imagenLogo">
-          <img src="iconos/icon.png" alt="Logo" width="65" height="65" class="d-inline-block align-text-top">
-        </a>
-        <div class="collapse navbar-collapse secciones" id="navbarNavAltMarkup">
-          <div class="navbar-nav ">
-            <a class="nav-link text-light" aria-current="page" href="inicioAdopciones.html">Adopciones</a>
-            <a class="nav-link text-light" href="Donaciones.html">Donaciones</a>
-            <a class="nav-link text-light" href="Afiliaciones.html">Afiliacion</a>
-            <a class="nav-link text-light" href="QuienesSomos.html">¿Quienes somos?</a>
-            <a class="nav-link text-light" href="Empleados/loginEmpleados.html">Empleados</a>
-          </div>
-          <span class="navbar-text perfil text-light d-flex align-items-center" id="usuario">
+ <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-custom fixed-top">
+    <div class="container-fluid">
+    
+        <a class="navbar-brand imagenLogo" href="#">
+        <img src="iconos/icon.png" alt="Logo" width="65" height="65">
+      </a>
 
+  
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <a class="nav-link text-light" href="Login.html">Iniciar sesion / Crear cuenta</a>
-          </span>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <div class="navbar-nav mx-auto text-center">
+          <a class="nav-link active" href="inicioAdopciones.html">Adopciones</a>
+          <a class="nav-link" href="Donaciones.html">Donaciones</a>
+          <a class="nav-link" href="Afiliaciones.html">Afiliación</a>
+          <a class="nav-link" href="QuienesSomos.html">¿Quiénes somos?</a>
+          <a class="nav-link" href="Empleados/loginEmpleados.html" id="btnEmpleado">Empleados</a>
         </div>
+        <span class="navbar-text perfil d-flex align-items-center" id="usuario">
+          <a class="nav-link" href="Login.html">Iniciar sesión / Crear cuenta</a>
+        </span>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>
     <main class="container mt-3">
         <section class="solicitud-adopcion">
             <div class="row justify-content-center">
@@ -66,18 +72,18 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="telefono" class="form-label">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telefono">
+                                    <input type="tel" class="form-control" id="telefono" required>
                                 </div>
                             </div>
                             
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="mascotas" class="form-label">Correo electronico</label>
-                                    <input type="email" class="form-control" id="correo">
+                                    <input type="email" class="form-control" id="correo" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="frecuenciaAyuda" class="form-label">Direccion</label>
-                                    <input type="text" class="form-control" id="direccion">
+                                    <input type="text" class="form-control" id="direccion" required>
                                 </div>
                             </div>
                             
@@ -86,7 +92,7 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label for="mensaje" class="form-label">Motivo de la adopcion</label>
-                                    <textarea id="motivo" class="form-control" rows="3"></textarea>
+                                    <textarea id="motivo" class="form-control" rows="3" required> </textarea>
                                 </div>
                             </div>
                             
@@ -99,24 +105,24 @@
             </div>
         </section>
     </main>
-    <footer class="container-fluid  p-3">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="text-center text-light textosFooter ">
-                <span>Derechos reservados</span>
-                <span class="mx-2">|</span>
-                <span>Términos de servicio</span>
-                <span class="mx-2">|</span>
-                <span>2025 Todos los derechos reservados</span>
-            </div>
+     <footer class="container-fluid  p-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="text-center text-light textosFooter ">
+        <span>Derechos reservados</span>
+        <span class="mx-2">|</span>
+        <span>Términos de servicio</span>
+        <span class="mx-2">|</span>
+        <span>2025 Todos los derechos reservados</span>
+      </div>
 
-            <div class="iconos d-flex gap-4">
-                <a><img src="iconos/redesSocialesIconos/fb_icon.svg" width="20"></a>
-                <a><img src="iconos/redesSocialesIconos/instagram_icono.svg" width="20"></a>
-                <a><img src="iconos/redesSocialesIconos/twitter_icono.svg" width="20"></a>
-                <a><img src="iconos/redesSocialesIconos/whatsapp_icono.svg" width="20"></a>
-            </div>
-        </div>
-    </footer>
+      <div class="iconos d-flex gap-4">
+        <a><img src="iconos/redesSocialesIconos/fb_icon.svg" width="20"></a>
+        <a><img src="iconos/redesSocialesIconos/instagram_icono.svg" width="20"></a>
+        <a><img src="iconos/redesSocialesIconos/twitter_icono.svg" width="20"></a>
+        <a><img src="iconos/redesSocialesIconos/whatsapp_icono.svg" width="20"></a>
+      </div>
+    </div>
+  </footer>
     <script src="JS/Solicitud/enviarSolicitud.js"></script>
       <script src="JS/Header/Usuario.js"></script>
   <script src="JS/Login/loginAdoptantes.js"></script>

@@ -9,14 +9,14 @@ main {
     margin-top: 20px;
     background-color: #ffffff;
     max-width: 1200px;
-    min-height: 70vh;
+    min-height: auto;
     width: 90%;
    
     max-height: 90vh;
     border-radius: 4px;
     margin-left: 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
+    margin-bottom: 0;
     overflow-y: auto; 
 }
 
@@ -75,8 +75,8 @@ color:#6c757d;
         padding-top: 80px;
     }
     .contenedorPrincipal{
-        width: 95%;
-        margin-top: 10px;
+        height: auto;
+        margin-bottom: 20px; 
     }
     .filtros{
         justify-content: flex-start;

@@ -7,7 +7,6 @@ header {
     background-color: #A4A57E;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     padding: 0 25px;
     z-index: 1000;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -99,7 +98,6 @@ header {
 }
 
 .navbar-nav {
-    display: flex;
     gap: 20px;
     display: flex;
     align-items: center;
@@ -118,4 +116,50 @@ header {
 }
 .botonUsuario{
     color:white;
+}
+@media (max-width: 992px) {
+    .busquedas {
+        width: 50%;
+    }
+      .imagenLogo span {
+  display: none;
+}
+
+}
+@media (max-width: 768px) {
+    .busquedas {
+        width: 60%;
+        left: 40%;
+        transform: translateX(-30%);
+    }
+}
+@media (max-width: 700px){
+  .imagenLogo {
+        position: relative;
+        left: 0;
+        top: 5px;
+    }
+    .perfil {
+        margin-left: 0;
+        padding-right: 0;
+    }
+    .barraNavegacion-btn {
+        display: flex;
+    }
+    .imagenLogo span {
+  display: none;
+}
+
+}
+@media (max-width: 576px) {
+    .busquedas {
+        width: 70%;
+
+        height: 30px;
+    }
+    
+    .botonBusqueda {
+        width: 12px;
+        margin-left: 10px;
+    }
 }

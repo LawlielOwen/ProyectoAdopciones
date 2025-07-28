@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="655.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5px;" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <StackPane prefHeight="445.0" prefWidth="665.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="61.0" prefWidth="665.0" style="-fx-background-color: #A4A57E; -fx-border-color: #A4A57E;" StackPane.alignment="TOP_CENTER">
+                    <children>
+                        <ImageView fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../../../../../Iconos/Gestiones/iconosBlancos/circuloAgregar.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="20.0" top="20.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <Label text="Agregar centro de acopio" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="21.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="5.0" top="15.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Pane prefHeight="59.0" prefWidth="362.0" />
+                    </children>
+                </HBox>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="665.0" style="-fx-background-color: #FFFFFF;" StackPane.alignment="CENTER">
+                    <StackPane.margin>
+                        <Insets />
+                    </StackPane.margin>
+                    <children>
+                        <TextField fx:id="nombre" layoutX="22.0" layoutY="65.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                        <Label layoutX="23.0" layoutY="27.0" text="Nombre del centro">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="direccion" layoutX="22.0" layoutY="162.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                        <Label layoutX="23.0" layoutY="123.0" text="Direccion">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="telefono" layoutX="338.0" layoutY="62.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                        <Label layoutX="339.0" layoutY="23.0" text="Telefono">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="correo" layoutX="339.0" layoutY="162.0" prefHeight="38.0" prefWidth="292.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                        <Label layoutX="340.0" layoutY="123.0" text="Correo">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ced4da" height="0.5" layoutX="15.0" layoutY="583.0" stroke="#ced4da" strokeType="INSIDE" width="643.0" />
+                        <Button fx:id="guardar" layoutX="194.0" layoutY="321.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #198754;" text="Guardar" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="41.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../../../../Iconos/save-solid-24.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="cancelar" layoutX="341.0" layoutY="321.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #6c757d;" text="Cancelar" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Button>
+                  <TextField fx:id="horarioApertura" layoutX="22.0" layoutY="254.0" prefHeight="38.0" prefWidth="292.0" promptText="--:--" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <Label layoutX="23.0" layoutY="215.0" text="Horario de apertura">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="horarioCierre" layoutX="339.0" layoutY="254.0" prefHeight="38.0" prefWidth="292.0" promptText="--:--" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                  <Label layoutX="340.0" layoutY="215.0" text="Horario de cierre">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                    </children></AnchorPane>
+            </children>
+        </StackPane>
+    </content>
+</ScrollPane>

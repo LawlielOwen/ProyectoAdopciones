@@ -35,7 +35,7 @@
                     </children>
                 </HBox>
 
-                <HBox fx:id="contenedorBusqueda" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="346.0" styleClass="busquedas" HBox.hgrow="ALWAYS">
+                <HBox fx:id="contenedorBusqueda" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="370.0" styleClass="busquedas" HBox.hgrow="ALWAYS">
                     <children>
                         <ImageView fitHeight="18.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true" styleClass="botonBusqueda">
                             <image>

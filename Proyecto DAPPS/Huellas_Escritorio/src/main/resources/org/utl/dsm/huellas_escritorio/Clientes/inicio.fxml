@@ -73,7 +73,7 @@
                               <Image url="@../../../../../Iconos/magnifying-glass-solid.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="20" fitWidth="15.0" layoutX="801.0" layoutY="23.0" preserveRatio="true" translateX="-510.0" HBox.hgrow="ALWAYS">
+                        <ImageView fitHeight="20" fitWidth="15.0" layoutX="790.0" layoutY="23.0" preserveRatio="true" translateX="-500.0" HBox.hgrow="ALWAYS">
                            <image>
                               <Image url="@../../../../../Iconos/barrasBusqueda.png" />
                            </image>

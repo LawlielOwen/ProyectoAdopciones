@@ -49,6 +49,15 @@
     -fx-pref-height: 20px;
     -fx-spacing: 8px;
 }
+.contadorCualquiera {
+    -fx-background-color: white;
+    -fx-border-color: rgba(231, 234, 243, 0.7);
+    -fx-padding: 16px;
+    -fx-background-radius: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.1, 0, 2);
+
+    -fx-spacing: 8px;
+}
 .header {
     -fx-background-color: #yourColor;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, 4, 0, 0);
@@ -80,7 +89,7 @@
     -fx-text-fill: #333;
 }
 
-.iconoConta, .iconoConta2 {
+.iconoConta, .iconoConta2, .iconoConta3 {
     -fx-background-radius: 50%;
     -fx-padding: 6px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0.1, 0, 1);
@@ -93,12 +102,14 @@
 .iconoConta2 {
     -fx-background-color: linear-gradient(to right, #f5365c, #f56036);
 }
-
+.iconoConta3 {
+    -fx-background-color: linear-gradient(to right, #2dce89, #2dcecc);
+}
 
 
 .filtros-container {
     -fx-background-color: white;
-    -fx-padding: 20 20 10 20;
+    -fx-padding: 5 20 10 20;
     -fx-spacing: 10;
     -fx-border-color: #ddd;
     -fx-border-width: 0 0 1 0;

@@ -1,8 +1,12 @@
 package org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes;
 import java.util.*;
 import java.io.ByteArrayInputStream;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.CacheHint;
+import javafx.scene.control.Pagination;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
@@ -75,13 +79,21 @@ public class seccionGatoController implements  Initializable {
 
     @FXML
     private HBox contenedorCartas;
-
-
+    @FXML
+    private Pagination paginacion;
+    private static final int ITEMS_PER_PAGE = 6;
+    private ObservableList<Animales> listaAnimalesCompleta = FXCollections.observableArrayList();
+    private ObservableList<Animales> listaAnimalesPaginada = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cambioModulo c = new cambioModulo();
         imagenFondo.fitWidthProperty().bind(container.widthProperty());
         rectanguloFondo.widthProperty().bind(container.widthProperty());
+        paginacion.setPageCount(1);
+        paginacion.currentPageIndexProperty().addListener((obs, oldIndex, newIndex) -> {
+            actualizarCartasPagina(newIndex.intValue());
+        });
+
         cargarAnimales();
 
 
@@ -113,15 +125,38 @@ public class seccionGatoController implements  Initializable {
             Animales[] lista = gson.fromJson(response.getBody(), Animales[].class);
 
             Platform.runLater(() -> {
-
-
-                int maxCartas = 6;
-                for (int i = 0; i < lista.length && i < maxCartas; i++) {
-                    VBox carta = crearCartaAnimal(lista[i]);
-                    contenedorTarjetas.getChildren().add(carta);
-                }
+                listaAnimalesCompleta.setAll(lista);
+                actualizarPaginacion();
+                actualizarCartasPagina(0);
             });
         }
+    }
+    private void actualizarPaginacion() {
+        int totalPaginas = (int) Math.ceil((double) listaAnimalesCompleta.size() / ITEMS_PER_PAGE);
+        paginacion.setPageCount(totalPaginas == 0 ? 1 : totalPaginas);
+    }
+
+    private void actualizarCartasPagina(int pagina) {
+        int inicio = pagina * ITEMS_PER_PAGE;
+        int fin = Math.min(inicio + ITEMS_PER_PAGE, listaAnimalesCompleta.size());
+
+        listaAnimalesPaginada.setAll(listaAnimalesCompleta.subList(inicio, fin));
+
+        Platform.runLater(() -> {
+            contenedorTarjetas.getChildren().clear();
+            for (Animales animal : listaAnimalesPaginada) {
+                VBox carta = crearCartaAnimal(animal);
+                contenedorTarjetas.getChildren().add(carta);
+            }
+
+            if (listaAnimalesPaginada.isEmpty()) {
+                VBox vacio = new VBox();
+                vacio.setAlignment(Pos.CENTER);
+                Text mensaje = new Text("No se encontraron resultados.");
+                vacio.getChildren().add(mensaje);
+                contenedorTarjetas.getChildren().add(vacio);
+            }
+        });
     }
     private void buscarAnimal(String nombre) {
         HttpResponse<String> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/inicio/buscarGatos")
@@ -133,22 +168,13 @@ public class seccionGatoController implements  Initializable {
             Animales[] encontrados = new Gson().fromJson(response.getBody(), Animales[].class);
 
             Platform.runLater(() -> {
-                contenedorTarjetas.getChildren().clear();
-                for (Animales animal : encontrados){
-                    VBox carta = crearCartaAnimal(animal);
-                    contenedorTarjetas.getChildren().add(carta);
-                }
-                if(encontrados.length == 0){
-                    VBox vacio = new VBox();
-                    vacio.setAlignment(Pos.CENTER);
-                    Text mensaje = new Text("No se encontraron resultados.");
-                    vacio.getChildren().add(mensaje);
-                    contenedorTarjetas.getChildren().add(vacio);
-                }
+                listaAnimalesCompleta.setAll(encontrados);
+                actualizarPaginacion();
+                actualizarCartasPagina(0);
             });
         }
-        if(nombre.isEmpty()){
-            contenedorTarjetas.getChildren().clear();
+
+        if (nombre.isEmpty()) {
             cargarAnimales();
         }
     }

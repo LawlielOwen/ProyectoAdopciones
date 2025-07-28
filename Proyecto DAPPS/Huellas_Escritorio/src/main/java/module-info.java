@@ -13,6 +13,8 @@ module org.utl.dsm.huellas_escritorio {
     opens org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionCentros to javafx.fxml;
     opens org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionDonacion to javafx.fxml;
     opens org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionEmpleado to javafx.fxml;
+    opens org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionAdoptante to javafx.fxml;
+    opens org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionSolicitud to javafx.fxml;
     opens org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes to javafx.fxml;
 
     exports org.utl.dsm.huellas_escritorio;

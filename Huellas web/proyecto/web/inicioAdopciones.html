@@ -42,25 +42,31 @@
       </div>
     </div>
   </div>
-
   <header>
-    <nav class="navbar navbar-expand-lg text-light">
-      <div class="container-fluid ">
-        <a class="navbar-brand imagenLogo">
-          <img src="iconos/icon.png" alt="Logo" width="65" height="65" class="d-inline-block align-text-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom fixed-top">
+      <div class="container-fluid">
+
+        <a class="navbar-brand imagenLogo" href="#">
+          <img src="iconos/icon.png" alt="Logo" width="65" height="65">
         </a>
-        <div class="collapse navbar-collapse secciones" id="navbarNavAltMarkup">
-          <div class="navbar-nav ">
-            <a class="nav-link text-light" aria-current="page" href="inicioAdopciones.html">Adopciones</a>
-            <a class="nav-link text-light" href="Donaciones.html">Donaciones</a>
-            <a class="nav-link text-light" href="Afiliaciones.html">Afiliacion</a>
-            <a class="nav-link text-light" href="QuienesSomos.html">¿Quienes somos?</a>
-            <a class="nav-link text-light" id="btnEmpleado" href="Empleados/loginEmpleados.html">Empleados</a>
+
+
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <div class="navbar-nav mx-auto text-center">
+            <a class="nav-link active" href="inicioAdopciones.html">Adopciones</a>
+            <a class="nav-link" href="Donaciones.html">Donaciones</a>
+            <a class="nav-link" href="Afiliaciones.html">Afiliación</a>
+            <a class="nav-link" href="QuienesSomos.html">¿Quiénes somos?</a>
+            <a class="nav-link" href="Empleados/loginEmpleados.html" id="btnEmpleado">Empleados</a>
+
           </div>
-          <span class="navbar-text perfil text-light d-flex align-items-center" id="usuario">
-
-
-            <a class="nav-link text-light" href="Login.html">Iniciar sesion / Crear cuenta</a>
+          <span class="navbar-text perfil d-flex align-items-center" id="usuario">
+            <a class="nav-link" href="Login.html">Iniciar sesión / Crear cuenta</a>
           </span>
         </div>
       </div>
@@ -89,7 +95,76 @@
       </button>
     </div>
   </section>
+
+
+
+
+<div class="modal fade" id="modalFiltro" tabindex="-1" aria-labelledby="modalFiltroLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalFiltroLabel"><i class='bx bx-filter-alt'></i> Filtros</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body" id="modalFiltroBody">
+          <div class="card p-3 cartaFiltro">
+
+          <h5 class="mb-3"><i class='bx bx-filter-alt'></i> Filtros</h5>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Tipo</label>
+            <div class="form-check">
+              <input class="form-check-input filtroEspecie" type="checkbox" value="Perros" id="filtroPerro">
+              <label class="form-check-label" for="filtroPerro">Perros</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input filtroEspecie" type="checkbox" value="Gatos" id="filtroGato">
+              <label class="form-check-label" for="filtroGato">Gatos</label>
+            </div>
+          </div>
+
+
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Edad</label>
+            <select class="form-select" id="filtroEdad">
+              <option value="">Todos</option>
+              <option value="joven">1 - 4</option>
+              <option value="adulto">5-8</option>
+              <option value="mayor">9 - en adelante</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Sexo</label>
+            <select class="form-select" id="filtroSexo">
+              <option value="">Todos</option>
+              <option value="Macho">Macho</option>
+              <option value="Hembra">Hembra</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Carácter</label>
+            <select class="form-select" id="filtroCaracter">
+              <option value="">Todos</option>
+              <option value="Juguetón">Juguetón</option>
+              <option value="Tranquilo">Tranquilo</option>
+              <option value="Guardián">Guardián</option>
+              <option value="Tímido">Tímido</option>
+              <option value="Activo">Activo</option>
+            </select>
+          </div>
+          <button class="btn mt-3 botonF" onclick="aplicarFiltros()">Aplicar filtros</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <section id="busquedaResultados" class="container mt-5 d-none">
+    
+<button class="btn btn-light d-lg-none mb-3" type="submit" data-bs-toggle="modal" data-bs-target="#modalFiltro" style="width:100%;">
+  <i class='bx bx-filter-alt'></i> Filtros
+</button>
     <div class="row">
       <div class="col-md-3 mb-4 filtros">
         <div class="card p-3 cartaFiltro">
@@ -149,24 +224,24 @@
   </section>
   <section class="container contenedorSecciones" id="contenedorSecciones">
     <h3 class="textSeccion">¿Deseas adoptar?</h3>
-    <div class="row justify-content-center ">
-      <div class="col-md-4">
-        <a class=" seccionPerros" href="SeccionPerros.html">
-          <h4 class=" tituloSeccion">Perros</h4>
+    <div class="row justify-content-center align-items-center secciones-row">
+      <div class="col-auto p-0">
+        <a class="seccionPerros seccionMascota" href="SeccionPerros.html">
+          <h4 class="tituloSeccion">Perros</h4>
         </a>
       </div>
-      </a>
-      <div class="col-md-4">
-        <a class=" seccionGatos" href="SeccionGatos.html">
+      <div class="col-auto p-0">
+        <a class="seccionGatos seccionMascota" href="SeccionGatos.html">
           <h4 class="tituloSeccion">Gatos</h4>
         </a>
       </div>
+    </div>
   </section>
   <article class="row justify-content-center" id="rescatesRecientes">
     <div class="separador">
     </div>
     <h3 class="tituloRescates">Rescates Recientes </h3>
-    <div class="row row-cols-1 row-cols-md-5  cartasAnimales" id="cartas">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4 cartasAnimales" id="cartas">
     </div>
   </article>
 
@@ -175,17 +250,17 @@
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
-  <footer class="container-fluid  p-3">
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="text-center text-light textosFooter ">
+  <footer class="container-fluid p-3">
+    <div class="footer-content d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="text-center text-light textosFooter mb-3 mb-md-0">
         <span>Derechos reservados</span>
-        <span class="mx-2">|</span>
+        <span class="mx-2 d-none d-md-inline">|</span>
         <span>Términos de servicio</span>
-        <span class="mx-2">|</span>
+        <span class="mx-2 d-none d-md-inline">|</span>
         <span>2025 Todos los derechos reservados</span>
       </div>
 
-      <div class="iconos d-flex gap-4">
+      <div class="iconos d-flex gap-4 justify-content-center">
         <a><img src="iconos/redesSocialesIconos/fb_icon.svg" width="20"></a>
         <a><img src="iconos/redesSocialesIconos/instagram_icono.svg" width="20"></a>
         <a><img src="iconos/redesSocialesIconos/twitter_icono.svg" width="20"></a>
@@ -193,6 +268,8 @@
       </div>
     </div>
   </footer>
+
+
   <div class="modal fade" id="info" tabindex="-1" aria-labelledby="tituloModalAnimal" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content" id="informacion">

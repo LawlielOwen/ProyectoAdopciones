@@ -90,3 +90,86 @@ margin-right: 10px;
 .regresar:hover {
     background-color: #9DB58F;
 }
+
+@media (max-width: 991.98px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  .contenedor-login {
+    width: 90%;
+    height: auto;
+    margin: 30px auto;
+    flex-direction: column;
+  }
+  
+  .formulario-login {
+    padding: 20px;
+  }
+  
+  .formularioRegistro {
+    flex-direction: column;
+  }
+  
+  .formularioRegistro .col-sm-6,
+  .formularioRegistro .col-md-6 {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .regresar {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .formulario-login label {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 5px auto; 
+    text-align: left; 
+  }
+  .botonSesion {
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .titulo {
+    margin-top: 20px;
+  }
+  .formulario-login .form-control {
+  max-width: 300px; 
+  margin: 0 auto;  
+}
+
+}
+@media (min-width: 577px) and (max-width: 991.98px) {
+  .formulario-login .form-control {
+    max-width: 80%; /* Más ancho en tablets */
+    margin: 0 auto;
+  }
+
+  .formulario-login label {
+    max-width: 80%;
+    margin: 0 auto 5px auto;
+  }
+}
+@media (max-width: 576px) {
+  .contenedor-login {
+    width: 95%;
+    margin: 20px auto;
+  }
+  
+  .formulario-login {
+    padding: 15px;
+  }
+  
+  input.form-control {
+    font-size: 14px;
+  }
+}

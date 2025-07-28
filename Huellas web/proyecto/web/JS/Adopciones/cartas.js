@@ -4,6 +4,7 @@ let centros = [];
 document.addEventListener("DOMContentLoaded", function () {
   cargarMascotas();
   cargarCentros();
+
 });
 function cargarCentros() {
   fetch("http://localhost:8080/ProyectoHuellas/api/centros/getAll")
@@ -219,7 +220,7 @@ function aplicarFiltros() {
     especiesSeleccionadas.push(cb.value);
   });
 
-  // Solo envía la primera especie o vacío si ninguna seleccionada
+ 
   const especie = especiesSeleccionadas.length > 0 ? especiesSeleccionadas[0] : "";
 
   const edad = document.getElementById("filtroEdad").value;
@@ -243,6 +244,8 @@ function aplicarFiltros() {
   .then(res => res.json())
   .then(animales => {
     actualizarTabla(animales);
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modalFiltro'));
+      modal.hide();
   })
   .catch(err => console.error(err));
 }

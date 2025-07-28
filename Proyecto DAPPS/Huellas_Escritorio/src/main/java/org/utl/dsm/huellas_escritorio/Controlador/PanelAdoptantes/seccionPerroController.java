@@ -1,10 +1,13 @@
 package org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes;
 import java.util.*;
 import java.io.ByteArrayInputStream;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.CacheHint;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
@@ -14,12 +17,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import com.google.gson.Gson;
 import org.utl.dsm.huellas_escritorio.Modelo.Animales;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,7 +54,14 @@ public class seccionPerroController implements  Initializable {
     private Button btnQuien;
     @FXML
     private VBox contenedorSecciones;
-
+    @FXML
+    private ComboBox<String> caracter;
+    @FXML
+    private ComboBox<String> genero;
+    @FXML
+    private ComboBox<String> tamano;
+    @FXML
+    private Button btnFilltro;
     @FXML
     private FlowPane contenedorTarjetas;
     @FXML
@@ -75,16 +84,23 @@ public class seccionPerroController implements  Initializable {
 
     @FXML
     private HBox contenedorCartas;
-
-
+    @FXML
+    private Pagination paginacion;
+    private static final int ITEMS_PER_PAGE = 6;
+    private ObservableList<Animales> listaAnimalesCompleta = FXCollections.observableArrayList();
+    private ObservableList<Animales> listaAnimalesPaginada = FXCollections.observableArrayList();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cambioModulo c = new cambioModulo();
         imagenFondo.fitWidthProperty().bind(container.widthProperty());
         rectanguloFondo.widthProperty().bind(container.widthProperty());
+        paginacion.setPageCount(1);
+        paginacion.currentPageIndexProperty().addListener((obs, oldIndex, newIndex) -> {
+            actualizarCartasPagina(newIndex.intValue());
+        });
         cargarAnimales();
 
-
+        btnFilltro.setOnAction(event -> filtros());
         btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Afiliacion.fxml", "Afiliación", btnAfiliacion));
         btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnEmpleado));
         btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesión", btnLogin));
@@ -101,7 +117,33 @@ public class seccionPerroController implements  Initializable {
         });
     }
 
+    private void actualizarPaginacion() {
+        int totalPaginas = (int) Math.ceil((double) listaAnimalesCompleta.size() / ITEMS_PER_PAGE);
+        paginacion.setPageCount(totalPaginas == 0 ? 1 : totalPaginas);
+    }
 
+    private void actualizarCartasPagina(int pagina) {
+        int inicio = pagina * ITEMS_PER_PAGE;
+        int fin = Math.min(inicio + ITEMS_PER_PAGE, listaAnimalesCompleta.size());
+
+        listaAnimalesPaginada.setAll(listaAnimalesCompleta.subList(inicio, fin));
+
+        Platform.runLater(() -> {
+            contenedorTarjetas.getChildren().clear();
+            for (Animales animal : listaAnimalesPaginada) {
+                VBox carta = crearCartaAnimal(animal);
+                contenedorTarjetas.getChildren().add(carta);
+            }
+
+            if (listaAnimalesPaginada.isEmpty()) {
+                VBox vacio = new VBox();
+                vacio.setAlignment(Pos.CENTER);
+                Text mensaje = new Text("No se encontraron resultados.");
+                vacio.getChildren().add(mensaje);
+                contenedorTarjetas.getChildren().add(vacio);
+            }
+        });
+    }
 
 
     public void cargarAnimales() {
@@ -113,15 +155,28 @@ public class seccionPerroController implements  Initializable {
             Animales[] lista = gson.fromJson(response.getBody(), Animales[].class);
 
             Platform.runLater(() -> {
-
-
-                int maxCartas = 6;
-                for (int i = 0; i < lista.length && i < maxCartas; i++) {
-                    VBox carta = crearCartaAnimal(lista[i]);
-                    contenedorTarjetas.getChildren().add(carta);
-                }
+                listaAnimalesCompleta.setAll(lista);
+                actualizarPaginacion();
+                actualizarCartasPagina(0);
             });
         }
+        ObservableList<String> tamanos = FXCollections.observableArrayList(
+                "Todos", "Pequeño", "Mediano", "Grande"
+        );
+        tamano.setItems(tamanos);
+        tamano.getSelectionModel().selectFirst();
+
+        ObservableList<String> caracterA = FXCollections.observableArrayList(
+                "Todos", "Juguetón", "Tranquilo", "Guardián", "Tímido", "Activo"
+        );
+        caracter.setItems(caracterA);
+        caracter.getSelectionModel().selectFirst();
+
+        ObservableList<String> GeneroA = FXCollections.observableArrayList(
+                "Todos", "Macho", "Hembra"
+        );
+        genero.setItems(GeneroA);
+        genero.getSelectionModel().selectFirst();
     }
     private void buscarAnimal(String nombre) {
         HttpResponse<String> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/inicio/buscarPerro")
@@ -133,23 +188,63 @@ public class seccionPerroController implements  Initializable {
             Animales[] encontrados = new Gson().fromJson(response.getBody(), Animales[].class);
 
             Platform.runLater(() -> {
-            contenedorTarjetas.getChildren().clear();
-           for (Animales animal : encontrados){
-               VBox carta = crearCartaAnimal(animal);
-               contenedorTarjetas.getChildren().add(carta);
-           }
-           if(encontrados.length == 0){
-               VBox vacio = new VBox();
-               vacio.setAlignment(Pos.CENTER);
-               Text mensaje = new Text("No se encontraron resultados.");
-               vacio.getChildren().add(mensaje);
-               contenedorTarjetas.getChildren().add(vacio);
-           }
+                listaAnimalesCompleta.setAll(encontrados);
+                actualizarPaginacion();
+                actualizarCartasPagina(0);
             });
         }
         if(nombre.isEmpty()){
             contenedorTarjetas.getChildren().clear();
             cargarAnimales();
+        }
+    }
+    private void filtros() {
+        String gen = genero.getValue() != null && !"Todos".equals(genero.getValue()) ? genero.getValue() : "";
+        String caracterA = caracter.getValue() != null && !"Todos".equals(caracter.getValue()) ? caracter.getValue() : "";
+        String tamanio = tamano.getValue() != null && !"Todos".equals(tamano.getValue()) ? tamano.getValue() : "";
+
+        // Si todos están vacíos, recargamos todos
+        if (gen.isEmpty() && caracterA.isEmpty() && tamanio.isEmpty()) {
+            contenedorTarjetas.getChildren().clear();
+            cargarAnimales();
+            return;
+        }
+
+        try {
+            String json = String.format("{\"tamano\":\"%s\",\"genero\":\"%s\",\"caracter\":\"%s\"}",
+                    tamanio, gen, caracterA);
+
+            HttpResponse<JsonNode> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/inicio/filtroPerros")
+                    .header("Content-Type", "application/json")
+                    .body(json)
+                    .asJson();
+
+
+            if (response.getStatus() == 200) {
+                Gson gson = new Gson();
+                Animales[] lista = gson.fromJson(response.getBody().toString(), Animales[].class);
+
+
+                Platform.runLater(() -> {
+                    listaAnimalesCompleta.setAll(lista);
+                    actualizarPaginacion();
+                    actualizarCartasPagina(0);
+                });
+            } else {
+                System.err.println("Error en la respuesta del servidor: " + response.getStatus());
+                Platform.runLater(() -> {
+                    listaAnimalesCompleta.clear();
+                    actualizarPaginacion();
+                    actualizarCartasPagina(0);
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Platform.runLater(() -> {
+                listaAnimalesCompleta.clear();
+                actualizarPaginacion();
+                actualizarCartasPagina(0);
+            });
         }
     }
     private VBox crearCartaAnimal(Animales animal) {

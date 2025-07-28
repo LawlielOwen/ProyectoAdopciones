@@ -95,4 +95,24 @@
     transform: translateX(-50%) translateY(0);
   }
 }
+@media (max-width: 767.98px) {
+#fallo.show {
+    left: 50% !important;
+    top: 16px;
+    width: 96vw;
+    min-width: 0;
+    max-width: 98vw;
+    transform: translateX(-50%);
+    padding: 0.5rem 0.7rem;
+    font-size: 0.95rem;
+  }
+  .notifications-container {
+    width: 96vw;
+    min-width: 0;
+    max-width: 98vw;
+    font-size: 0.95rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
