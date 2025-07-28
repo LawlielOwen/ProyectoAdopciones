@@ -18,6 +18,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1315.0" style="-fx-background-color: #FCE7C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionDonacion.gestionDonaciones">
     <top>
@@ -83,7 +84,7 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/perroIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelAnimales" styleClass="activo" text="Animales" />
+                                        <Label styleClass="activo" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -99,7 +100,7 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/empleadosIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelEmpleados" styleClass="label-menu" text="Empleados" />
+                                        <Label styleClass="label-menu" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -115,7 +116,7 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/solicitudIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelSolicitudes" styleClass="label-menu" text="Solicitudes" />
+                                        <Label styleClass="label-menu" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -131,7 +132,7 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/centrosIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelCentros" styleClass="label-menu" text="Centros" />
+                                        <Label styleClass="label-menu" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -147,7 +148,7 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/adoptanteIdcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelAdoptantes" styleClass="label-menu" text="Adoptantes" />
+                                        <Label styleClass="label-menu" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -163,7 +164,7 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/donacionIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelDonaciones" styleClass="label-menu" text="Donaciones" />
+                                        <Label styleClass="label-menu" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -179,7 +180,7 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/afiliacionesIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelAfiliaciones" styleClass="label-menu" text="Afiliaciones" />
+                                        <Label fx:id="labelAfiliaciones" styleClass="label-menu" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -228,28 +229,54 @@
                                 <HBox alignment="BOTTOM_CENTER" styleClass="botonAgregarContainer" />
                             </HBox>
                             <HBox minHeight="-Infinity" prefHeight="94.0" prefWidth="1065.0" spacing="16" styleClass="stats-container">
-                                <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="81.0" styleClass="adoptados">
+                                <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="249.0" styleClass="contadorCualquiera">
                                     <children>
-                                        <Label text="Donaciones" />
+                                        <Label text="Donaciones Recibidas" textFill="#677788">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
                                         <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="contadorBox">
-                                            <Label fx:id="contadorDonaciones" styleClass="contador" text="0" translateX="-80.0" translateY="-10.0" />
+                                            <Label fx:id="contadorDonaciones" styleClass="contador" text="0" translateX="-140.0" translateY="-10.0" />
                                             <StackPane styleClass="iconoConta" translateY="-10.0">
                                                 <ImageView fitHeight="32" fitWidth="32">
                                                     <image>
-                                                        <Image url="@../../../../../Iconos/Gestiones/iconosBlancos/adoptados.png" />
+                                                        <Image url="@../../../../../Iconos/Gestiones/iconosBlancos/donar.png" />
                                                     </image>
                                     </ImageView>
                                             </StackPane>
                                         </HBox>
                                     </children>
                                 </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="249.0" styleClass="contadorCualquiera">
+                           <children>
+                              <Label text="Total recaudado" textFill="#677788">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="contadorBox">
+                                 <children>
+                                    <Label fx:id="totalRecaudado" styleClass="contador" text="0" translateX="-140.0" translateY="-10.0" />
+                                    <StackPane styleClass="iconoConta2" translateY="-10.0">
+                                       <children>
+                                          <ImageView fitHeight="32" fitWidth="32">
+                                             <image>
+                                                <Image url="@../../../../../Iconos/Gestiones/GestionDonaciones/coin-stack-regular-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
                                 <VBox.margin>
                                     <Insets left="30.0" />
                                 </VBox.margin>
                             </HBox>
 
                             <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="1125.0" styleClass="filtros-container">
-                                <TableView maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="1061.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
+                                <TableView fx:id="tablaDonaciones" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="1061.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
                                     <columns>
                                         <TableColumn fx:id="tcolNombre" editable="false" prefWidth="221.0" sortable="false" text="Nombre del donador" />
                                         <TableColumn fx:id="tcolMonto" prefWidth="220.0" text="Monto" />

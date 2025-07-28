@@ -84,7 +84,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/perroIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelAnimales" styleClass="activo" text="Animales" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -100,7 +99,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/empleadosIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelEmpleados" styleClass="label-menu" text="Empleados" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -116,7 +114,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/solicitudIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelSolicitudes" styleClass="label-menu" text="Solicitudes" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -132,7 +129,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/centrosIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelCentros" styleClass="label-menu" text="Centros" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -148,7 +144,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/adoptanteIdcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelAdoptantes" styleClass="label-menu" text="Adoptantes" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -164,7 +159,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/donacionIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelDonaciones" styleClass="label-menu" text="Donaciones" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -180,7 +174,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/afiliacionesIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelAfiliaciones" styleClass="label-menu" text="Afiliaciones" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>

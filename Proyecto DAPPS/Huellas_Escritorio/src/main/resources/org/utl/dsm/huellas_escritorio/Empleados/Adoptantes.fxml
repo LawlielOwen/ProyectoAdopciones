@@ -19,6 +19,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1315.0" style="-fx-background-color: #FCE7C8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionAdoptante.controllerAdoptante">
     <top>
@@ -232,7 +233,10 @@
                             <HBox minHeight="-Infinity" prefHeight="94.0" prefWidth="1065.0" spacing="16" styleClass="stats-container">
                                 <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="277.0" styleClass="contadorCualquiera">
                                     <children>
-                                        <Label text="Adoptantes Registrados" />
+                                        <Label text="Adoptantes Registrados" textFill="#677788">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Label>
                                         <HBox alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="169.0" spacing="10" styleClass="contadorBox">
                                             <Label fx:id="contadorRegistrados" styleClass="contador" translateX="-180.0" translateY="-10.0" />
                                             <StackPane styleClass="iconoConta" translateY="-10.0">

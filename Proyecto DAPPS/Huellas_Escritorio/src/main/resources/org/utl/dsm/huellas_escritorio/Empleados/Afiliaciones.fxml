@@ -83,7 +83,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/perroIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelAnimales" styleClass="activo" text="Animales" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -99,7 +98,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/empleadosIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelEmpleados" styleClass="label-menu" text="Empleados" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -115,7 +113,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/solicitudIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelSolicitudes" styleClass="label-menu" text="Solicitudes" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -131,7 +128,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/centrosIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelCentros" styleClass="label-menu" text="Centros" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -147,7 +143,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/adoptanteIdcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelAdoptantes" styleClass="label-menu" text="Adoptantes" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -163,7 +158,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/donacionIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelDonaciones" styleClass="label-menu" text="Donaciones" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -179,7 +173,6 @@
                                                 <Image url="@../../../../../Iconos/Gestiones/afiliacionesIcono.png" />
                                             </image>
                                         </ImageView>
-                                        <Label fx:id="labelAfiliaciones" styleClass="label-menu" text="Afiliaciones" />
                                     </HBox>
                                 </graphic>
                                 <VBox.margin>
@@ -228,8 +221,8 @@
                                 <HBox alignment="BOTTOM_CENTER" styleClass="botonAgregarContainer" />
                             </HBox>
 
-                            <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="1137.0" styleClass="filtros-container">
-                                <TableView maxWidth="-Infinity" minWidth="-Infinity" prefWidth="1080.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
+                            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="1137.0" styleClass="filtros-container">
+                                <TableView maxWidth="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="1080.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
                                     <columns>
                                         <TableColumn fx:id="tcolNombre" editable="false" prefWidth="150.0" sortable="false" text="Nombre" />
                                         <TableColumn fx:id="tcolCorreo" prefWidth="160.0" text="Correo" />
