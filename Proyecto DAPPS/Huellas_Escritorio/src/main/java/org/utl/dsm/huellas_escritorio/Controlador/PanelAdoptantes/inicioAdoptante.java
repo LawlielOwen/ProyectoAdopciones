@@ -1,10 +1,14 @@
 package org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes;
 import java.util.*;
 import java.io.ByteArrayInputStream;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.CacheHint;
+import javafx.scene.control.*;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
@@ -13,21 +17,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import kong.unirest.HttpResponse;
+import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
 import com.google.gson.Gson;
 import org.utl.dsm.huellas_escritorio.Modelo.Animales;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.net.URL;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.fxml.Initializable;
 import javafx.application.Platform;
-
+import org.utl.dsm.huellas_escritorio.Modelo.Sesion;
 import javafx.stage.Stage;
 import org.utl.dsm.huellas_escritorio.Modelo.Centros;
 
@@ -39,6 +42,17 @@ public class inicioAdoptante implements  Initializable {
     private HBox contenedorCartasBusqueda;
     @FXML
     private Button btnAfiliacion;
+
+    @FXML
+    private Text correoUsuario;
+    @FXML
+    private Text NombreUsuario;
+
+    @FXML
+    private Button btnLogout;
+
+    @FXML
+    private MenuButton menuSesion;
 
     @FXML
     private Button btnDonacion;
@@ -83,6 +97,23 @@ public class inicioAdoptante implements  Initializable {
 
     @FXML
     private StackPane seccionPerros;
+ // filtros
+ @FXML
+    private Button btnFiltro;
+
+    @FXML
+    private ComboBox<String> caracter;
+    @FXML
+    private ComboBox<String> edad;
+
+    @FXML
+    private ComboBox<String> genero;
+    @FXML
+    private CheckBox seleccionGatos;
+
+    @FXML
+    private CheckBox seleccionPerros;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -103,7 +134,7 @@ public class inicioAdoptante implements  Initializable {
 
         btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Afiliacion.fxml", "Afiliación", btnAfiliacion));
         btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnEmpleado));
-        btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesión", btnLogin));
+        btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Login/login.fxml", "Iniciar Sesión", btnLogin));
         btnAdopta.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Inicio", btnAdopta));
         seccionPerros.setOnMouseClicked(event -> {
           c.cambiarPantallaStackPane("/org/utl/dsm/huellas_escritorio/Clientes/seccionPerros.fxml","Seccion de perros", seccionPerros);
@@ -111,6 +142,68 @@ public class inicioAdoptante implements  Initializable {
         seccionGatos.setOnMouseClicked(event -> {
             c.cambiarPantallaStackPane("/org/utl/dsm/huellas_escritorio/Clientes/seccionGatos.fxml","Seccion de gatos", seccionGatos);
         });
+
+        if(Sesion.getAdoptanteActual() != null){
+            btnEmpleado.setVisible(false);
+            btnEmpleado.setManaged(false);
+            btnLogin.setManaged(false);
+            btnLogin.setVisible(false);
+            menuSesion.setVisible(true);
+            menuSesion.setManaged(true);
+            menuSesion.setText(Sesion.getAdoptanteActual().getNombre());
+            NombreUsuario.setText(Sesion.getAdoptanteActual().getNombre() +" " + Sesion.getAdoptanteActual().getApp() + " "+ Sesion.getAdoptanteActual().getApm());
+            correoUsuario.setText(Sesion.getAdoptanteActual().getCorreo());
+            ImageView img = (ImageView) menuSesion.getGraphic();
+
+            ColorAdjust blanco = new ColorAdjust();
+            blanco.setBrightness(0);
+
+            ColorAdjust negro = new ColorAdjust();
+            negro.setBrightness(-1);
+
+            img.setEffect(blanco);
+
+
+            menuSesion.setOnMouseEntered(e -> {
+                menuSesion.setStyle("-fx-background-color: white; -fx-text-fill: black;");
+                img.setEffect(negro);
+            });
+            menuSesion.setOnMouseExited(e -> {
+                menuSesion.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
+                img.setEffect(blanco);
+            });
+        }
+        btnLogout.setOnAction(
+                event -> {
+                    Sesion.cerrarSesion();
+                    btnEmpleado.setManaged(true);
+                    btnEmpleado.setVisible(true);
+                    btnLogin.setManaged(true);
+                    btnLogin.setVisible(true);
+                    menuSesion.setVisible(false);
+                    menuSesion.setManaged(false);
+                    NombreUsuario.setText("");
+                    correoUsuario.setText("");
+                    menuSesion.setText("");
+                });
+        ObservableList<String> Edad = FXCollections.observableArrayList(
+                "Todos", "1 - 4", "5 - 8", "9 - en adelante"
+        );
+        edad.setItems(Edad);
+        edad.getSelectionModel().selectFirst();
+
+        ObservableList<String> caracterA = FXCollections.observableArrayList(
+                "Todos", "Juguetón", "Tranquilo", "Guardián", "Tímido", "Activo"
+        );
+        caracter.setItems(caracterA);
+        caracter.getSelectionModel().selectFirst();
+
+        ObservableList<String> GeneroA = FXCollections.observableArrayList(
+                "Todos", "Macho", "Hembra"
+        );
+        genero.setItems(GeneroA);
+        genero.getSelectionModel().selectFirst();
+        btnFiltro.setOnAction(event -> filtros());
     }
     private void buscarAnimal(String nombre) {
         HttpResponse<String> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/inicio/buscarAnimal")
@@ -274,12 +367,21 @@ public class inicioAdoptante implements  Initializable {
                     }
                 }
             }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Clientes/tarjetaAnimal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Clientes/Tarjeta de informacion/tarjetaAnimal.fxml"));
             Parent root = loader.load();
 
-            controllerCartaAnimal controller = loader.getController();
-            controller.cargarInfo(animal,centro);
+
+
             Stage stage = new Stage();
+
+            controllerCartaAnimal controller = loader.getController();
+            controller.setVentanaPrincipal((Stage) btnAdopta.getScene().getWindow()); // ventana principal real
+            controller.setVentanaInformacion(stage);
+
+            controller.cargarInfo(animal, centro);
+
+
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Información del animal");
             stage.setScene(new Scene(root));
             stage.setResizable(false);
@@ -290,6 +392,83 @@ public class inicioAdoptante implements  Initializable {
             ex.printStackTrace();
         }
     }
+    private void filtros() {
+        String edadA = "";
+        String gen = genero.getValue() != null && !"Todos".equals(genero.getValue()) ? genero.getValue() : "";
+        String caracterA = caracter.getValue() != null && !"Todos".equals(caracter.getValue()) ? caracter.getValue() : "";
+        edadA = edad.getValue() != null && !"Todos".equals(edad.getValue()) ? edad.getValue() : "";
+        String animalSeleccion = "";
 
+        if (seleccionPerros.isSelected() && seleccionGatos.isSelected()) {
+            animalSeleccion = "";
+        } else if (seleccionPerros.isSelected()) {
+            animalSeleccion = "Perros";
+        } else if (seleccionGatos.isSelected()) {
+            animalSeleccion = "Gatos";
+        }
+        switch(edad.getValue()){
+            case "1 - 4":
+                edadA = "joven";
+                break;
+            case "5 - 8":
+                edadA = "adulto";
+                break;
+            case "9 - en adelante":
+                edadA = "mayor";
+                break;
+        }
+        if (gen.isEmpty() && caracterA.isEmpty() && edadA.isEmpty() && animalSeleccion.isEmpty()) {
+            contenedorTarjetas.getChildren().clear();
+            cargarAnimales();
+            return;
+        }
+
+        try {
+            String json = String.format("{\"especie\":\"%s\",\"genero\":\"%s\",\"edad\":\"%s\",\"caracter\":\"%s\"}",
+                    animalSeleccion, gen, edadA, caracterA);
+
+            HttpResponse<JsonNode> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/inicio/filtroTodos")
+                    .header("Content-Type", "application/json")
+                    .body(json)
+                    .asJson();
+
+
+            if (response.getStatus() == 200) {
+                Gson gson = new Gson();
+                Animales[] lista = gson.fromJson(response.getBody().toString(), Animales[].class);
+
+                Platform.runLater(() -> {
+                    contenedorBusqueda.setVisible(true);
+                    contenedorBusqueda.setManaged(true);
+                    contenedorSecciones.setVisible(false);
+                    contenedorSecciones.setManaged(false);
+                    contenedorTarjetas.setVisible(false);
+                    contenedorTarjetas.setManaged(false);
+                    contenedorResultados.getChildren().clear();
+                    HBox filaActual = null;
+                    for (int i = 0; i < lista.length; i++) {
+                        if (i % 3 == 0) {
+                            filaActual = new HBox(20);
+                            filaActual.setAlignment(Pos.CENTER);
+                            contenedorResultados.getChildren().add(filaActual);
+                        }
+
+                        VBox carta = crearCartaAnimal(lista[i]);
+                        filaActual.getChildren().add(carta);
+                    }
+
+
+                    if (filaActual != null && filaActual.getChildren().size() < 3) {
+                        while (filaActual.getChildren().size() < 3) {
+                            filaActual.getChildren().add(new Pane());
+                        }
+                    }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
 
 }

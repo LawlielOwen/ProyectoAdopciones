@@ -17,11 +17,13 @@ function cargarCentros() {
 
 
 function cargarMascotas() {
+  mostrarCarga();
   fetch("http://localhost:8080/ProyectoHuellas/api/mascotas/getPerros")
     .then(res => res.json())
     .then(data => {
       animales = data;
-      paginaActual = 1; 
+      paginaActual = 1;
+      ocultarCarga();
       mostrarPagina(animales);
     });
 }
@@ -73,7 +75,7 @@ function mostrarPagina(listaAnimales) {
 function mostrarControlesPaginacion(totalAnimales) {
   const totalPaginas = Math.ceil(totalAnimales / animalesPorPagina);
   const paginacion = document.getElementById("paginacion");
-  
+
   let html = `
     <nav aria-label="Paginación de animales">
       <ul class="pagination">
@@ -220,7 +222,7 @@ function actualizarTabla(animalesFiltrados) {
 function aplicarFiltros() {
   const genero = document.getElementById("filtroSexo").value;
   const tamano = document.getElementById("filtroTamano").value;
-   const caracter = document.getElementById("filtroCaracter").value;
+  const caracter = document.getElementById("filtroCaracter").value;
   fetch("http://localhost:8080/ProyectoHuellas/api/inicio/filtroPerros", {
     method: "POST",
     headers: {
@@ -229,7 +231,7 @@ function aplicarFiltros() {
     body: JSON.stringify({
       genero: genero,
       tamano: tamano,
-      caracter : caracter
+      caracter: caracter
     })
   })
     .then(res => res.json())
@@ -238,4 +240,41 @@ function aplicarFiltros() {
       actualizarTabla(data);
     })
     ;
+}
+function aplicarFiltrosResponsive() {
+  const btn = document.getElementById("btnAplicarFiltros");
+  const originalText = btn.innerText;
+  btn.innerText = "Filtrando...";
+  btn.disabled = true;
+  const genero = document.getElementById("filtroSexorRes").value;
+  const tamano = document.getElementById("filtroTamanoRes").value;
+  const caracter = document.getElementById("filtroCaracterRes").value;
+  fetch("http://localhost:8080/ProyectoHuellas/api/inicio/filtroPerros", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      genero: genero,
+      tamano: tamano,
+      caracter: caracter
+    })
+  })
+    .then(res => res.json())
+    .then(data => {
+
+      actualizarTabla(data);
+      btn.innerText = originalText;
+      btn.disabled = false;
+      const modal = bootstrap.Modal.getInstance(document.getElementById('modalFiltro'));
+      modal.hide();
+    })
+    ;
+}
+function mostrarCarga() {
+  document.getElementById("carga").style.display = "flex";
+}
+
+function ocultarCarga() {
+  document.getElementById("carga").style.display = "none";
 }

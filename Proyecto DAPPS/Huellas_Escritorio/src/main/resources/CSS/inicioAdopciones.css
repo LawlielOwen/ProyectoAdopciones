@@ -1,11 +1,5 @@
-@font-face {
-    src: url("../Fuentes/Inter_28pt-Regular.ttf");
-    font-family: "Inter";
-}
-@font-face {
-    src: url("../Fuentes/Inter_24pt-Bold.ttf");
-    font-family: "Inter Bold";
-}
+
+
 
 .buscador {
     -fx-background-color: white;
@@ -124,4 +118,40 @@
 .button-carta:hover {
     -fx-background-color: #A9917A;
     -fx-text-fill: white;
+}
+.inputTexto {
+    -fx-background-color: transparent;
+    -fx-border-color: #E0E0E0; /* Color por defecto */
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.inputTexto:hover {
+    -fx-border-color: black !important; /* Fuerza la aplicación */
+}
+.btn-soli {
+    -fx-background-color: #B1C29E;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 8 16 8 16;
+    -fx-border-color: #B1C29E;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.btn-soli:hover {
+    -fx-background-color: #A4A17E;
+    -fx-text-fill: #FFFFFF;
+    -fx-translate-y: -3px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 4);
+}
+.desabilitado {
+    -fx-background-color: #e9ecef;
+    -fx-border-color: #ced4da;
+    -fx-border-radius: 6px;
+    -fx-opacity: 1.0;
+    -fx-text-fill: #6c757d;
 }

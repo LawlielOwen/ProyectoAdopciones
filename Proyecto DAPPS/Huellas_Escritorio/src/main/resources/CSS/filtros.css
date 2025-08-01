@@ -1,5 +1,60 @@
-.contenedor-filtro{
--fx-background-color: white;
--fx-border-radius:  20px;
- -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 8);
+/* Contenedor principal */
+.contenedor-filtro {
+    -fx-background-color: white;
+    -fx-border-radius: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, 8);
+    -fx-padding: 15px;
 }
+
+/* Estilos para los textos de títulos */
+.contenedor-filtro Text {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-fill: #333333;
+}
+
+/* Estilos para los CheckBox */
+.contenedor-filtro CheckBox {
+    -fx-font-size: 15px;
+    -fx-text-fill: #555555;
+    -fx-font-family: "Arial";
+}
+
+.contenedor-filtro CheckBox .box {
+    -fx-background-color: white;
+    -fx-border-color: #ced4da;
+    -fx-border-radius: 3px;
+}
+
+.contenedor-filtro CheckBox:selected .mark {
+    -fx-background-color: #A4A57E;
+}
+
+/* Estilos para los ComboBox */
+.contenedor-filtro ComboBox {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: #ced4da;
+    -fx-border-radius: 5px;
+    -fx-pref-width: 219px;
+    -fx-pref-height: 35px;
+}
+
+.contenedor-filtro ComboBox .list-cell {
+    -fx-text-fill: #555555;
+}
+
+/* Estilos para el botón */
+.contenedor-filtro Button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-color: #A4A57E;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 215px;
+    -fx-pref-height: 39px;
+}
+
+.contenedor-filtro Button:hover {
+    -fx-background-color: #8a8c6a;
+}Lai

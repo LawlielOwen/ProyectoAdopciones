@@ -143,7 +143,7 @@ public class gestionMascotas implements  Initializable{
                 new SimpleObjectProperty<>(param.getValue().getEstatusTexto())
         );
 
-// Celda personalizada para mostrar un círculo de color y el texto del estatus
+
         tcolEstatus.setCellFactory(column -> new TableCell<Animales, String>() {
             private final HBox hbox = new HBox(6);
             private final Label circle = new Label();
@@ -379,7 +379,7 @@ public class gestionMascotas implements  Initializable{
             }
         });
         filtroEspecie.setOnAction(event -> filtros());
-        filtroEstatus.setOnAction(event -> filtrarE());
+        filtroEstatus.setOnAction(event -> filtros());
 
     }
     private void configurarPaginacion() {
@@ -506,14 +506,35 @@ public class gestionMascotas implements  Initializable{
 
     public void filtros(){
         String especies =  filtroEspecie.getValue();
+        String estatus =  filtroEstatus.getValue();
 
         if (especies == null || especies.equals("Todos")) {
+            especies = "Todos";
+        }
+
+        if (estatus == null || estatus.equals("Todos")) {
+            estatus = "Todos";
+        }
+
+        if (especies.equals("Todos") && estatus.equals("Todos")) {
             listAnimales.clear();
             cargarAnimales();
             return;
         }
-        String json = "{ \"especie\": \"" + especies + "\" }";
-        HttpResponse<JsonNode> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/mascotas/filtroEspecie")
+
+        String json = "";
+
+        if (!especies.equals("Todos") && estatus.equals("Todos")) {
+            json = "{ \"especie\": \"" + especies + "\" }";
+        } else if (especies.equals("Todos") && !estatus.equals("Todos")) {
+            int estatusNum = estatus.equals("En adopcion") ? 1 : estatus.equals("Adoptado") ? 2 : 0;
+            json = "{ \"estatus\": " + estatusNum + " }";
+        } else if (!especies.equals("Todos") && !estatus.equals("Todos")) {
+            int estatusNum = estatus.equals("En adopcion") ? 1 : estatus.equals("Adoptado") ? 2 : 0;
+            json = "{ \"especie\": \"" + especies + "\", \"estatus\": " + estatusNum + " }";
+        }
+
+        HttpResponse<JsonNode> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/mascotas/filtroTodos")
                 .header("Content-Type", "application/json")
                 .body(json)
                 .asJson();
@@ -525,31 +546,7 @@ public class gestionMascotas implements  Initializable{
         configurarPaginacion();
 
     }
-    public void filtrarE(){
-        String estatus =  filtroEstatus.getValue();
-        int estatusNum= 0;
 
-        if (estatus.equals("Adoptado")) {
-            estatusNum = 2;
-        } else if(estatus.equals("En adopcion")){
-            estatusNum = 1;
-        }else{
-            listAnimales.clear();
-            cargarAnimales();
-            return;
-        }
-        String json = "{ \"estatus\": \"" + estatusNum + "\" }";
-        HttpResponse<JsonNode> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/mascotas/filtroEstatus")
-                .header("Content-Type", "application/json")
-                .body(json)
-                .asJson();
-        listAnimales.clear();
-        Gson gson = new Gson();
-        Animales[] lista = gson.fromJson(String.valueOf(response.getBody()), Animales[].class);
-        listAnimales.addAll(Arrays.asList(lista));
-        tablaAnimales.setItems(listAnimales);
-        configurarPaginacion();
-    }
     public void abrirModificar(Animales animal, Centros centro) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Empleados/Formularios/GestionAnimales/modificarAnimal.fxml"));

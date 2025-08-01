@@ -1,0 +1,32 @@
+:root {
+    --verde-oliva: #A4A17E;
+    --verde-salvia: #B1C29E;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    --gris: #E0E0E0;
+    --trigo: #FDE3BD;
+}
+
+.textotitulo {
+    -fx-text-fill: #212529;
+    -fx-font-size: 1.5em;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 0.05em;
+}
+
+.texto{
+     -fx-fill: black;
+     -fx-font-size: 14px;
+}
+
+.footer{
+    -fx-fill: rgb(255, 255, 255);
+    -fx-background-color: #221E1B;
+     -fx-pref-width: 100%;
+}
+.textoFooter{
+    -fx-fill: rgb(255, 255, 255);
+     -fx-font-family: "Inter";
+    -fx-font-size: 16px;
+}
+

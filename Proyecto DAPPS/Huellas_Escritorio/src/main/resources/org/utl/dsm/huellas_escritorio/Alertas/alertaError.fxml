@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="91.0" prefWidth="354.0" style="-fx-background-color: #FEF2F2; -fx-background-radius: 5 0 0 5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.Alertas.alertaError">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f87171" height="91.0" layoutX="-9.0" layoutY="-1.0" stroke="#f87171" strokeType="INSIDE" width="18.0" />
+      <ImageView fitHeight="29.0" fitWidth="25.0" layoutX="25.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Iconos/alertas/x%20alerta.png" />
+         </image>
+      </ImageView>
+      <TextFlow layoutX="60.0" layoutY="21.0" prefHeight="51.0" prefWidth="233.0">
+         <children>
+            <Text fx:id="textoModificacion" fill="#991b1b" strokeType="OUTSIDE" strokeWidth="0.0" text="Por favor, completa todos los campos.">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </TextFlow>
+      <Button fx:id="cerrar" layoutX="274.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="29.0" prefWidth="47.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Iconos/alertas/cerrarAlerta.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

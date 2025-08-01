@@ -146,6 +146,10 @@ margin-right: 10px;
   max-width: 300px; 
   margin: 0 auto;  
 }
+.form-select{
+  margin: 0 auto;
+  max-width: 300px; /* Ancho máximo para el select */
+}
 
 }
 @media (min-width: 577px) and (max-width: 991.98px) {
@@ -157,6 +161,10 @@ margin-right: 10px;
   .formulario-login label {
     max-width: 80%;
     margin: 0 auto 5px auto;
+  }
+  .form-select{
+     max-width: 80%; /* Más ancho en tablets */
+    margin: 0 auto;
   }
 }
 @media (max-width: 576px) {

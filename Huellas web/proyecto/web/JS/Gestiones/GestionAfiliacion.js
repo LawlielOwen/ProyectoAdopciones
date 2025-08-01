@@ -21,7 +21,7 @@ function getAllAfiliados() {
         lista.forEach(a => {
             tbody.innerHTML += `
                 <tr>
-                  <td>${a.nombre}</td>
+                  <td class="mascotasCol">${a.nombre}</td>
                   <td>${a.correo}</td>
                   <td>${a.telefono}</td>
                   <td>${a.tipoAfiliado}</td>

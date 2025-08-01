@@ -43,4 +43,7 @@
   .filtros {
     display: none !important;
   }
+  .botonF{
+    border-radius: 6px;
+  }
 }

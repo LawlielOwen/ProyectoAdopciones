@@ -15,7 +15,7 @@ function cargarCentros() {
 }
 
 function cargarMascotas() {
-   mostrarCarga();
+  mostrarCarga();
   fetch("http://localhost:8080/ProyectoHuellas/api/mascotas/getAll")
     .then(res => res.json())
     .then(data => {
@@ -56,7 +56,7 @@ function cargarMascotas() {
 `;
 
       });
- ocultarCarga();
+      ocultarCarga();
       document.getElementById("cartas").innerHTML = cards;
 
     });
@@ -140,40 +140,40 @@ function mostrarInfo(id) {
 
 }
 function mostrarCarga() {
-    document.getElementById("carga").style.display = "flex";
+  document.getElementById("carga").style.display = "flex";
 }
 
 function ocultarCarga() {
-    document.getElementById("carga").style.display = "none";
+  document.getElementById("carga").style.display = "none";
 }
 document.getElementById("buscar").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        const termino = this.value.trim();
+  if (e.key === "Enter") {
+    const termino = this.value.trim();
 
-        if (termino === "") {
-            cargarMascotas();
-        } else {
-            buscarMascotasPorNombre(termino);
-        }
+    if (termino === "") {
+      cargarMascotas();
+    } else {
+      buscarMascotasPorNombre(termino);
     }
+  }
 });
 
 function buscarMascotasPorNombre(nombre) {
-    fetch("http://localhost:8080/ProyectoHuellas/api/inicio/buscarAnimal", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ nombreAnimal: nombre })
-    })
-        .then(res => res.json())
-        .then(data => {
+  fetch("http://localhost:8080/ProyectoHuellas/api/inicio/buscarAnimal", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ nombreAnimal: nombre })
+  })
+    .then(res => res.json())
+    .then(data => {
       document.getElementById("contenedorSecciones").classList.add("d-none");
       document.getElementById("rescatesRecientes").classList.add("d-none");
-       document.getElementById("busquedaResultados").classList.remove("d-none");
-            actualizarTabla(data);
-        })
-        ;
+      document.getElementById("busquedaResultados").classList.remove("d-none");
+      actualizarTabla(data);
+    })
+    ;
 }
 function actualizarTabla(animalesFiltrados) {
   const contenedor = document.getElementById("contenedorCartasBusqueda");
@@ -220,7 +220,7 @@ function aplicarFiltros() {
     especiesSeleccionadas.push(cb.value);
   });
 
- 
+
   const especie = especiesSeleccionadas.length > 0 ? especiesSeleccionadas[0] : "";
 
   const edad = document.getElementById("filtroEdad").value;
@@ -228,11 +228,12 @@ function aplicarFiltros() {
   const caracter = document.getElementById("filtroCaracter").value;
 
   let data = {
-    especie: especie,  
+    especie: especie,
     edad: edad,
     genero: genero,
     caracter: caracter
   };
+
 
   fetch("http://localhost:8080/ProyectoHuellas/api/inicio/filtroTodos", {
     method: "POST",
@@ -241,12 +242,54 @@ function aplicarFiltros() {
     },
     body: JSON.stringify(data)
   })
-  .then(res => res.json())
-  .then(animales => {
-    actualizarTabla(animales);
-    const modal = bootstrap.Modal.getInstance(document.getElementById('modalFiltro'));
-      modal.hide();
-  })
-  .catch(err => console.error(err));
+    .then(res => res.json())
+    .then(animales => {
+      actualizarTabla(animales);
+
+    })
+    .catch(err => console.error(err));
 }
 
+function aplicarFiltrosResponsive() {
+  const btn = document.getElementById("btnAplicarFiltros");
+  const originalText = btn.innerText;
+  btn.innerText = "Filtrando...";
+  btn.disabled = true;
+  const edad = document.getElementById("filtroEdadModal").value;
+  const genero = document.getElementById("filtroSexoModal").value;
+  const caracter = document.getElementById("filtroCaracterModal").value;
+
+  let especiesSeleccionadas = [];
+  document.querySelectorAll('.filtroEspecieModal:checked').forEach(cb => {
+    especiesSeleccionadas.push(cb.value);
+  });
+
+
+  const especie = especiesSeleccionadas.length > 0 ? especiesSeleccionadas[0] : "";
+
+
+  let data = {
+    especie: especie,
+    edad: edad,
+    genero: genero,
+    caracter: caracter
+  };
+
+
+  fetch("http://localhost:8080/ProyectoHuellas/api/inicio/filtroTodos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then(res => res.json())
+    .then(animales => {
+      actualizarTabla(animales);
+      btn.innerText = originalText;
+      btn.disabled = false;
+      const modal = bootstrap.Modal.getInstance(document.getElementById('modalFiltro'));
+      modal.hide();
+    })
+
+}

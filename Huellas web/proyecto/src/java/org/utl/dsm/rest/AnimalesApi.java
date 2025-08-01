@@ -70,12 +70,11 @@ public class AnimalesApi extends Application {
         }
         return Response.status(Response.Status.OK).entity(out).build();
     }
-
-    @Path("filtroEspecie")
+   @Path("filtroTodos")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response filtroEspecie(String filtracion) {
+    public Response filtroTodos(String filtracion) {
         Gson gson = new Gson();
         String out;
 
@@ -83,29 +82,7 @@ public class AnimalesApi extends Application {
             Animales filtro = gson.fromJson(filtracion, Animales.class);
             String especie = filtro.getEspecie();
             animalesControl control = new animalesControl();
-            List<Animales> lista = control.filtrarPorEspecie(especie);
-            out = gson.toJson(lista);
-        } catch (Exception e) {
-            e.printStackTrace();
-            out = "{\"error\": \"" + e.getMessage() + "\"}";
-        }
-
-        return Response.status(Response.Status.OK).entity(out).build();
-    }
-
-    @Path("filtroEstatus")
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response filtroEstatus(String filtracion) {
-        Gson gson = new Gson();
-        String out;
-
-        try {
-            Animales filtro = gson.fromJson(filtracion, Animales.class);
-            int Estatus = filtro.getEstatus();
-            animalesControl control = new animalesControl();
-            List<Animales> lista = control.filtrarPorEstatus(Estatus);
+            List<Animales> lista = control.filtrarAnimales(filtro);
             out = gson.toJson(lista);
         } catch (Exception e) {
             e.printStackTrace();

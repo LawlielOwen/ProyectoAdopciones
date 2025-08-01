@@ -1,11 +1,4 @@
-@font-face {
-    src: url("../Fuentes/Inter_28pt-Regular.ttf");
-    font-family: "Inter";
-}
-@font-face {
-    src: url("../Fuentes/Inter_24pt-Bold.ttf");
-    font-family: "Inter Bold";
-}
+
 .Titulo {
     -fx-font-family:"Inter Bold";
     -fx-font-size: 40px;

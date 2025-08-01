@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.CacheHint;
 import javafx.scene.control.*;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import kong.unirest.HttpResponse;
 import kong.unirest.JsonNode;
 import kong.unirest.Unirest;
@@ -32,6 +34,8 @@ import javafx.application.Platform;
 
 import javafx.stage.Stage;
 import org.utl.dsm.huellas_escritorio.Modelo.Centros;
+import org.utl.dsm.huellas_escritorio.Modelo.Sesion;
+
 public class seccionPerroController implements  Initializable {
     private Stage cerrarVentanas;
     @FXML
@@ -40,6 +44,17 @@ public class seccionPerroController implements  Initializable {
     private HBox contenedorCartasBusqueda;
     @FXML
     private Button btnAfiliacion;
+
+    @FXML
+    private Text correoUsuario;
+    @FXML
+    private Text NombreUsuario;
+
+    @FXML
+    private Button btnLogout;
+
+    @FXML
+    private MenuButton menuSesion;
 
     @FXML
     private Button btnDonacion;
@@ -103,7 +118,7 @@ public class seccionPerroController implements  Initializable {
         btnFilltro.setOnAction(event -> filtros());
         btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Afiliacion.fxml", "Afiliación", btnAfiliacion));
         btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnEmpleado));
-        btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesión", btnLogin));
+        btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Login/login.fxml", "Iniciar Sesión", btnLogin));
         btnAdopta.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Inicio", btnAdopta));
         buscador.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -115,6 +130,49 @@ public class seccionPerroController implements  Initializable {
                 }
             }
         });
+        if(Sesion.getAdoptanteActual() != null){
+            btnEmpleado.setVisible(false);
+            btnEmpleado.setManaged(false);
+            btnLogin.setManaged(false);
+            btnLogin.setVisible(false);
+            menuSesion.setVisible(true);
+            menuSesion.setManaged(true);
+            menuSesion.setText(Sesion.getAdoptanteActual().getNombre());
+            NombreUsuario.setText(Sesion.getAdoptanteActual().getNombre() +" " + Sesion.getAdoptanteActual().getApp() + " "+ Sesion.getAdoptanteActual().getApm());
+            correoUsuario.setText(Sesion.getAdoptanteActual().getCorreo());
+            ImageView img = (ImageView) menuSesion.getGraphic();
+
+            ColorAdjust blanco = new ColorAdjust();
+            blanco.setBrightness(0);
+
+            ColorAdjust negro = new ColorAdjust();
+            negro.setBrightness(-1);
+
+            img.setEffect(blanco);
+
+
+            menuSesion.setOnMouseEntered(e -> {
+                menuSesion.setStyle("-fx-background-color: white; -fx-text-fill: black;");
+                img.setEffect(negro);
+            });
+            menuSesion.setOnMouseExited(e -> {
+                menuSesion.setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
+                img.setEffect(blanco);
+            });
+        }
+        btnLogout.setOnAction(
+                event -> {
+                    Sesion.cerrarSesion();
+                    btnEmpleado.setManaged(true);
+                    btnEmpleado.setVisible(true);
+                    btnLogin.setManaged(true);
+                    btnLogin.setVisible(true);
+                    menuSesion.setVisible(false);
+                    menuSesion.setManaged(false);
+                    NombreUsuario.setText("");
+                    correoUsuario.setText("");
+                    menuSesion.setText("");
+                });
     }
 
     private void actualizarPaginacion() {
@@ -178,6 +236,7 @@ public class seccionPerroController implements  Initializable {
         genero.setItems(GeneroA);
         genero.getSelectionModel().selectFirst();
     }
+
     private void buscarAnimal(String nombre) {
         HttpResponse<String> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/inicio/buscarPerro")
                 .header("Content-Type", "application/json")
@@ -203,7 +262,7 @@ public class seccionPerroController implements  Initializable {
         String caracterA = caracter.getValue() != null && !"Todos".equals(caracter.getValue()) ? caracter.getValue() : "";
         String tamanio = tamano.getValue() != null && !"Todos".equals(tamano.getValue()) ? tamano.getValue() : "";
 
-        // Si todos están vacíos, recargamos todos
+
         if (gen.isEmpty() && caracterA.isEmpty() && tamanio.isEmpty()) {
             contenedorTarjetas.getChildren().clear();
             cargarAnimales();
@@ -231,7 +290,7 @@ public class seccionPerroController implements  Initializable {
                     actualizarCartasPagina(0);
                 });
             } else {
-                System.err.println("Error en la respuesta del servidor: " + response.getStatus());
+
                 Platform.runLater(() -> {
                     listaAnimalesCompleta.clear();
                     actualizarPaginacion();
@@ -326,12 +385,21 @@ public class seccionPerroController implements  Initializable {
                     }
                 }
             }
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Clientes/tarjetaAnimal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/utl/dsm/huellas_escritorio/Clientes/Tarjeta de informacion/tarjetaAnimal.fxml"));
             Parent root = loader.load();
 
-            controllerCartaAnimal controller = loader.getController();
-            controller.cargarInfo(animal,centro);
+
+
             Stage stage = new Stage();
+
+            controllerCartaAnimal controller = loader.getController();
+            controller.setVentanaPrincipal((Stage) btnAdopta.getScene().getWindow()); // ventana principal real
+            controller.setVentanaInformacion(stage);
+
+            controller.cargarInfo(animal, centro);
+
+
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Información del animal");
             stage.setScene(new Scene(root));
             stage.setResizable(false);

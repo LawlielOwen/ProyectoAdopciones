@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="743.0" styleClass="modal-container" stylesheets="@../../../../../../CSS/tarjetaAnimal.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.PanelAdoptantes.controllerCartaAnimal">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="454.0" layoutX="-2.0" layoutY="91.0" stroke="WHITE" strokeType="INSIDE" styleClass="shadow-card" width="745.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f9fa" height="454.0" layoutX="-3.0" layoutY="91.0" stroke="#f9f9f9" strokeType="INSIDE" styleClass="img-container" width="272.0" />
+      <ImageView fx:id="foto" fitHeight="255.0" fitWidth="250.0" layoutX="9.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" styleClass="img-animal" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3cbb8" height="60.0" layoutX="-3.0" layoutY="31.0" stroke="#d3cbb8" strokeType="INSIDE" styleClass="header-modal" width="746.0" />
+        <Label fx:id="nombreAnimal" layoutX="335.0" layoutY="40.0" styleClass="titulo" />
+      <Button fx:id="cerrar" layoutX="468.0" layoutY="485.0" prefHeight="40.0" prefWidth="111.0" styleClass="btn-cerrar" text="Cerrar">
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Iconos/x-circle-regular-24.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="adoptar" layoutX="300.0" layoutY="486.0" prefHeight="37.0" prefWidth="147.0" styleClass="btn-adoptar" text="Adóptame">
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Iconos/corazonBlaco.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="302.0" layoutY="124.0" styleClass="subtitulo" text="Edad:" />
+      <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="298.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Iconos/tarjetaAnimal/calendar-heart-regular-24.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="edad" layoutX="322.0" layoutY="154.0" styleClass="label-texto" wrapText="true" />
+      <Label layoutX="298.0" layoutY="189.0" styleClass="subtitulo" text="Género:" />
+      <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="298.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Iconos/calendar-heart-solid-24.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="genero" layoutX="325.0" layoutY="224.0" styleClass="label-texto" wrapText="true" />
+      <Label layoutX="301.0" layoutY="259.0" styleClass="subtitulo" text="Raza:" />
+      <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="298.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Iconos/shield-alt-2-regular-24.png" />
+         </image>
+      </ImageView>
+      <TextFlow layoutX="235.0" layoutY="500.0" prefHeight="20.0" prefWidth="117.0" />
+      <Label layoutX="517.0" layoutY="124.0" styleClass="subtitulo" text="Peso:" />
+      <ImageView fitHeight="24.0" fitWidth="17.0" layoutX="509.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Iconos/line-chart-regular-24.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="peso" layoutX="538.0" layoutY="152.0" styleClass="label-texto" wrapText="true" />
+      <Label layoutX="514.0" layoutY="188.0" styleClass="subtitulo" text="Tamaño:" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="508.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Iconos/expand-regular-24.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="tamano" layoutX="533.0" layoutY="224.0" styleClass="label-texto" wrapText="true" />
+      <Label layoutX="511.0" layoutY="260.0" styleClass="subtitulo" text="Centro:" />
+      <ImageView fitHeight="20.0" fitWidth="17.0" layoutX="509.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Iconos/home-alt-regular-24.png" />
+         </image>
+      </ImageView>
+      <TextFlow layoutX="533.0" layoutY="293.0" prefHeight="40.0" prefWidth="186.0">
+         <children>
+            <Text fx:id="centro" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text-texto" wrappingWidth="95.33326482772827" />
+         </children>
+      </TextFlow>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6c757d" height="0.2" layoutX="283.0" layoutY="346.0" stroke="#6c757d" strokeType="INSIDE" width="450.0" />
+      <Label layoutX="279.0" layoutY="353.0" prefHeight="27.0" prefWidth="124.0" styleClass="subtitulo" text="Descripción">
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <TextFlow fx:id="descripcionF" layoutX="294.0" layoutY="393.0" maxWidth="432.0" prefHeight="72.0" prefWidth="432.0" styleClass="descripcion">
+         <children>
+            <Text fx:id="descripcion" fill="#6c757d" styleClass="descripcion">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </TextFlow>
+      <Text fx:id="raza" layoutX="323.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text-texto" wrappingWidth="150.8888854980469" />
+   </children>
+</AnchorPane>

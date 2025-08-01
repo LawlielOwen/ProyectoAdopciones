@@ -101,50 +101,28 @@ public class animalesControl {
         return animales;
     }
 
-    public List<Animales> filtrarPorEspecie(String especie) throws Exception {
-        List<Animales> lista = new ArrayList<>();
-        ConexionMySQL conn = new ConexionMySQL();
-        Connection con = conn.open();
+   public List<Animales> filtrarAnimales(Animales a) throws Exception {
+    List<Animales> lista = new ArrayList<>();
+    ConexionMySQL conn = new ConexionMySQL();
+    Connection con = conn.open();
 
-        String sql = "CALL filtrarEspecie(?)";
-        CallableStatement stmt = con.prepareCall(sql);
-        stmt.setString(1, especie);
+    String sql = "CALL filtrarAnimales(?, ?)";
+    CallableStatement stmt = con.prepareCall(sql);
+    stmt.setString(1, a.getEspecie());
+    stmt.setInt(2, a.getEstatus());
 
-        ResultSet rs = stmt.executeQuery();
+    ResultSet rs = stmt.executeQuery();
 
-        while (rs.next()) {
-            lista.add(fill(rs));
-        }
-
-        rs.close();
-        stmt.close();
-        con.close();
-
-        return lista;
+    while (rs.next()) {
+        lista.add(fill(rs));
     }
 
-    public List<Animales> filtrarPorEstatus(int estatus) throws Exception {
-        List<Animales> lista = new ArrayList<>();
-        ConexionMySQL conn = new ConexionMySQL();
-        Connection con = conn.open();
+    rs.close();
+    stmt.close();
+    con.close();
 
-        String sql = "CALL filtrarEstatus(?)";
-        CallableStatement stmt = con.prepareCall(sql);
-        stmt.setInt(1, estatus);
-
-        ResultSet rs = stmt.executeQuery();
-
-        while (rs.next()) {
-            lista.add(fill(rs));
-        }
-
-        rs.close();
-        stmt.close();
-        con.close();
-
-        return lista;
-    }
-
+    return lista;
+}
     public void insertarAnimal(Animales a) throws Exception {
 
         String codigoAnimal = generarCodigo(a.getNombreAnimal(), a.getRaza());

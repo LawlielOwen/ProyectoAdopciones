@@ -26,7 +26,7 @@
                         <AnchorPane maxHeight="484.0" maxWidth="744.0" prefHeight="443.0" prefWidth="744.0" style="-fx-background-color: white; -fx-background-radius: 8px; -fx-border-radius: 8px;" styleClass="form">
                             <children>
                                 <Label fx:id="welcomeText" layoutX="268.0" layoutY="237.0" />
-                                <Button id="botonLogin" fx:id="btnLogin" layoutX="99.0" layoutY="285.0" prefHeight="53.0" prefWidth="221.0" style="-fx-background-color: B1C29E;" styleClass="botonRegistro" stylesheets="@../../../../../CSS/login.css" text="Iniciar Sesion" textFill="WHITE">
+                                <Button id="botonLogin" fx:id="btnLogin" layoutX="99.0" layoutY="285.0" prefHeight="53.0" prefWidth="221.0" style="-fx-background-color: B1C29E;" styleClass="botonRegistro" stylesheets="@../../../../../../CSS/login.css" text="Iniciar Sesion" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="12.0" />
                                     </font>
@@ -49,7 +49,7 @@
                                 </Label>
                                 <ImageView fitHeight="446.0" fitWidth="330.0" layoutX="414.0" layoutY="-2.0" preserveRatio="false">
                                     <image>
-                                        <Image url="@../../../../../img/interfazAdoptante/perroLogin.png" />
+                                        <Image url="@../../../../../../img/interfazAdoptante/perroLogin.png" />
                                     </image>
                                 </ImageView>
                                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="444.0" layoutX="414.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: black; -fx-opacity: 0.3;" width="330.0" />
@@ -64,8 +64,8 @@
                                 </Pane>
                             </children>
                      <stylesheets>
-                        <URL value="@../../../../../CSS/login.css" />
-                        <URL value="@../../../../../CSS/textFieldLogin.css" />
+                        <URL value="@../../../../../../CSS/login.css" />
+                        <URL value="@../../../../../../CSS/textFieldLogin.css" />
                      </stylesheets>
                         </AnchorPane>
                     </children>
@@ -82,15 +82,15 @@
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../../../../Iconos/huellitaIcon.png" />
+                                <Image url="@../../../../../../Iconos/huellitaIcon.png" />
                             </image>
                         </ImageView>
                     </graphic>
                 </Button>
             </top>
             <stylesheets>
-                <URL value="@../../../../../CSS/login.css" />
-                <URL value="@../../../../../CSS/inicioAdopciones.css" />
+                <URL value="@../../../../../../CSS/login.css" />
+                <URL value="@../../../../../../CSS/inicioAdopciones.css" />
             </stylesheets>
         </BorderPane>
 

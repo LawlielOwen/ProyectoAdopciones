@@ -1,0 +1,30 @@
+.botonPerfil{
+-fx-background-color: transparent;
+-fx-border-color:white;
+-fx-text-fill: white;
+-fx-border-radius: 6;
+-fx-background-radius:6;
+
+}
+.botonPerfil:hover {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.botonPerfil:focused{
+-fx-background-color:white;
+-fx-text-fill:black;
+-fx-border-radius: 6;
+-fx-background-radius:6;
+}
+.custom-menu-item:hover {
+    -fx-background-color: transparent;
+}
+.custom-menu-item .label:hover {
+    -fx-background-color: transparent;
+}
+.custom-menu-item .label {
+    -fx-background-color: transparent;
+}

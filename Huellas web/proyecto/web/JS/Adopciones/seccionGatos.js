@@ -3,8 +3,8 @@ let centros = [];
 let paginaActual = 1;
 const animalesPorPagina = 6;
 document.addEventListener("DOMContentLoaded", function () {
-    cargarMascotas();
-    cargarCentros();
+  cargarMascotas();
+  cargarCentros();
 });
 function cargarCentros() {
   fetch("http://localhost:8080/ProyectoHuellas/api/centros/getAll")
@@ -14,12 +14,15 @@ function cargarCentros() {
     });
 }
 function cargarMascotas() {
+  mostrarCarga();
   fetch("http://localhost:8080/ProyectoHuellas/api/mascotas/getGatos")
     .then(res => res.json())
     .then(data => {
       animales = data;
-      paginaActual = 1; 
+      paginaActual = 1;
+      ocultarCarga();
       mostrarPagina(animales);
+    
     });
 }
 function mostrarPagina(listaAnimales) {
@@ -70,7 +73,7 @@ function mostrarPagina(listaAnimales) {
 function mostrarControlesPaginacion(totalAnimales) {
   const totalPaginas = Math.ceil(totalAnimales / animalesPorPagina);
   const paginacion = document.getElementById("paginacion");
-  
+
   let html = `
     <nav aria-label="Paginación de animales">
       <ul class="pagination">
@@ -103,10 +106,10 @@ function cambiarPagina(pagina) {
   }
 }
 function mostrarInfo(id) {
-    const animal = animales.find(a => a.idAnimal === id);
-    if (!animal) return;
-const centro = centros.find(c => c.idCentro === animal.idCentro);
-    const informacion = `
+  const animal = animales.find(a => a.idAnimal === id);
+  if (!animal) return;
+  const centro = centros.find(c => c.idCentro === animal.idCentro);
+  const informacion = `
    
      <div class="modal-dialog modal-dialog-centered modal-lg">
   <div class="modal-content border-0 shadow-lg rounded-4">
@@ -177,34 +180,34 @@ const centro = centros.find(c => c.idCentro === animal.idCentro);
 `;
 
 
-    document.getElementById("informacion").innerHTML = informacion;
+  document.getElementById("informacion").innerHTML = informacion;
 
 }
 document.getElementById("buscar").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-        const termino = this.value.trim();
+  if (e.key === "Enter") {
+    const termino = this.value.trim();
 
-        if (termino === "") {
-            cargarMascotas();
-        } else {
-            buscarMascotasPorNombre(termino);
-        }
+    if (termino === "") {
+      cargarMascotas();
+    } else {
+      buscarMascotasPorNombre(termino);
     }
+  }
 });
 function buscarMascotasPorNombre(nombre) {
-    fetch("http://localhost:8080/ProyectoHuellas/api/inicio/buscarGatos", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ nombreAnimal: nombre })
+  fetch("http://localhost:8080/ProyectoHuellas/api/inicio/buscarGatos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ nombreAnimal: nombre })
+  })
+    .then(res => res.json())
+    .then(data => {
+
+      actualizarTabla(data);
     })
-        .then(res => res.json())
-        .then(data => {
-     
-            actualizarTabla(data);
-        })
-        ;
+    ;
 }
 function actualizarTabla(animalesFiltrados) {
   animales = animalesFiltrados;
@@ -232,4 +235,41 @@ function aplicarFiltros() {
       actualizarTabla(data);
     })
     ;
+}
+function aplicarFiltrosResponsive() {
+  const btn = document.getElementById("btnAplicarFiltros");
+  const originalText = btn.innerText;
+  btn.innerText = "Filtrando...";
+  btn.disabled = true;
+  const genero = document.getElementById("filtroSexorRes").value;
+  const edad = document.getElementById("filtroedadRes").value;
+  const caracter = document.getElementById("filtroCaracterRes").value;
+  fetch("http://localhost:8080/ProyectoHuellas/api/inicio/filtroGatos", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      genero: genero,
+      edad: edad,
+      caracter: caracter
+    })
+  })
+    .then(res => res.json())
+    .then(data => {
+
+      actualizarTabla(data);
+      btn.innerText = originalText;
+      btn.disabled = false;
+      const modal = bootstrap.Modal.getInstance(document.getElementById('modalFiltro'));
+      modal.hide();
+    })
+    ;
+}
+function mostrarCarga() {
+  document.getElementById("carga").style.display = "flex";
+}
+
+function ocultarCarga() {
+  document.getElementById("carga").style.display = "none";
 }

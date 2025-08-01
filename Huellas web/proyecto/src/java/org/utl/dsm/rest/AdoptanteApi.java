@@ -41,6 +41,7 @@ public class AdoptanteApi extends Application {
                 out = gson.toJson(a);
             } else {
                 out = "{\"mensaje\":\"No existe tu cuenta \"}";
+                return Response.status(Response.Status.NOT_FOUND).entity(out).build();
             }
         } catch (Exception a) {
             out = "{\"error\":\"Error en el formato de los datos\"}";

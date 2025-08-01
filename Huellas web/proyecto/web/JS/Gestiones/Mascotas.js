@@ -7,17 +7,37 @@ let idAnimalEliminar = null;
 let especieSeleccionada = "Todos";
 let estatusSeleccionado = "Todos";
 
+
 document.addEventListener("DOMContentLoaded", function () {
     cargarMascotas();
     cargarCentros();
     cargarContadores();
-    document.getElementById("todos").addEventListener("click", () => cargarMascotas());
-    document.getElementById("perros").addEventListener("click", () => filtrarPorEspecie("Perros"));
-    document.getElementById("gatos").addEventListener("click", () => filtrarPorEspecie("Gatos"));
+   document.getElementById("todos").addEventListener("click", () => {
+    especieSeleccionada = "Todos";
+    filtrarTodo(especieSeleccionada, estatusSeleccionado);
+});
+document.getElementById("perros").addEventListener("click", () => {
+    especieSeleccionada = "Perros";
+    filtrarTodo(especieSeleccionada, estatusSeleccionado);
+});
+document.getElementById("gatos").addEventListener("click", () => {
+    especieSeleccionada = "Gatos";
+    filtrarTodo(especieSeleccionada, estatusSeleccionado);
+});
 
-    document.getElementById("todosAnimales").addEventListener("click", () => cargarMascotas());
-    document.getElementById("adopcion").addEventListener("click", () => filtrarPorEstatus(1));
-    document.getElementById("adoptado").addEventListener("click", () => filtrarPorEstatus(2));
+document.getElementById("todosAnimales").addEventListener("click", () => {
+    estatusSeleccionado = "Todos";
+    filtrarTodo(especieSeleccionada, estatusSeleccionado);
+});
+document.getElementById("adopcion").addEventListener("click", () => {
+    estatusSeleccionado = 1;
+    filtrarTodo(especieSeleccionada, estatusSeleccionado);
+});
+document.getElementById("adoptado").addEventListener("click", () => {
+    estatusSeleccionado = 2;
+    filtrarTodo(especieSeleccionada, estatusSeleccionado);
+});
+
 
 });
 function cargarCentros() {
@@ -154,29 +174,42 @@ function actualizarTabla(data) {
     document.getElementById("cuerpoTabla").innerHTML = filas;
 }
 
-function filtrarPorEspecie(especie) {
-    fetch("http://localhost:8080/ProyectoHuellas/api/mascotas/filtroEspecie", {
+function filtrarTodo(especie, estatus) {
+    const cuerpo = {};
+
+    cuerpo.especie = especie && especie !== "" ? especie : "Todos";
+
+   
+    if (estatus === "Todos" || estatus === "" || estatus === null || estatus === undefined) {
+        cuerpo.estatus = 0;
+    } else {
+        cuerpo.estatus = estatus; 
+    }
+
+    
+    if (cuerpo.especie === "Todos" && cuerpo.estatus === 0) {
+        cargarMascotas();
+        return;
+    }
+
+    fetch("http://localhost:8080/ProyectoHuellas/api/mascotas/filtroTodos", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ especie: especie })
+        body: JSON.stringify(cuerpo)
     })
-        .then(res => res.json())
-        .then(data => actualizarTabla(data));
+    .then(res => res.json())
+    .then(data => {
+        actualizarTabla(data);
+    })
+    .catch(error => {
+        console.error("Error en filtrarTodo:", error);
+    });
 }
 
-function filtrarPorEstatus(estatus) {
-    fetch("http://localhost:8080/ProyectoHuellas/api/mascotas/filtroEstatus", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ estatus: estatus })
-    })
-        .then(res => res.json())
-        .then(data => actualizarTabla(data));
-}
+
+
 function agregarMascota() {
     const nombre = document.getElementById("nombreAnimal").value.trim();
     const genero = document.getElementById("generoAnimal").value;

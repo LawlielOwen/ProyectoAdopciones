@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -155,7 +157,7 @@
                                                             <Font size="17.0" />
                                                         </font>
                                                     </Text>
-                                                    <CheckBox layoutX="20.0" layoutY="94.0" mnemonicParsing="false" selected="true" styleClass="fuenteGeneral" text="Perros">
+                                                    <CheckBox layoutX="20.0" layoutY="94.0" mnemonicParsing="false" selected="true" styleClass="fuenteGeneral" text="Gatos">
                                                         <font>
                                                             <Font size="15.0" />
                                                         </font>
@@ -165,20 +167,20 @@
                                                             <Font size="17.0" />
                                                         </font>
                                                     </Text>
-                                                    <ComboBox layoutX="20.0" layoutY="160.0" prefHeight="35.0" prefWidth="219.0" promptText="Todos" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
-                                                    <Text layoutX="18.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Sexo">
+                                                    <ComboBox fx:id="edad" layoutX="20.0" layoutY="160.0" prefHeight="35.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                                                    <Text layoutX="18.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Genero">
                                                         <font>
                                                             <Font size="17.0" />
                                                         </font>
                                                     </Text>
-                                                    <ComboBox layoutX="20.0" layoutY="249.0" prefHeight="35.0" prefWidth="219.0" promptText="Todos" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                                                    <ComboBox fx:id="genero" layoutX="20.0" layoutY="249.0" prefHeight="35.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
                                                     <Text layoutX="18.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fuenteGeneral-negritas" text="Caracter">
                                                         <font>
                                                             <Font size="17.0" />
                                                         </font>
                                                     </Text>
-                                                    <ComboBox layoutX="20.0" layoutY="336.0" prefHeight="35.0" prefWidth="219.0" promptText="Todos" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
-                                                    <Button layoutX="21.0" layoutY="393.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="215.0" text="Aplicar filtro">
+                                                    <ComboBox fx:id="caracter" layoutX="20.0" layoutY="336.0" prefHeight="35.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: #ced4da; -fx-border-radius: 5px;" />
+                                                    <Button fx:id="btnFiltro" layoutX="21.0" layoutY="393.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="215.0" text="Aplicar filtro">
                                                         <styleClass>
                                                             <String fx:value="btn-unirme" />
                                                             <String fx:value="fuenteGeneral-negritas" />
@@ -241,7 +243,7 @@
                         <Insets left="20.0" top="3.0" />
                     </HBox.margin>
                 </ImageView>
-                <Pane prefHeight="69.0" prefWidth="515.0" HBox.hgrow="ALWAYS">
+                <Pane prefHeight="68.0" prefWidth="722.0" HBox.hgrow="ALWAYS">
                     <children>
                         <HBox alignment="CENTER" layoutX="-5.0" layoutY="-1.0" prefHeight="70.0" prefWidth="631.0" spacing="15.0">
                             <children>
@@ -286,7 +288,8 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
                 </Pane>
-                <Button id="btnLogin" fx:id="btnLogin" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Iniciar sesion/ Crear cuenta" textFill="WHITE" HBox.hgrow="ALWAYS">
+
+                <Button fx:id="btnLogin" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Iniciar sesion / Crear cuenta" textFill="WHITE" HBox.hgrow="ALWAYS">
                     <font>
                         <Font name="Arial" size="15.0" />
                     </font>
@@ -294,6 +297,65 @@
                         <Insets right="10.0" />
                     </HBox.margin>
                 </Button>
+
+                <!-- MenuButton oculto inicialmente, para mostrar tras iniciar sesión -->
+                <MenuButton fx:id="menuSesion" graphicTextGap="7.0" managed="false" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-cursor: hand;" styleClass="botonPerfil" stylesheets="@../../../../../CSS/perfil.css" textFill="WHITE" translateX="-20.0" visible="false" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font name="Arial" size="13.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets right="90.0" />
+                    </HBox.margin>
+                    <items>
+                        <CustomMenuItem hideOnClick="false" mnemonicParsing="false">
+                            <content>
+                                <Pane layoutX="-15.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="250.0">
+                                    <children>
+                                        <Button fx:id="btnLogout" alignment="TOP_LEFT" graphicTextGap="6.0" layoutX="9.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="34.0" prefWidth="233.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Cerrar Sesion">
+                                            <graphic>
+                                                <ImageView fitHeight="13.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../../../../../Iconos/Usuario/log-out-regular-24.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <font>
+                                                <Font size="11.0" />
+                                            </font>
+                                            <padding>
+                                                <Insets top="10.0" />
+                                            </padding>
+                                        </Button>
+                                        <ImageView fitHeight="24.0" fitWidth="30.0" layoutX="19.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../../Iconos/Usuario/user-circle-solid-24%20(1).png" />
+                                            </image>
+                                        </ImageView>
+                                        <Text fx:id="NombreUsuario" layoutX="59.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ghfghfghfghf">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Text>
+                                        <Text fx:id="correoUsuario" fill="#677788" layoutX="60.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hfghgfh">
+                                            <font>
+                                                <Font size="9.0" />
+                                            </font>
+                                        </Text>
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#677788" height="0.3" layoutX="2.0" layoutY="55.0" stroke="#677788" strokeType="INSIDE" width="246.0" />
+                                    </children>
+                                </Pane>
+                            </content>
+                        </CustomMenuItem>
+                    </items>
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../../../Iconos/Usuario/userblanco.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuButton>
+
             </children>
             <BorderPane.margin>
                 <Insets />

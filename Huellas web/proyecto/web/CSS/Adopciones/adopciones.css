@@ -300,18 +300,7 @@ margin-top: -6px;
 .rounded-4 {
   border-radius: 1rem !important;
 }
-#carga {
-  display: none; 
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  display: flex; 
-}
+
 
 @media (max-width: 767.98px) {
  .seccionPerros,
@@ -414,18 +403,21 @@ margin-top: -6px;
   .secciones-row {
     gap: 32px;
   }
-  .cartasAnimales {
-    display: grid;
-    grid-template-columns: repeat(2, 280px); 
-    gap: 32px;
-    justify-content: center; 
-    padding: 0 0;            
+
+.cartitas .row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: 60px 30px;
+
   }
+
+
   .cartaAnimal {
     width: 280px;
     max-width:280px;
     height: 370px;
-    margin: 0;
+ margin: 0 !important;
+  
   }
 
   .card-img-top {
@@ -434,6 +426,9 @@ margin-top: -6px;
     object-fit: cover;
     border-radius: 10px;
   }
-
- 
+   #cartas {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 700px;
+  }
 }

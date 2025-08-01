@@ -120,7 +120,7 @@ public class infoSolicitud implements  Initializable{
         int idSoli = id;
         int idAnimal = idA;
 
-        String json = "{ \"idSolicitud\": \"" + idSoli+ "\", \"idAnimal\": \"" + idAnimal + "\" }";
+        String json = "{ \"idSolicitud\": \"" + idSoli + "\", \"idAnimal\": \"" + idAnimal + "\" }";
         HttpResponse<JsonNode> response = Unirest.post("http://localhost:8080/ProyectoHuellas/api/solicitudes/aceptarSoli")
                 .header("Content-Type", "application/json")
                 .body(json)

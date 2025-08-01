@@ -158,7 +158,7 @@
                <items>
                   <CustomMenuItem hideOnClick="false" mnemonicParsing="false" text="Unspecified Action">
                      <content>
-                        <TextFlow prefHeight="70.0" prefWidth="659.0" style="-fx-background-color: transparent; -fx-border-color: #212529; -fx-border-radius: 5; -fx-background-radius: 5;">
+                        <TextFlow prefHeight="80.0" prefWidth="630.0" style="-fx-background-color: transparent; -fx-border-color: #212529; -fx-border-radius: 5; -fx-background-radius: 5;">
                            <children>
                               <Text fx:id="motivo" strokeType="OUTSIDE" strokeWidth="0.0" translateX="20.0" translateY="5.0">
                                  <font>

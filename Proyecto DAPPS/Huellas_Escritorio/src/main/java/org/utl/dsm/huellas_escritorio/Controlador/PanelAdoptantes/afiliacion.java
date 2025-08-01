@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
+import javafx.scene.text.Font;
 
 public class afiliacion implements  Initializable {
     @FXML
@@ -37,10 +38,13 @@ public class afiliacion implements  Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        Font interRegular = Font.loadFont(getClass().getResourceAsStream("/Fuentes/Inter_28pt-Regular.ttf"), 28);
+        Font interBold = Font.loadFont(getClass().getResourceAsStream("/Fuentes/Inter_24pt-Bold.ttf"), 24);
         cambioModulo c = new cambioModulo();
         btnAfiliacion.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Afiliacion.fxml", "Afiliacion", btnAfiliacion));
         btnEmpleado.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Empleados/loginEmpleado.fxml", "Empleados", btnAfiliacion));
-        btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/login.fxml", "Iniciar Sesion", btnAfiliacion));
+        btnLogin.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/Login/login.fxml", "Iniciar Sesion", btnAfiliacion));
         btnAdopta.setOnAction(event -> c.cambiarPantalla("/org/utl/dsm/huellas_escritorio/Clientes/inicio.fxml", "Iniciar Sesion", btnAfiliacion));
 
     }

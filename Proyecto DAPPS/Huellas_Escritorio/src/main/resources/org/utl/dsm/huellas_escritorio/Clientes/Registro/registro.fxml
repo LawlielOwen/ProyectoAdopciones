@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -28,64 +29,64 @@
                     <graphic>
                         <ImageView fitHeight="20.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../../../../Iconos/huellitaIcon.png" />
+                                <Image url="@../../../../../../Iconos/huellitaIcon.png" />
                             </image>
                         </ImageView>
                     </graphic>
                 </Button>
             </top>
             <stylesheets>
-                <URL value="@../../../../../CSS/inicioAdopciones.css" />
-                <URL value="@../../../../../CSS/login.css" />
-                <URL value="@../../../../../CSS/regisntro.css" />
+                <URL value="@../../../../../../CSS/inicioAdopciones.css" />
+                <URL value="@../../../../../../CSS/login.css" />
+                <URL value="@../../../../../../CSS/regisntro.css" />
             </stylesheets>
          <center>
                 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="658.0" spacing="20.0" BorderPane.alignment="TOP_CENTER">
                     <children>
-                        <AnchorPane maxHeight="500.0" maxWidth="750.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="439.0" prefWidth="631.0" style="-fx-background-color: white; -fx-background-radius: 8px; -fx-border-radius: 8px;" styleClass="form" stylesheets="@../../../../../CSS/login.css">
+                        <AnchorPane maxHeight="513.0" maxWidth="750.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="658.0" style="-fx-background-color: white; -fx-background-radius: 8px; -fx-border-radius: 8px;" styleClass="form" stylesheets="@../../../../../../CSS/login.css">
                             <children>
-                                <Text layoutX="262.0" layoutY="54.0" strokeWidth="0.0" text="Registro">
+                                <Text layoutX="282.0" layoutY="60.0" strokeWidth="0.0" text="Registro">
                                     <font>
                                         <Font name="System Bold" size="24.0" />
                                     </font>
                                 </Text>
 
                                 <!-- Columna izquierda -->
-                                <Label layoutX="68.0" layoutY="92.0" text="Nombre" />
-                                <TextField id="nombre" fx:id="txtNombre" layoutX="68.0" layoutY="112.0" prefWidth="250.0" promptText="Nombre" />
+                                <Label layoutX="68.0" layoutY="92.0" text="Nombre:" />
+                                <TextField id="nombre" fx:id="txtNombre" layoutX="68.0" layoutY="113.0" prefHeight="40.0" prefWidth="250.0" promptText="Nombre" />
 
-                                <Label layoutX="68.0" layoutY="152.0" text="Apellido Paterno" />
-                                <TextField id="app" fx:id="txtApp" layoutX="68.0" layoutY="172.0" prefWidth="250.0" promptText="Apellido paterno" />
+                                <Label layoutX="68.0" layoutY="167.0" text="Apellido Paterno:" />
+                                <TextField id="app" fx:id="txtApp" layoutX="68.0" layoutY="187.0" prefHeight="40.0" prefWidth="250.0" promptText="Apellido paterno" />
 
-                                <Label layoutX="68.0" layoutY="212.0" text="Apellido Materno" />
-                                <TextField id="apm" fx:id="txtApm" layoutX="68.0" layoutY="232.0" prefWidth="250.0" promptText="Apellido materno" />
+                                <Label layoutX="68.0" layoutY="250.0" text="Apellido Materno:" />
+                                <TextField id="apm" fx:id="txtApm" layoutX="68.0" layoutY="270.0" prefHeight="40.0" prefWidth="250.0" promptText="Apellido materno" />
 
-                                <Label layoutX="68.0" layoutY="272.0" text="Teléfono" />
-                                <TextField id="telefono" fx:id="txtTelefono" layoutX="68.0" layoutY="292.0" prefWidth="250.0" promptText="Telefono" />
+                                <Label layoutX="68.0" layoutY="325.0" text="Teléfono:" />
+                                <TextField id="telefono" fx:id="txtTelefono" layoutX="68.0" layoutY="345.0" prefHeight="40.0" prefWidth="250.0" promptText="Telefono" />
 
                                 <!-- Columna derecha -->
-                                <Label layoutX="347.0" layoutY="94.0" text="Fecha de nacimiento" translateY="3.5" />
-                                <DatePicker id="fecha" fx:id="txtFechaNacimiento" layoutX="347.0" layoutY="114.0" prefWidth="250.0" promptText="Fecha de nacimiento" style="-fx-background-color: transparent;" translateY="3.5" />
+                                <Label layoutX="347.0" layoutY="88.0" text="Fecha de nacimiento:" translateY="3.5" />
+                                <DatePicker id="fecha" fx:id="txtFechaNacimiento" layoutX="347.0" layoutY="108.0" prefHeight="40.0" prefWidth="250.0" promptText="Fecha de nacimiento" style="-fx-background-color: transparent;" translateY="3.5" />
 
-                                <Label layoutX="347.0" layoutY="154.0" text="Género" translateY="3.5" />
-                                <TextField id="Genero" fx:id="txtGenero" layoutX="347.0" layoutY="174.0" prefWidth="250.0" promptText="Genero" translateY="3.5" />
+                                <Label layoutX="347.0" layoutY="164.0" text="Género:" translateY="3.5" />
 
-                                <Label layoutX="347.0" layoutY="214.0" text="Correo electrónico" translateY="3.5" />
-                                <TextField id="correo" fx:id="txtCorreo" layoutX="347.0" layoutY="234.0" prefWidth="250.0" promptText="Correo electrónico" translateY="3.5" />
+                                <Label layoutX="347.0" layoutY="247.0" text="Correo electrónico:" translateY="3.5" />
+                                <TextField id="correo" fx:id="txtCorreo" layoutX="347.0" layoutY="266.0" prefHeight="40.0" prefWidth="250.0" promptText="Correo electrónico" translateY="3.5" />
 
-                                <Label layoutX="347.0" layoutY="274.0" text="Contraseña" translateY="3.5" />
+                                <Label layoutX="347.0" layoutY="322.0" text="Contraseña:" translateY="3.5" />
 
                                 <!-- Botón registrar -->
-                                <Button id="btnRegistro" fx:id="btnRegistrar" layoutX="230.0" layoutY="354.0" prefHeight="45.0" prefWidth="176.0" styleClass="botonRegistro">
+                                <Button id="btnRegistro" fx:id="btnRegistrar" layoutX="241.0" layoutY="405.0" prefHeight="45.0" prefWidth="176.0" styleClass="botonRegistro">
                                     <graphic>
                                         <ImageView fitHeight="20.0" fitWidth="20.0" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../../../../Iconos/huellitaIcon.png" />
+                                                <Image url="@../../../../../../Iconos/huellitaIcon.png" />
                                             </image></ImageView>
                                     </graphic>
                                     <text>Registrarme</text>
                                 </Button>
-                                <TextField id="correo" fx:id="contra" layoutX="347.0" layoutY="291.0" prefWidth="250.0" promptText="Contraseña" translateY="3.5" />
+                                <TextField id="correo" fx:id="contra" layoutX="347.0" layoutY="345.0" prefHeight="40.0" prefWidth="250.0" promptText="Contraseña" translateY="3.5" />
+                        <ComboBox fx:id="genero" layoutX="347.0" layoutY="187.0" prefHeight="40.0" prefWidth="250.0" styleClass="Generos" />
                             </children>
                      <padding>
                         <Insets bottom="50.0" />

@@ -47,4 +47,17 @@ public class cambioModulo {
             ex.printStackTrace();
         }
     }
+    public void cambiarPantallaDOS(String rutaFXML, String titulo, Button botonReferencia) {
+        try {
+            Stage stage = (Stage) botonReferencia.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource(rutaFXML));
+            Scene nuevaScene = new Scene(root, stage.getWidth(), stage.getHeight());
+            stage.setScene(nuevaScene);
+            stage.setTitle(titulo);
+            stage.setMaximized(true);  // <- agrega esto para maximizar
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
