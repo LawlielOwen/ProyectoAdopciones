@@ -25,7 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function enviar(){
-
+const boton = document.getElementById("boton");
+const textoOriginal = boton.innerHTML;
+boton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...`;
+boton.disabled = true;
 const telefono = document.getElementById("telefono").value;
 const correo = document.getElementById("correo").value;
 const direccion = document.getElementById("direccion").value;
@@ -53,12 +56,31 @@ fetch("http://localhost:8080/ProyectoHuellas/api/solicitudes/saveSolicitud", {
         })
             .then(res => res.json())
             .then(data => {
-
-              window.location.href="inicioAdopciones.html"
+            boton.innerHTML = textoOriginal;
+            boton.disabled = false;
+            
+             mostrarAlertaExito();
             })
     };
 function cerrarAlerta() {
     const alerta = document.getElementById("fallo");
     alerta.classList.add("d-none");
     alerta.classList.remove("show");
+}
+function mostrarAlertaExito() {
+    Swal.fire({
+        title: '¡Solicitud enviada!',
+        text: 'Gracias por tu interés en adoptar. Nos pondremos en contacto contigo pronto.',
+        icon: 'success',
+        confirmButtonText: 'Volver a inicio',
+        background: '#fffaf3', 
+        color: '#4b3f2f',       
+        iconColor: '#CBBFA3',   
+        customClass: {
+            confirmButton: 'boton-confirmacion-adopcion',
+            popup: 'popup-adopcion'
+        }
+    }).then(() => {
+        window.location.href = "inicioAdopciones.html";
+    });
 }

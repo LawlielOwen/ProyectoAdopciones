@@ -222,7 +222,7 @@
                             </HBox>
 
                             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="1137.0" styleClass="filtros-container">
-                                <TableView maxWidth="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="1080.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
+                                <TableView fx:id="tablaAfiliados" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="1080.0" stylesheets="@../../../../../CSS/Gestiones/tabla.css">
                                     <columns>
                                         <TableColumn fx:id="tcolNombre" editable="false" prefWidth="150.0" sortable="false" text="Nombre" />
                                         <TableColumn fx:id="tcolCorreo" prefWidth="160.0" text="Correo" />

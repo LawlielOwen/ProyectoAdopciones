@@ -268,7 +268,7 @@ public class inicioAdoptante implements  Initializable {
     }
 
     public void cargarAnimales() {
-        HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/mascotas/getAll")
+        HttpResponse<String> response = Unirest.get("http://localhost:8080/ProyectoHuellas/api/inicio/getAll")
                 .asString();
 
         if (response.getStatus() == 200) {

@@ -59,12 +59,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 2.3rem;
-   color: #CBBFA3; /* Beige dun */
+  color: #CBBFA3;
   text-shadow: 0 0 5px rgba(203, 191, 163, 0.5);
   animation: 
     palpitar 1.4s ease-in-out infinite,
     rotatePaw 3s infinite linear reverse;
-    
 }
 /* Animaciones */
 @keyframes growFade {

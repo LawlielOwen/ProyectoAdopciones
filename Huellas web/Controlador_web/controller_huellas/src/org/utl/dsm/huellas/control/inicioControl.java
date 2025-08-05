@@ -176,4 +176,19 @@ a.setCaracter(rs.getString("caracter_animal"));
 
         return lista;
     }
+                   public List<Animales> getAll(String filtro) throws Exception {
+        String sql = "select * from verEnadopcion";
+        ConexionMySQL conn = new ConexionMySQL();
+        Connection conns = conn.open();
+        CallableStatement cstmt = conns.prepareCall(sql);
+        ResultSet rs = cstmt.executeQuery();
+        List<Animales> animales = new ArrayList<>();
+        while (rs.next()) {
+            animales.add(fill(rs));
+        }
+        rs.close();
+        cstmt.close();
+        conn.close();
+        return animales;
+    }
 }

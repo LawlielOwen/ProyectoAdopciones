@@ -36,7 +36,6 @@ function cargarSolicitudes() {
             </td>
             <td>${soli.fecha}</td>
             <td>${soli.nombreAdoptante}</td>
-            <td>${soli.telefono}</td>
             <td>${soli.correo}</td>
             <td>
               <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#revisarSolicitud" onclick="mostrarSolicitud(${soli.idSolicitud})">
@@ -268,7 +267,6 @@ function actualizarTabla(data) {
             </td>
             <td>${a.fecha}</td>
             <td>${a.nombreAdoptante}</td>
-            <td>${a.telefono}</td>
             <td>${a.correo}</td>
             <td>
               <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#revisarSolicitud" onclick="mostrarSolicitud(${a.idSolicitud})">

@@ -15,7 +15,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="655.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 5px;" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="655.0"
+            style="-fx-background-color: #FFFFFF; -fx-border-radius: 5px;" vbarPolicy="NEVER" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.utl.dsm.huellas_escritorio.Controlador.Gestiones.gestionAfiliado.modificarAfiliados">
     <content>
         <StackPane prefHeight="549.0" prefWidth="665.0" style="-fx-background-color: #FFFFFF;">
             <children>

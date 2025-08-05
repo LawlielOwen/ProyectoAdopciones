@@ -188,6 +188,7 @@ public class formulariosAnimal implements Initializable  {
                 .asJson();
         controller.listAnimales.clear();
         controller.cargarAnimales();
+        controller.cargarContador();
         clear();
         Stage stage = (Stage) guardar.getScene().getWindow();
         stage.close();

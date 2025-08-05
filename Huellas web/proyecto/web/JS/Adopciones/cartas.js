@@ -16,7 +16,7 @@ function cargarCentros() {
 
 function cargarMascotas() {
   mostrarCarga();
-  fetch("http://localhost:8080/ProyectoHuellas/api/mascotas/getAll")
+  fetch("http://localhost:8080/ProyectoHuellas/api/inicio/getAll")
     .then(res => res.json())
     .then(data => {
       animales = data;

@@ -1,13 +1,4 @@
 
-@font-face {
-    src: url("../Fuentes/Inter_28pt-Regular.ttf");
-    font-family: "Inter";
-}
-
-@font-face {
-    src: url("../Fuentes/Inter_24pt-Bold.ttf");
-    font-family: "Inter Bold";
-}
 
 .table-view {
     -fx-background-color: white;
@@ -68,7 +59,6 @@
 }
 
 .table-row-cell:hover {
-
     -fx-cursor: hand;
 }
 

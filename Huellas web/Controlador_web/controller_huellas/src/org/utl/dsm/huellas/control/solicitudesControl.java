@@ -43,7 +43,8 @@ public class solicitudesControl {
         conn.close();
         return soli;
     }
-        public List<Solicitudes> getSolicitudes(String filtro) throws Exception {
+
+    public List<Solicitudes> getSolicitudes(String filtro) throws Exception {
         String sql = "select * from vertodassolicitudes ORDER BY id_solicitud DESC";
         ConexionMySQL conn = new ConexionMySQL();
         Connection conns = conn.open();
@@ -59,8 +60,8 @@ public class solicitudesControl {
         return soli;
     }
 
-
     public void insertarSoli(Solicitudes s) throws Exception {
+        CorreoController c = new CorreoController();
         int idGenerado = -1;
         ConexionMySQL conexion = new ConexionMySQL();
         Connection conn = conexion.open();
@@ -79,12 +80,20 @@ public class solicitudesControl {
         cstmt.executeUpdate();
         idGenerado = cstmt.getInt(7);
         s.setIdSolicitud(idGenerado);
-
+        String nombreA = obtenerNombreAnimal(s.getIdAnimal(), conn);
+        String nombreAdoptant = obtenerNombreAdoptante(s.getIdAdoptante(), conn);
         cstmt.close();
         conn.close();
+
+        c.enviarCorreo(s.getCorreo(), "Tu solicitud de adopcion para la mascota " + nombreA + " ha sido enviada ", "Hola " + nombreAdoptant + "\n\n"
+                + "Hemos recibido tu solicitud para adoptar a " + nombreA + ".\n"
+                + "Estamos revisando tu información y pronto te contactaremos.\n\n"
+                + "Gracias por tu paciencia.\n\n"
+                + "Equipo Huellas");
     }
 
     public void aceptarSolicitud(Solicitudes a) throws Exception {
+        CorreoController c = new CorreoController();
         String sql = "{CALL  aceptarSoli(?,?)}";
 
         ConexionMySQL conn = new ConexionMySQL();
@@ -94,6 +103,17 @@ public class solicitudesControl {
         cstmt.setInt(1, a.getIdSolicitud());
         cstmt.setInt(2, a.getIdAnimal());
         cstmt.executeUpdate();
+        String nombreA = obtenerNombreAnimal(a.getIdAnimal(), conns);
+        Solicitudes infoSoli = obtenerInfoSolicitud(a.getIdSolicitud());
+        String nombreAdoptante = infoSoli.getNombreAdoptante();
+        String correoAdop = obtenerCorreoAdoptante(a.getIdSolicitud(), conns);
+        c.enviarCorreo(correoAdop,
+                "¡Solicitud aprobada para " + nombreA + "!",
+                "Hola " + nombreAdoptante + ",\n\n"
+                + "¡Buenas noticias! Tu solicitud para adoptar a " + nombreA + " ha sido aprobada.\n"
+                + "Por favor contacta al refugio para coordinar los detalles finales.\n\n"
+                + "¡Felicitaciones!\n\n"
+                + "Equipo Huellas");
         cstmt.close();
         conn.close();
     }
@@ -107,6 +127,17 @@ public class solicitudesControl {
 
         cstmt.setInt(1, a.getIdSolicitud());
         cstmt.executeUpdate();
+        Solicitudes infoSoli = obtenerInfoSolicitud(a.getIdSolicitud());
+        String nombreAnimal = infoSoli.getNombreAnimal();
+        String nombreAdoptante = infoSoli.getNombreAdoptante();
+        String correoAdop = obtenerCorreoAdoptante(a.getIdSolicitud(), conns);
+        CorreoController c = new CorreoController();
+        c.enviarCorreo(correoAdop,
+                "Estado de tu solicitud para " + nombreAnimal,
+                "Hola " + nombreAdoptante + ",\n\n"
+                + "Lamentamos informarte que tu solicitud para adoptar a " + nombreAnimal + " no pudo ser aprobada.\n"
+                + "Agradecemos tu interés y te invitamos a ver otros animales disponibles.\n\n"
+                + "Equipo Huellas");
         cstmt.close();
         conn.close();
     }
@@ -143,6 +174,7 @@ public class solicitudesControl {
 
         return disponibles;
     }
+
     public int contarAceptar() throws Exception {
         String sql = "{CALL contarAceptadas()}";
         ConexionMySQL conn = new ConexionMySQL();
@@ -162,6 +194,7 @@ public class solicitudesControl {
 
         return disponibles;
     }
+
     public int contarRechazar() throws Exception {
         String sql = "{CALL contarRechazo()}";
         ConexionMySQL conn = new ConexionMySQL();
@@ -181,7 +214,8 @@ public class solicitudesControl {
 
         return disponibles;
     }
-      public List<Solicitudes> filtrarPorEstatus(int estatus) throws Exception {
+
+    public List<Solicitudes> filtrarPorEstatus(int estatus) throws Exception {
         List<Solicitudes> lista = new ArrayList<>();
         ConexionMySQL conn = new ConexionMySQL();
         Connection con = conn.open();
@@ -202,23 +236,104 @@ public class solicitudesControl {
 
         return lista;
     }
-          public List<Solicitudes> buscarSoli(String nombre) throws Exception {
-    List<Solicitudes> lista = new ArrayList<>();
-    ConexionMySQL conn = new ConexionMySQL();
-    Connection conns = conn.open();
-    CallableStatement cstmt = conns.prepareCall("{CALL buscarSolicitud(?)}");
 
-    cstmt.setString(1, nombre);
-    ResultSet rs = cstmt.executeQuery();
+    public List<Solicitudes> buscarSoli(String nombre) throws Exception {
+        List<Solicitudes> lista = new ArrayList<>();
+        ConexionMySQL conn = new ConexionMySQL();
+        Connection conns = conn.open();
+        CallableStatement cstmt = conns.prepareCall("{CALL buscarSolicitud(?)}");
 
-    while (rs.next()) {
-        lista.add(fill(rs));
+        cstmt.setString(1, nombre);
+        ResultSet rs = cstmt.executeQuery();
+
+        while (rs.next()) {
+            lista.add(fill(rs));
+        }
+
+        rs.close();
+        cstmt.close();
+        conn.close();
+
+        return lista;
     }
 
-    rs.close();
-    cstmt.close();
-    conn.close();
+    private String obtenerNombreAnimal(int idAnimal, Connection conn) throws Exception {
+        String nombreAnimal = "";
+        String sql = "SELECT nombre_animal FROM tbl_animales WHERE id_animal = ?";
 
-    return lista;
-}
+        try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, idAnimal);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                nombreAnimal = rs.getString("nombre_animal");
+            }
+            rs.close();
+        }
+
+        return nombreAnimal;
+    }
+
+    private String obtenerNombreAdoptante(int idAdoptante, Connection conn) throws Exception {
+        String nombreAdoptante = "";
+        String sql = "{CALL obtenerNombreAdoptante(?)}";
+
+        try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, idAdoptante);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                nombreAdoptante = rs.getString("nombre_adoptante");
+            }
+            rs.close();
+        }
+
+        return nombreAdoptante;
+    }
+
+    private String obtenerCorreoAdoptante(int idAdoptante, Connection conn) throws Exception {
+        String nombreAdoptante = "";
+        String sql = "{CALL obtenerCorreoAdoptante(?)}";
+
+        try ( PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, idAdoptante);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                nombreAdoptante = rs.getString("correo_solicitud");
+            }
+            rs.close();
+        }
+
+        return nombreAdoptante;
+    }
+
+    public Solicitudes obtenerInfoSolicitud(int idSolicitud) throws Exception {
+        Solicitudes s = new Solicitudes();
+
+        ConexionMySQL conn = new ConexionMySQL();
+        Connection con = conn.open();
+
+        String sql = "{CALL getInfoSolicitud(?, ?, ?, ?)}";
+        CallableStatement cstmt = con.prepareCall(sql);
+
+        cstmt.setInt(1, idSolicitud);
+
+        cstmt.registerOutParameter(2, Types.VARCHAR);
+        cstmt.registerOutParameter(3, Types.VARCHAR);
+        cstmt.registerOutParameter(4, Types.VARCHAR);
+
+        cstmt.execute();
+
+        s.setNombreAnimal(cstmt.getString(2));
+        s.setNombreAdoptante(cstmt.getString(3));
+        s.setCorreo(cstmt.getString(4));
+        s.setIdSolicitud(idSolicitud);
+
+        cstmt.close();
+        conn.close();
+
+        return s;
+    }
+
 }

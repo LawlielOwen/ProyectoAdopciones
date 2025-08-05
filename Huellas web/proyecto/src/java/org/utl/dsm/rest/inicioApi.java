@@ -20,6 +20,22 @@ import org.utl.dsm.huellas.modelo.Animales;
 import org.utl.dsm.huellas.control.inicioControl;
 @Path("inicio")
 public class inicioApi extends Application{
+    @Path("getAll")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAll() {
+        String out = null;
+        List<Animales> lista;
+        inicioControl a = new inicioControl();
+        try {
+            lista = a.getAll(out);
+            out = new Gson().toJson(lista);
+        } catch (Exception e) {
+            out = "{\"error\": \"Error al obtener los animales.\"}";
+            e.printStackTrace();
+        }
+        return Response.status(Response.Status.OK).entity(out).build();
+    }
      @Path("buscarAnimal")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
